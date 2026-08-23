@@ -43,7 +43,7 @@ module.exports = {
             const embed = new EmbedBuilder()
                 .setTitle(`✧ TRUTH...`)
                 .setColor(0xB7B75F)
-                .setDescription(`${final}`);
+                .setDescription(`${choices[final-1]}`);
 
             await interaction.editReply({ embeds: [embed] });
         } catch (err) {
