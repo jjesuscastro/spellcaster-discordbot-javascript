@@ -48,7 +48,10 @@ module.exports = {
             const buffer = canvas.toBuffer('image/png');
             const attachment = new AttachmentBuilder(buffer, { name: 'grid.png' });
 
-            await interaction.editReply({ files: [attachment] });
+            await interaction.editReply({ 
+                content: `Here are your cards, <@${interaction.user.id}>!`,
+                files: [attachment] 
+            });
         } catch (err) {
             await interaction.editReply(`Error: ${err.message}`);
         }
