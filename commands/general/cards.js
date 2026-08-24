@@ -9,7 +9,7 @@ module.exports = {
     async execute(interaction) {
         await interaction.deferReply();
         try {
-            /*// Load 4 images from URLs or local paths
+            // Load 4 images from URLs or local paths
             const imageUrls = [
                 'https://cataas.com/cat?timestamp=${Date.now()}',
                 'https://cataas.com/cat?timestamp=${Date.now()}',
@@ -38,14 +38,7 @@ module.exports = {
             const buffer = canvas.toBuffer('image/png');
             const attachment = new AttachmentBuilder(buffer, { name: 'grid.png' });
 
-            await interaction.editReply({ files: [attachment] });*/
-
-            const catUrl = `https://cataas.com/cat?timestamp=${Date.now()}`;
-            const embed = new EmbedBuilder()
-                .setDescription('Pong!')
-                .setImage(catUrl);
-    
-            await interaction.reply({ embeds: [embed] });
+            await interaction.editReply({ files: [attachment] });
         } catch (err) {
             await interaction.editReply(`Error: ${err.message}`);
         }
