@@ -1,4 +1,4 @@
-const { SlashCommandBuilder, AttachmentBuilder } = require('discord.js');
+const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
 const { createCanvas, loadImage } = require('canvas');
 
 module.exports = {
@@ -45,7 +45,7 @@ module.exports = {
                 .setDescription('Pong!')
                 .setImage(catUrl);
     
-            await interaction.reply({ embeds: [embed] });
+            await interaction.editReply({ embeds: [embed] });
         } catch (err) {
             await interaction.editReply(`Error: ${err.message}`);
         }
