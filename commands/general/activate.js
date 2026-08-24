@@ -21,7 +21,7 @@ module.exports = {
             const embed = new EmbedBuilder()
                 .setTitle(`✧ ${choices[final-1]}`)
                 .setColor(0xEBBCA2)
-                .setDescription(`${choices[final-1]}`);
+                .setDescription(`Complete the task to activate your card!`);
 
             await interaction.editReply({ embeds: [embed] });
         } catch (err) {
