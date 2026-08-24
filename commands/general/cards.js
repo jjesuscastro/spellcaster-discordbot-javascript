@@ -14,6 +14,11 @@ module.exports = {
                 'https://cataas.com/cat?timestamp=${Date.now()}',
                 'https://cataas.com/cat?timestamp=${Date.now()}',
                 'https://cataas.com/cat?timestamp=${Date.now()}',
+                'https://cataas.com/cat?timestamp=${Date.now()}',
+                'https://cataas.com/cat?timestamp=${Date.now()}',
+                'https://cataas.com/cat?timestamp=${Date.now()}',
+                'https://cataas.com/cat?timestamp=${Date.now()}',
+                'https://cataas.com/cat?timestamp=${Date.now()}',
                 'https://cataas.com/cat?timestamp=${Date.now()}'
             ];
 
@@ -24,14 +29,19 @@ module.exports = {
             // Draw each image onto the grid coordinates
             const positions = [
                 { x: 0, y: 0 },     // Top-left
-                { x: 300, y: 0 },   // Top-right
-                { x: 0, y: 300 },   // Bottom-left
-                { x: 300, y: 300 }  // Bottom-right
+                { x: 200, y: 0 },   // Top-middle
+                { x: 400, y: 0 },   // Top-right
+                { x: 0, y: 200 },     // middle-left
+                { x: 200, y: 200 },   // middle-middle
+                { x: 400, y: 200 },   // middle-right
+                { x: 0, y: 400 },   // Bottom-left
+                { x: 200, y: 400 },   // Bottom-middle
+                { x: 400, y: 400 }  // Bottom-right
             ];
 
             for (let i = 0; i < imageUrls.length; i++) {
                 const img = await loadImage(imageUrls[i]);
-                ctx.drawImage(img, positions[i].x, positions[i].y, 300, 300);
+                ctx.drawImage(img, positions[i].x, positions[i].y, 200, 200);
             }
 
             // Convert canvas to a Discord attachment buffer
