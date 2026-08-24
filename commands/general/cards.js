@@ -39,6 +39,13 @@ module.exports = {
             const attachment = new AttachmentBuilder(buffer, { name: 'grid.png' });
 
             await interaction.editReply({ files: [attachment] });*/
+
+            const catUrl = `https://cataas.com/cat?timestamp=${Date.now()}`;
+            const embed = new EmbedBuilder()
+                .setDescription('Pong!')
+                .setImage(catUrl);
+    
+            await interaction.reply({ embeds: [embed] });
         } catch (err) {
             await interaction.editReply(`Error: ${err.message}`);
         }
