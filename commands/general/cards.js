@@ -47,7 +47,7 @@ module.exports = {
                 { x: 300, y: 400 }  // Bottom-right
             ];
 
-            for (let i = 0; i < positions.size; i++) {
+            for (let i = 0; i < positions.length; i++) {
 
                 final = Math.floor(Math.random() * size) + 1; 
                 
