@@ -14,18 +14,23 @@ module.exports = {
                 'You physically cannot say a word for the next 3 rounds.\nYour carriage-mates get to pick the word!',
                 'AAAAAAAAAAH.\nYou can only scream for the next 3 rounds.',
                 'Why are the potions so heavy?! You can\'t lift them?!\nYou can only pick truth for the next 2 rounds.',
-                'Nothing happens.....?\nSike. You suddenly get teleported into another carraige (tag a mod)',
+                'Nothing happens.....?\nSike. You suddenly get teleported into another carraige! (tag a mod)',
                 'What was that?\nYou cannot speak for 3 rounds.',
                 'Pick someone random to share the potion with... you will instantly swap clothes with them! (It\'s magic)',
                 'Poke your head out of the carriage halls and scream something at the top of your lungs.\nYour carriage-mates get to pick what you scream.',
                 'The cards... are they glued together just for you?!\nYou can only pick dare for 3 rounds.',
                 'Imitate someone in the carriage.\nYour carriage-mates must be able to guess who it is.',
-                'Seek out a prefect and do something.\n Which prefect and what is up to your carriage mates',
-                'Keep your arms up until your next round',
-                'Sit on the lap of the person in front of you',
+                'Seek out a prefect and do something.\n Which prefect and what is up to your carriage mates. (tag a mod)',
+                'Keep your arms up until your next round.',
+                'Sit on the lap of the person in front of you for 3 rounds.',
                 'Give a compliment to the person on your right or left.\nYour carriage-mates must pick the compliment to give.',
-                'Your carriage-mates must give you a new name and you must answer to it until you arrive at E.R.A',
+                'Your carriage-mates must give you a new name and you must answer to it until you arrive at E.R.A.',
                 'Act out an emotion and stay that way till your next round.\nYour carriage-mates decide on the emotion.',
+                'Speak in third person until your next round.\nIf you already do, speak in first person.',
+                'To the salon!\nLet your carriage-mates style your hair. It stays that way till you arrive at E.R.A.',
+                'Serenade the person on your left.\nYour carriage-mates must approve of your performance.',
+                'Tough luck... the potions are too heavy for everyone!\nEveryone in the group must now choose truth for a round.',
+                'It seems like the cards refuse to be picked up by anyone...\nEveryone in the group must now choose dare for a round'
             ];
             const size = choices.length;
 
