@@ -49,7 +49,7 @@ module.exports = {
 
             for (let i = 0; i < positions.length; i++) {
 
-                final = Math.floor(Math.random() * size) + 1; 
+                final = Math.floor(Math.random() * size); 
                 
                 const img = await loadImage(imageUrls[final]);
                 ctx.drawImage(img, positions[i].x, positions[i].y, 150, 200);
