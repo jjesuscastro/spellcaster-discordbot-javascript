@@ -11,16 +11,27 @@ module.exports = {
         try {
             // Load 4 images from URLs or local paths
             const imageUrls = [
-                'https://cataas.com/cat?timestamp=${Date.now()}',
-                'https://cataas.com/cat?timestamp=${Date.now()}',
-                'https://cataas.com/cat?timestamp=${Date.now()}',
-                'https://cataas.com/cat?timestamp=${Date.now()}',
-                'https://cataas.com/cat?timestamp=${Date.now()}',
-                'https://cataas.com/cat?timestamp=${Date.now()}',
-                'https://cataas.com/cat?timestamp=${Date.now()}',
-                'https://cataas.com/cat?timestamp=${Date.now()}',
-                'https://cataas.com/cat?timestamp=${Date.now()}'
+                'https://cdn.discordapp.com/attachments/1515938074914197596/1541820031090954320/card.png?ex=6a8efb4d&is=6a8da9cd&hm=823006e5e4b078c58561fdd072605953a2e5b430c5f365147bb010e1ed088870',
+                'https://cdn.discordapp.com/attachments/1515938074914197596/1541820031090954320/card.png?ex=6a8efb4d&is=6a8da9cd&hm=823006e5e4b078c58561fdd072605953a2e5b430c5f365147bb010e1ed088870',
+                'https://cdn.discordapp.com/attachments/1515938074914197596/1541820031090954320/card.png?ex=6a8efb4d&is=6a8da9cd&hm=823006e5e4b078c58561fdd072605953a2e5b430c5f365147bb010e1ed088870',
+                'https://cdn.discordapp.com/attachments/1515938074914197596/1541820031090954320/card.png?ex=6a8efb4d&is=6a8da9cd&hm=823006e5e4b078c58561fdd072605953a2e5b430c5f365147bb010e1ed088870',
+                'https://cdn.discordapp.com/attachments/1515938074914197596/1541820031090954320/card.png?ex=6a8efb4d&is=6a8da9cd&hm=823006e5e4b078c58561fdd072605953a2e5b430c5f365147bb010e1ed088870',
+                'https://cdn.discordapp.com/attachments/1515938074914197596/1541820031090954320/card.png?ex=6a8efb4d&is=6a8da9cd&hm=823006e5e4b078c58561fdd072605953a2e5b430c5f365147bb010e1ed088870',
+                'https://cdn.discordapp.com/attachments/1515938074914197596/1541820031090954320/card.png?ex=6a8efb4d&is=6a8da9cd&hm=823006e5e4b078c58561fdd072605953a2e5b430c5f365147bb010e1ed088870',
+                'https://cdn.discordapp.com/attachments/1515938074914197596/1541820031090954320/card.png?ex=6a8efb4d&is=6a8da9cd&hm=823006e5e4b078c58561fdd072605953a2e5b430c5f365147bb010e1ed088870',
+                'https://cdn.discordapp.com/attachments/1515938074914197596/1541820031090954320/card.png?ex=6a8efb4d&is=6a8da9cd&hm=823006e5e4b078c58561fdd072605953a2e5b430c5f365147bb010e1ed088870'
             ];
+            // const imageUrls = [
+            //     'https://cataas.com/cat?timestamp=${Date.now()}',
+            //     'https://cataas.com/cat?timestamp=${Date.now()}',
+            //     'https://cataas.com/cat?timestamp=${Date.now()}',
+            //     'https://cataas.com/cat?timestamp=${Date.now()}',
+            //     'https://cataas.com/cat?timestamp=${Date.now()}',
+            //     'https://cataas.com/cat?timestamp=${Date.now()}',
+            //     'https://cataas.com/cat?timestamp=${Date.now()}',
+            //     'https://cataas.com/cat?timestamp=${Date.now()}',
+            //     'https://cataas.com/cat?timestamp=${Date.now()}'
+            // ];
 
             const canvas = createCanvas(450, 600);
             const ctx = canvas.getContext('2d');
