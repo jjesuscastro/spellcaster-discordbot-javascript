@@ -32,7 +32,7 @@ module.exports = {
             //     'https://cataas.com/cat?timestamp=${Date.now()}'
             // ];
 
-            const canvas = createCanvas(450, 600);
+            const canvas = createCanvas(393, 600);
             const ctx = canvas.getContext('2d');
 
             const size = imageUrls.length;
@@ -41,14 +41,14 @@ module.exports = {
             // Draw each image onto the grid coordinates
             const positions = [
                 { x: 0, y: 0 },     // Top-left
-                { x: 150, y: 0 },   // Top-middle
-                { x: 300, y: 0 },   // Top-right
+                { x: 131, y: 0 },   // Top-middle
+                { x: 262, y: 0 },   // Top-right
                 { x: 0, y: 200 },     // middle-left
-                { x: 150, y: 200 },   // middle-middle
-                { x: 300, y: 200 },   // middle-right
+                { x: 131, y: 200 },   // middle-middle
+                { x: 262, y: 200 },   // middle-right
                 { x: 0, y: 400 },   // Bottom-left
-                { x: 150, y: 400 },   // Bottom-middle
-                { x: 300, y: 400 }  // Bottom-right
+                { x: 131, y: 400 },   // Bottom-middle
+                { x: 262, y: 400 }  // Bottom-right
             ];
 
             for (let i = 0; i < positions.length; i++) {
@@ -56,7 +56,7 @@ module.exports = {
                 imagenum = Math.floor(Math.random() * size); 
                 
                 const img = await loadImage(imageUrls[imagenum]);
-                ctx.drawImage(img, positions[i].x, positions[i].y, 150, 200);
+                ctx.drawImage(img, positions[i].x, positions[i].y, 131, 200);
             }
 
             // Convert canvas to a Discord attachment buffer
