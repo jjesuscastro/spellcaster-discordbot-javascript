@@ -11,15 +11,10 @@ module.exports = {
         try {
             // Load 4 images from URLs or local paths
             const imageUrls = [
-                'https://cdn.discordapp.com/attachments/1515938074914197596/1541821001153646652/image.png?ex=6a8efc34&is=6a8daab4&hm=1265040b9a68ed6c1d046a83dd546ae0dcfe7bd4aa91c8a6f2d85c0bb83822dd',
-                'https://cdn.discordapp.com/attachments/1515938074914197596/1541821001153646652/image.png?ex=6a8efc34&is=6a8daab4&hm=1265040b9a68ed6c1d046a83dd546ae0dcfe7bd4aa91c8a6f2d85c0bb83822dd',
-                'https://cdn.discordapp.com/attachments/1515938074914197596/1541821001153646652/image.png?ex=6a8efc34&is=6a8daab4&hm=1265040b9a68ed6c1d046a83dd546ae0dcfe7bd4aa91c8a6f2d85c0bb83822dd',
-                'https://cdn.discordapp.com/attachments/1515938074914197596/1541821001153646652/image.png?ex=6a8efc34&is=6a8daab4&hm=1265040b9a68ed6c1d046a83dd546ae0dcfe7bd4aa91c8a6f2d85c0bb83822dd',
-                'https://cdn.discordapp.com/attachments/1515938074914197596/1541821001153646652/image.png?ex=6a8efc34&is=6a8daab4&hm=1265040b9a68ed6c1d046a83dd546ae0dcfe7bd4aa91c8a6f2d85c0bb83822dd',
-                'https://cdn.discordapp.com/attachments/1515938074914197596/1541821001153646652/image.png?ex=6a8efc34&is=6a8daab4&hm=1265040b9a68ed6c1d046a83dd546ae0dcfe7bd4aa91c8a6f2d85c0bb83822dd',
-                'https://cdn.discordapp.com/attachments/1515938074914197596/1541821001153646652/image.png?ex=6a8efc34&is=6a8daab4&hm=1265040b9a68ed6c1d046a83dd546ae0dcfe7bd4aa91c8a6f2d85c0bb83822dd',
-                'https://cdn.discordapp.com/attachments/1515938074914197596/1541821001153646652/image.png?ex=6a8efc34&is=6a8daab4&hm=1265040b9a68ed6c1d046a83dd546ae0dcfe7bd4aa91c8a6f2d85c0bb83822dd',
-                'https://cdn.discordapp.com/attachments/1515938074914197596/1541821001153646652/image.png?ex=6a8efc34&is=6a8daab4&hm=1265040b9a68ed6c1d046a83dd546ae0dcfe7bd4aa91c8a6f2d85c0bb83822dd'
+                'https://cdn.discordapp.com/attachments/1513952869273829438/1541872009649066024/e1_card.png?ex=6a8f2bb5&is=6a8dda35&hm=16282ab051926b7c64e86d2737052782731d4880f10a1ae989c76e6d26a868e4&',
+                'https://cdn.discordapp.com/attachments/1513952869273829438/1541872010043457707/e1_card2.png?ex=6a8f2bb5&is=6a8dda35&hm=36dbd3844e363a1fd467d98bca0ad89fbc7b96205ed560705db7d5fc91614352&',
+                'https://cdn.discordapp.com/attachments/1513952869273829438/1541872010391592960/e1_card3.png?ex=6a8f2bb5&is=6a8dda35&hm=ea307761f87b3a7a85ab05c6511b6919a6acd012d692f8dfe0053e3c4af9dcad&',
+                'https://cdn.discordapp.com/attachments/1513952869273829438/1541872010764755035/e1_card4.png?ex=6a8f2bb5&is=6a8dda35&hm=178b611a4cb55ae65bb53758eae4fd5c545f89012cf6479053710e83bcc059d6&',
             ];
             // const imageUrls = [
             //     'https://cataas.com/cat?timestamp=${Date.now()}',
@@ -36,6 +31,9 @@ module.exports = {
             const canvas = createCanvas(450, 600);
             const ctx = canvas.getContext('2d');
 
+            const size = imageUrls.length;
+            let final; 
+
             // Draw each image onto the grid coordinates
             const positions = [
                 { x: 0, y: 0 },     // Top-left
@@ -49,8 +47,11 @@ module.exports = {
                 { x: 300, y: 400 }  // Bottom-right
             ];
 
-            for (let i = 0; i < imageUrls.length; i++) {
-                const img = await loadImage(imageUrls[i]);
+            for (let i = 0; i < size; i++) {
+
+                final = Math.floor(Math.random() * size) + 1; 
+                
+                const img = await loadImage(imageUrls[final]);
                 ctx.drawImage(img, positions[i].x, positions[i].y, 150, 200);
             }
 
