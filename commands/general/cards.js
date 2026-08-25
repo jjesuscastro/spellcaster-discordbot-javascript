@@ -11,15 +11,15 @@ module.exports = {
         try {
             // Load 4 images from URLs or local paths
             const imageUrls = [
-                'https://cdn.discordapp.com/attachments/1515938074914197596/1541820031090954320/card.png?ex=6a8efb4d&is=6a8da9cd&hm=823006e5e4b078c58561fdd072605953a2e5b430c5f365147bb010e1ed088870',
-                'https://cdn.discordapp.com/attachments/1515938074914197596/1541820031090954320/card.png?ex=6a8efb4d&is=6a8da9cd&hm=823006e5e4b078c58561fdd072605953a2e5b430c5f365147bb010e1ed088870',
-                'https://cdn.discordapp.com/attachments/1515938074914197596/1541820031090954320/card.png?ex=6a8efb4d&is=6a8da9cd&hm=823006e5e4b078c58561fdd072605953a2e5b430c5f365147bb010e1ed088870',
-                'https://cdn.discordapp.com/attachments/1515938074914197596/1541820031090954320/card.png?ex=6a8efb4d&is=6a8da9cd&hm=823006e5e4b078c58561fdd072605953a2e5b430c5f365147bb010e1ed088870',
-                'https://cdn.discordapp.com/attachments/1515938074914197596/1541820031090954320/card.png?ex=6a8efb4d&is=6a8da9cd&hm=823006e5e4b078c58561fdd072605953a2e5b430c5f365147bb010e1ed088870',
-                'https://cdn.discordapp.com/attachments/1515938074914197596/1541820031090954320/card.png?ex=6a8efb4d&is=6a8da9cd&hm=823006e5e4b078c58561fdd072605953a2e5b430c5f365147bb010e1ed088870',
-                'https://cdn.discordapp.com/attachments/1515938074914197596/1541820031090954320/card.png?ex=6a8efb4d&is=6a8da9cd&hm=823006e5e4b078c58561fdd072605953a2e5b430c5f365147bb010e1ed088870',
-                'https://cdn.discordapp.com/attachments/1515938074914197596/1541820031090954320/card.png?ex=6a8efb4d&is=6a8da9cd&hm=823006e5e4b078c58561fdd072605953a2e5b430c5f365147bb010e1ed088870',
-                'https://cdn.discordapp.com/attachments/1515938074914197596/1541820031090954320/card.png?ex=6a8efb4d&is=6a8da9cd&hm=823006e5e4b078c58561fdd072605953a2e5b430c5f365147bb010e1ed088870'
+                'https://cdn.discordapp.com/attachments/1515938074914197596/1541821001153646652/image.png?ex=6a8efc34&is=6a8daab4&hm=1265040b9a68ed6c1d046a83dd546ae0dcfe7bd4aa91c8a6f2d85c0bb83822dd',
+                'https://cdn.discordapp.com/attachments/1515938074914197596/1541821001153646652/image.png?ex=6a8efc34&is=6a8daab4&hm=1265040b9a68ed6c1d046a83dd546ae0dcfe7bd4aa91c8a6f2d85c0bb83822dd',
+                'https://cdn.discordapp.com/attachments/1515938074914197596/1541821001153646652/image.png?ex=6a8efc34&is=6a8daab4&hm=1265040b9a68ed6c1d046a83dd546ae0dcfe7bd4aa91c8a6f2d85c0bb83822dd',
+                'https://cdn.discordapp.com/attachments/1515938074914197596/1541821001153646652/image.png?ex=6a8efc34&is=6a8daab4&hm=1265040b9a68ed6c1d046a83dd546ae0dcfe7bd4aa91c8a6f2d85c0bb83822dd',
+                'https://cdn.discordapp.com/attachments/1515938074914197596/1541821001153646652/image.png?ex=6a8efc34&is=6a8daab4&hm=1265040b9a68ed6c1d046a83dd546ae0dcfe7bd4aa91c8a6f2d85c0bb83822dd',
+                'https://cdn.discordapp.com/attachments/1515938074914197596/1541821001153646652/image.png?ex=6a8efc34&is=6a8daab4&hm=1265040b9a68ed6c1d046a83dd546ae0dcfe7bd4aa91c8a6f2d85c0bb83822dd',
+                'https://cdn.discordapp.com/attachments/1515938074914197596/1541821001153646652/image.png?ex=6a8efc34&is=6a8daab4&hm=1265040b9a68ed6c1d046a83dd546ae0dcfe7bd4aa91c8a6f2d85c0bb83822dd',
+                'https://cdn.discordapp.com/attachments/1515938074914197596/1541821001153646652/image.png?ex=6a8efc34&is=6a8daab4&hm=1265040b9a68ed6c1d046a83dd546ae0dcfe7bd4aa91c8a6f2d85c0bb83822dd',
+                'https://cdn.discordapp.com/attachments/1515938074914197596/1541821001153646652/image.png?ex=6a8efc34&is=6a8daab4&hm=1265040b9a68ed6c1d046a83dd546ae0dcfe7bd4aa91c8a6f2d85c0bb83822dd'
             ];
             // const imageUrls = [
             //     'https://cataas.com/cat?timestamp=${Date.now()}',
