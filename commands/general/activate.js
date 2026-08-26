@@ -1,5 +1,5 @@
 const { SlashCommandBuilder, EmbedBuilder, PermissionFlagsBits } = require('discord.js');
-
+/*
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('activate')
@@ -29,3 +29,4 @@ module.exports = {
         }
     },
 };
+*/
