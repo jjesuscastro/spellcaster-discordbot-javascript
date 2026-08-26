@@ -1,6 +1,6 @@
 const { SlashCommandBuilder, AttachmentBuilder, EmbedBuilder } = require('discord.js');
 const { createCanvas, loadImage } = require('canvas');
-
+/*
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('cards')
@@ -72,3 +72,4 @@ module.exports = {
         }
     },
 };
+*/
