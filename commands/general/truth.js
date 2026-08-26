@@ -20,7 +20,7 @@ module.exports = {
                 'Where do you think you’ll be in ten years?',
                 'When was the last time you cried? Why?',
                 'Tell everyone what you think the best thing about you is! Self-love is important!',
-                'Reveal something about yourself that you’d never want your family  to know?',
+                'Reveal something about yourself that you’d never want your family to know?',
                 'What house would you like to be assigned to? ☀️🌙⭐ Any reason?',
                 'Ever done something illegal? If yes, what?',
                 'If you were a mythical creature, what would you be?',

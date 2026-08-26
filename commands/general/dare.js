@@ -14,7 +14,7 @@ module.exports = {
                 'You physically cannot say a word for the next 3 rounds.\nYour carriage-mates get to pick the word!',
                 'AAAAAAAAAAH.\nYou can only scream for the next 3 rounds.',
                 'Why are the potions so heavy?! You can\'t lift them?!\nYou can only pick truth for the next 2 rounds.',
-                'Nothing happens.....?\nSike. You suddenly get teleported into another carraige! (tag a mod)',
+                'Nothing happens.....?\nSike. You suddenly get teleported into another carriage! (tag a mod)',
                 'What was that?\nYou cannot speak for 3 rounds.',
                 'Pick someone random to share the potion with... you will instantly swap clothes with them! (It\'s magic)',
                 'Poke your head out of the carriage halls and scream something at the top of your lungs.\nYour carriage-mates get to pick what you scream.',
@@ -30,7 +30,7 @@ module.exports = {
                 'To the salon!\nLet your carriage-mates style your hair. It stays that way till you arrive at E.R.A.',
                 'Serenade the person on your left.\nYour carriage-mates must approve of your performance.',
                 'Tough luck... the potions are too heavy for everyone!\nEveryone in the group must now choose truth for a round.',
-                'It seems like the cards refuse to be picked up by anyone...\nEveryone in the group must now choose dare for a round'
+                'It seems like the cards refuse to be picked up by anyone...\nEveryone in the group must now choose dare for a round.'
             ];
             const size = choices.length;
 
