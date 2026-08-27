@@ -3,8 +3,8 @@ const { createCanvas, loadImage } = require('canvas');
 
 module.exports = {
     data: new SlashCommandBuilder()
-        .setName('cards')
-        .setDescription('Generates and sends a 2x2 grid of images')
+        .setName('test')
+        .setDescription('you no no see')
         .setDefaultMemberPermissions(PermissionFlagsBits.Administrator),
 
     async execute(interaction) {
