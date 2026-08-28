@@ -27,6 +27,10 @@ module.exports = {
                 'An enchanted feather appears in between the both of you. The first one to grab it and keep a hold of it for 3 seconds wins. Be careful, it’s really slippery!',
                 'Both of you stand on one foot while a tiny magical breeze wraps around you and gets stronger. The first person who puts their foot down loses.',
                 'Two enchanted books appear in front of the both of you. Balance the book on your heads and race each other – except the book occasionally flaps its pages to throw you off!',
+                'Each player must fold and animate a paper bird with magic. Race them to the finish line!',
+                'A glowing orb appears in front of you. Pass it back and forth – whoever is holding it when it changes color loses.',
+                'Magical targets appear around you and your opponent. The first one to hit three of them in succession wins!',
+                'You get one minute to make your opponent laugh. If you fail, you lose! You get to decide who gets what role.',
                 '',
                 '',
             ];

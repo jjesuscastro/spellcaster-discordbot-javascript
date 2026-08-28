@@ -14,20 +14,28 @@ module.exports = {
         await interaction.deferReply();
         try {
             const heartchoices = [
-                `a`,
-                `b`,
+                `Bless you. You find yourself sneezing every 30 seconds for 1 hour. `,
+                `You cannot speak for {{d6}} hours.`,
+                `Your voice suddenly sounds incredibly high pitched — like you’ve inhaled helium. It lasts for {{d6}} hours.`,
             ];
             const clubchoices = [
-                `a`,
-                `b`,
-            ];
-            const spadechoices = [
-                `a`,
-                `b`,
+                `Ice creeps from the card and onto your arm — your arm is useless for {{d3}} hours.`,
+                `Wear some layers! You feel unnaturally cold for {{d3}} days.`,
+                `Flowers bloom all over your hair. Plucking them off just makes more flowers appear.`,
+                `A small dark cloud looms over you and occasionally starts raining at random intervals. Lasts for {{d3}} days.`
             ];
             const diamondchoices = [
-                `a`,
-                `b`,
+                `Transfer 150 edels to the winner.`,
+                `Transfer 50 edels to the winner.`,
+                `Your bed mysteriously disappears for {{d3}} days.`,
+                `Your books start screaming whenever you open it.`,
+                `Your uniform is suddenly one size too small.`
+            ];
+            const spadechoices = [
+                `Are those animal ears? You’ve turned into a kemonomimi for {{d3}} days. (Animal up to you.)`,
+                `Your hair changes color for {{d3}} days.`,
+                `You’re shrinking! Shapeshift into a gnome for {{d2}} days.`,
+                `Your skin turns a certain color for {{d24}} hours. /choose between red | green | blue.`
             ];
             let size;
             let rng;
