@@ -26,11 +26,11 @@ module.exports = {
             const clubchoices = [
                 `Ice creeps from the card and onto your arm — your arm is useless for {{d24}} hours.`,
                 `Wear some layers! You feel unnaturally cold for {{d3}} days.`,
-                `Flowers bloom all over your hair. Plucking them off just makes more flowers appear.`,
+                `Flowers bloom all over your hair and uniform. Plucking them off just makes more flowers appear. Lasts {{d3}} days.`,
                 `Wear mittens! Your hands are unnaturally hot for {{d24}} hours.`,
                 `Your dominant hand becomes clumsy and incoordinated for {{d2}} days.`,
                 `Everywhere you go, you leave a trail of glitter. Lasts for {{d3}} days.`,
-                `You glow in the dark. Apologize to your roommates!`,
+                `You glow in the dark for {{d3}} nights. Apologize to your roommates!`,
                 `Everything feels 10x heavier to you for {{d24}} hours.`
             ];
             const diamondchoices = [
