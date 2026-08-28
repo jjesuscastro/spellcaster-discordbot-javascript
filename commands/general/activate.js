@@ -21,7 +21,6 @@ module.exports = {
                 'The floor is Lava! Decide on an object as a pair, don’t let it touch the ground with magic. The person who lets it touch the ground loses.',
                 'Five magical objects appear in front of you: a wand, a crystal ball, a book, a ring, and a hat. One of these is fake. Find the fake one through magic. The person who finds it wins!',
                 'Quick! The first person to touch something blue wins!',
-                'Quick! The first person to touch a tree taller than 4,5 meters (~15 ft) wins!',
                 'Quick! The first person to find and bring back a dandelion without any of the seeds blowing away wins!',
                 'Test your strength. Arm wrestle.',
                 'An enchanted feather appears in between the both of you. The first one to grab it and keep a hold of it for 3 seconds wins. Be careful, it’s really slippery!',
