@@ -31,7 +31,7 @@ module.exports = {
                 'A glowing orb appears in front of you. Pass it back and forth – whoever is holding it when it changes color loses.',
                 'Magical targets appear around you and your opponent. The first one to hit three of them in succession wins!',
                 'You get one minute to make your opponent laugh. If you fail, you lose! You get to decide who gets what role.',
-                '',
+                'Dodgeball! A large ball appears in front of you and starts charging towards the both of you. First one to get hit loses.',
                 '',
             ];
             const size = choices.length;
