@@ -20,7 +20,7 @@ module.exports = {
                 'A winged rabbit appears and starts zipping forward! Catch it before it escapes! The first person to catch it wins.',
                 'The floor is Lava! Decide on an object as a pair, don’t let it touch the ground with magic. The person who lets it touch the ground loses.',
                 'Five magical objects appear in front of you: a wand, a crystal ball, a book, a ring, and a hat. One of these is fake. Find the fake one through magic. The person who finds it wins!',
-                'Quick! The first person to touch something green wins!',
+                'Quick! The first person to touch something blue wins!',
                 'Quick! The first person to touch a tree taller than 4,5 meters (~15 ft) wins!',
                 'Quick! The first person to find and bring back a dandelion without any of the seeds blowing away wins!',
                 'Test your strength. Arm wrestle.',
@@ -35,9 +35,9 @@ module.exports = {
             const final = Math.floor(Math.random() * size) + 1; 
 
             const embed = new EmbedBuilder()
-                .setTitle(`✧ ${choices[final-1]}`)
+                .setTitle(`✧ Complete the task to activate your card!`)
                 .setColor(0xEBBCA2)
-                .setDescription(`Complete the task to activate your card!`);
+                .setDescription(`${choices[final-1]}`);
 
             await interaction.editReply({ embeds: [embed] });
         } catch (err) {
