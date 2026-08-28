@@ -42,7 +42,7 @@ module.exports = {
                     .setColor(0xEBBCA2)
                     .setDescription(`*Let your voice be heard in the face of hardship, no matter the form.*\n${heartchoices[rng]}`);
             }
-            if(suit == 'club' || suit == 'clubs'){
+            else if(suit == 'club' || suit == 'clubs'){
                 size = clubchoices.length;
                 rng = Math.floor(Math.random() * size);
 
@@ -51,7 +51,7 @@ module.exports = {
                     .setColor(0xEBBCA2)
                     .setDescription(`*Strong of heart and strong of body, one must endure all.*\n${clubchoices[rng]}`);
             }
-            if(suit == 'spade' || suit == 'spades'){
+            else if(suit == 'spade' || suit == 'spades'){
                 size = spadechoices.length;
                 rng = Math.floor(Math.random() * size);
 
@@ -60,7 +60,7 @@ module.exports = {
                     .setColor(0xEBBCA2)
                     .setDescription(`*Mind over matter. Illusions are all but temporary. One must see what is within.*\n${spadechoices[rng]}`);
             }
-            if(suit == 'diamond' || suit == 'diamonds'){
+            else if(suit == 'diamond' || suit == 'diamonds'){
                 size = diamondchoices.length;
                 rng = Math.floor(Math.random() * size);
 
@@ -68,6 +68,11 @@ module.exports = {
                     .setTitle(`✧ Spades`)
                     .setColor(0xEBBCA2)
                     .setDescription(`*Material possessions are fleeting, learn to let go.*\n${diamondchoices[rng]}`);
+            }
+            else{
+                embed = new EmbedBuilder()
+                    .setColor(0xEBBCA2)
+                    .setDescription(`${suit} not a suit!`);
             }
 
             await interaction.editReply({ embeds: [embed] });
