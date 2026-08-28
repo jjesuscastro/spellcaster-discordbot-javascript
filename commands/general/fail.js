@@ -89,7 +89,7 @@ module.exports = {
                 rng = Math.floor(Math.random() * size);
 
                 embed = new EmbedBuilder()
-                    .setTitle(`✧ Spades`)
+                    .setTitle(`✧ Diamonds`)
                     .setColor(0xEBBCA2)
                     .setDescription(`*Material possessions are fleeting, learn to let go.*\n\n${diamondchoices[rng]}`);
             }
