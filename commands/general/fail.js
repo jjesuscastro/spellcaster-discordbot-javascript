@@ -45,7 +45,7 @@ module.exports = {
             const spadechoices = [
                 `Are those animal ears? You’ve turned into a kemonomimi for {{d3}} days. (Animal up to you.)`,
                 `Your hair changes color for {{d3}} days.`,
-                `You’re shrinking! Shapeshift into a gnome for {{d2}} days.`,
+                `You’re shrinking! Shapeshift into a yellow gnome sized being with goggles for {{d2}} days.`,
                 `Your skin turns a certain color for {{d24}} hours. /choose between red | green | blue.`,
                 `You grow or shrink 10 centimeters for {{d24}} hours. /choose between grow | shrink.`,
                 `A small dark cloud looms over you and occasionally starts raining at random intervals. Lasts for {{d3}} days.`,
