@@ -36,7 +36,7 @@ const rest = new REST().setToken(requireEnv('BOT_TOKEN'));
 
 (async () => {
     try {
-        console.log(`Registering ${commands.length} guild command(s)...`);
+        console.log(`Registering ${commands.length} guild command(s): ${commands.map(command => command.name).join(', ')}`);
         await rest.put(
             Routes.applicationGuildCommands(requireEnv('CLIENT_ID'), requireEnv('GUILD_ID')),
             { body: commands }
