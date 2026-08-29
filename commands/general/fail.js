@@ -2,8 +2,8 @@ const { SlashCommandBuilder, EmbedBuilder, PermissionFlagsBits } = require('disc
 
 module.exports = {
     data: new SlashCommandBuilder()
-        .setName('test4')
-        .setDescription('a')
+        .setName('fail')
+        .setDescription('lose a task? face the consequences.')
         .addStringOption(opt =>
             opt.setName('suit').setDescription('a').setRequired(true))
         .setDefaultMemberPermissions(PermissionFlagsBits.Administrator),

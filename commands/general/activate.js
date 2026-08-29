@@ -2,8 +2,8 @@ const { SlashCommandBuilder, EmbedBuilder, PermissionFlagsBits } = require('disc
 
 module.exports = {
     data: new SlashCommandBuilder()
-        .setName('test3')
-        .setDescription('a')
+        .setName('activate')
+        .setDescription('complete the task in order to match the cards')
         .setDefaultMemberPermissions(PermissionFlagsBits.Administrator),
         
     async execute(interaction) {
