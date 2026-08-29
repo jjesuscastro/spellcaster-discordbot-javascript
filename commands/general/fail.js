@@ -5,7 +5,7 @@ module.exports = {
         .setName('fail')
         .setDescription('lose a task? face the consequences.')
         .addStringOption(opt =>
-            opt.setName('suit').setDescription('a').setRequired(true)),
+            opt.setName('suit').setDescription('hearts, diamonds, spades, or clubs').setRequired(true)),
         
     async execute(interaction) {
         const suit = interaction.options.getString('suit');
