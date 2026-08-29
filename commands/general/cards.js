@@ -4,8 +4,7 @@ const { createCanvas, loadImage } = require('canvas');
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('cards')
-        .setDescription('generate your house of cards set!')
-        .setDefaultMemberPermissions(PermissionFlagsBits.Administrator),
+        .setDescription('generate your house of cards set!'),
 
     async execute(interaction) {
         await interaction.deferReply();

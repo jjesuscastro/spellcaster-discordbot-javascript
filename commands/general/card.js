@@ -4,8 +4,7 @@ const { createCanvas, loadImage } = require('canvas');
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('card')
-        .setDescription('generate one random card!')
-        .setDefaultMemberPermissions(PermissionFlagsBits.Administrator),
+        .setDescription('generate one random card!'),
 
     async execute(interaction) {
         await interaction.deferReply();

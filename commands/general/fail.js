@@ -5,8 +5,7 @@ module.exports = {
         .setName('fail')
         .setDescription('lose a task? face the consequences.')
         .addStringOption(opt =>
-            opt.setName('suit').setDescription('a').setRequired(true))
-        .setDefaultMemberPermissions(PermissionFlagsBits.Administrator),
+            opt.setName('suit').setDescription('a').setRequired(true)),
         
     async execute(interaction) {
         const suit = interaction.options.getString('suit');
