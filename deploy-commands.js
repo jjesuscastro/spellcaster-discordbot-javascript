@@ -4,7 +4,15 @@ const fs = require('fs');
 const path = require('path');
 
 // Run this script once whenever you add, remove, or rename a slash command.
-// Commands are registered globally and can take up to an hour to propagate.
+// Commands are registered to one guild for fast development updates.
+
+function requireEnv(name) {
+    const value = process.env[name];
+    if (!value) {
+        throw new Error(`Missing required environment variable: ${name}`);
+    }
+    return value;
+}
 
 const commands = [];
 const commandsPath = path.join(__dirname, 'commands');
@@ -24,11 +32,11 @@ for (const folder of commandFolders) {
     }
 }
 
-const rest = new REST().setToken(process.env.BOT_TOKEN);
+const rest = new REST().setToken(requireEnv('BOT_TOKEN'));
 
 (async () => {
     try {
-        console.log(`Registering ${commands.length} application command(s)...`);
+        console.log(`Registering ${commands.length} guild command(s): ${commands.map(command => command.name).join(', ')}`);
         await rest.put(
             Routes.applicationGuildCommands(requireEnv('CLIENT_ID'), requireEnv('GUILD_ID')),
             { body: commands }
