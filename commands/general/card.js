@@ -66,7 +66,7 @@ module.exports = {
             const attachment = new AttachmentBuilder(buffer, { name: 'grid.png' });
 
             await interaction.editReply({ 
-                content: `Here's your card', <@${interaction.user.id}>!`,
+                content: `Here's your card, <@${interaction.user.id}>!`,
                 files: [attachment] 
             });
         } catch (err) {
