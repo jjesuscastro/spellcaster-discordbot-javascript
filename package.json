@@ -7,6 +7,7 @@
     "start": "node index.js",
     "deploy": "node deploy-commands.js",
     "deploy:dev": "node deploy-dev-commands.js",
+    "clear:dev": "node clear-dev-commands.js",
     "dev": "node deploy-dev-commands.js && node index.js",
     "test": "node --test"
   },
