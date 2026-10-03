@@ -1,0 +1,35 @@
+{
+  "name": "The Lantern in the Fog",
+  "start": "crossroads",
+  "nodes": {
+    "crossroads": {
+      "text": "A pale lantern glows beyond the old crossroads. The fog is thick, and something in it is calling your name. What do you do?",
+      "choices": [
+        { "label": "Follow the lantern", "next": "shore" },
+        { "label": "Call into the fog", "next": "voice" }
+      ]
+    },
+    "shore": {
+      "text": "The lantern leads you to a quiet shore. A small boat waits with its rope already untied.",
+      "choices": [
+        { "label": "Board the boat", "next": "dawn" },
+        { "label": "Leave the lantern behind", "next": "home" }
+      ]
+    },
+    "voice": {
+      "text": "Your voice returns from the fog, but the echo answers with a secret only you should know.",
+      "choices": [
+        { "label": "Ask who is there", "next": "dawn" },
+        { "label": "Run for home", "next": "home" }
+      ]
+    },
+    "dawn": {
+      "text": "At sunrise, the fog lifts. The lantern is gone, but a warm light stays with you. You found your way through the mystery.",
+      "ending": true
+    },
+    "home": {
+      "text": "You reach home before dawn. In the morning, a tiny lantern sits on your windowsill, still glowing.",
+      "ending": true
+    }
+  }
+}

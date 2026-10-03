@@ -52,6 +52,12 @@ The template includes `/ping` as a smoke test.
 
 For development, run `npm run deploy:dev` to register commands to the server named by `GUILD_ID`. Guild commands update much faster than global commands.
 
+### Investigation Stories
+
+Add each `/investigate` story as a JSON file in `data/stories/`. See `data/stories/lantern_in_the_fog.json` for a branching example. The filename without `.json` is the internal story key and must use up to 20 letters, numbers, underscores, or hyphens. Node IDs use the same characters, up to 20 characters.
+
+Each story has a display `name`, a starting node ID in `start`, and a `nodes` object. Each node has `text` and either a `choices` array or `"ending": true`. A choice has a button `label` and destination node ID in `next`. Node text can be up to 2000 characters, button labels up to 80 characters, and each node can have up to 25 choices. Stories and their content are loaded locally from these files.
+
 ## Google Sheets
 
 `utils/sheets.js` exposes a generic authenticated Sheets client plus small helpers for reading, writing, and appending values. Share your spreadsheet with the service account email before using the bot.

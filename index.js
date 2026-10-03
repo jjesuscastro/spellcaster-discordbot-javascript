@@ -61,6 +61,17 @@ client.on('interactionCreate', async interaction => {
         return;
     }
 
+    if (interaction.isButton() && interaction.customId.startsWith('investigate:')) {
+        const command = client.commands.get('investigate');
+        if (!command?.handleButton) return;
+        try {
+            await command.handleButton(interaction);
+        } catch (err) {
+            logInteractionError('Investigation button failed', err, interaction);
+        }
+        return;
+    }
+
     if (!interaction.isChatInputCommand()) return;
 
     const command = client.commands.get(interaction.commandName);
