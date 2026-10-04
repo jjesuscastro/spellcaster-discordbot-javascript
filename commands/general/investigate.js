@@ -1,4 +1,4 @@
-const { SlashCommandBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
+const { SlashCommandBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle, EmbedBuilder } = require('discord.js');
 const { getStories, getStoryByKey } = require('../../utils/investigationStories');
 
 const CUSTOM_ID_PREFIX = 'investigate:';
@@ -64,9 +64,17 @@ module.exports = {
                 await interaction.reply({ content: 'This story step is no longer available. Please start the investigation again.', ephemeral: true });
                 return;
             }
-            await interaction.update(renderNode(found.key, { ...targetNode, id: nodeId }, callerId));
+            const selectedChoice = sourceNode.choices[Number(choiceIndex)];
+            await interaction.update({
+                content: sourceNode.text,
+                embeds: [new EmbedBuilder().setDescription(`**You chose:** ${selectedChoice.label}`)],
+                components: [],
+            });
+            await interaction.followUp(renderNode(found.key, { ...targetNode, id: nodeId }, callerId));
         } catch (error) {
-            await interaction.reply({ content: 'This story could not be loaded. Please try starting the investigation again later.', ephemeral: true });
+            const response = { content: 'This story could not be loaded. Please try starting the investigation again later.', ephemeral: true };
+            if (interaction.replied || interaction.deferred) await interaction.followUp(response);
+            else await interaction.reply(response);
             throw error;
         }
     },
