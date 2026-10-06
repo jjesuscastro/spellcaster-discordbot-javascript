@@ -1,0 +1,62 @@
+{
+  "name": "The Archive Below",
+  "start": "threshold",
+  "nodes": {
+    "threshold": {
+      "text": "Beneath the old city, you find a sealed archive with a blue door, a narrow stairwell, and a plaque covered in dust. What do you do?",
+      "choices": [
+        {
+          "label": "Read the plaque",
+          "response": "The plaque warns that every door in the archive opens only once. A faint line beneath it reads: 'The way forward remembers your steps.'"
+        },
+        { "label": "Open the blue door", "next": "gallery" },
+        { "label": "Climb the narrow stairs", "next": "stairwell" },
+        { "label": "Leave the archive", "next": "outside" }
+      ]
+    },
+    "gallery": {
+      "text": "The blue door opens into a gallery of glass cases. A sealed ledger rests beneath a silver lamp.",
+      "choices": [
+        { "label": "Return to the entrance", "next": "threshold" },
+        { "label": "Examine the sealed ledger", "next": "seal_room" },
+        { "label": "Take the lamp and leave", "next": "outside" }
+      ]
+    },
+    "stairwell": {
+      "text": "The stairs wind upward to a landing. You hear pages turning somewhere below and see a hatch leading toward the rooftops.",
+      "choices": [
+        { "label": "Go back to the entrance", "next": "threshold" },
+        { "label": "Follow the sound below", "next": "seal_room" },
+        { "label": "Open the rooftop hatch", "next": "roof" }
+      ]
+    },
+    "seal_room": {
+      "text": "The ledger lies open on a stone desk. Its final page has your name written in fresh ink.",
+      "choices": [
+        { "label": "Return to the gallery", "next": "gallery" },
+        { "label": "Read the final page", "next": "ledger_ending" },
+        { "label": "Close the ledger and leave", "next": "outside" }
+      ]
+    },
+    "roof": {
+      "text": "You emerge onto the rooftops beneath a field of bright stars. A lighthouse flashes beyond the river.",
+      "choices": [
+        { "label": "Climb back down", "next": "stairwell" },
+        { "label": "Follow the rooftops out of town", "next": "outside" },
+        { "label": "Signal the lighthouse", "next": "lighthouse_ending" }
+      ]
+    },
+    "outside": {
+      "text": "You leave the archive behind. By morning, the blue door has vanished from beneath the city.",
+      "ending": true
+    },
+    "ledger_ending": {
+      "text": "The ledger closes by itself. The ink fades, and every page turns blank except the last: 'You chose to remember.'",
+      "ending": true
+    },
+    "lighthouse_ending": {
+      "text": "A light flashes back from the lighthouse. Somewhere below, the archive door clicks shut for the final time.",
+      "ending": true
+    }
+  }
+}

@@ -6,7 +6,7 @@ const CUSTOM_ID_PREFIX = 'investigate:';
 const CAMPAIGN_TTL_MS = 7 * 24 * 60 * 60 * 1000;
 const campaigns = new Map();
 
-function createCampaign(storyKey, callerId) {
+function createCampaign(storyKey, callerId, startNodeId) {
     const now = Date.now();
     for (const [id, campaign] of campaigns) {
         if (campaign.updatedAt + CAMPAIGN_TTL_MS <= now) campaigns.delete(id);
@@ -15,7 +15,14 @@ function createCampaign(storyKey, callerId) {
     do {
         id = randomBytes(4).toString('hex');
     } while (campaigns.has(id));
-    const campaign = { id, storyKey, callerId, usedChoices: new Set(), updatedAt: now };
+    const campaign = {
+        id,
+        storyKey,
+        callerId,
+        visitedNodes: new Set([startNodeId]),
+        usedResponses: new Set(),
+        updatedAt: now,
+    };
     campaigns.set(id, campaign);
     return campaign;
 }
@@ -27,7 +34,9 @@ function renderNode(node, campaign) {
         .setCustomId(`${CUSTOM_ID_PREFIX}${campaign.id}:${campaign.storyKey}:${node.id}:${campaign.callerId}:${index}`)
         .setLabel(choice.label)
         .setStyle(ButtonStyle.Primary)
-        .setDisabled(campaign.usedChoices.has(`${node.id}:${index}`)));
+        .setDisabled(choice.next
+            ? campaign.visitedNodes.has(choice.next)
+            : campaign.usedResponses.has(`${node.id}:${index}`)));
     const rows = [];
     for (let index = 0; index < buttons.length; index += 5) {
         rows.push(new ActionRowBuilder().addComponents(buttons.slice(index, index + 5)));
@@ -61,7 +70,7 @@ module.exports = {
             await interaction.reply({ content: `I couldn't find a story named "${requestedName}". Use autocomplete to see available stories.`, ephemeral: true });
             return;
         }
-        const campaign = createCampaign(match.key, interaction.user.id);
+        const campaign = createCampaign(match.key, interaction.user.id, match.story.start);
         const startNode = match.story.nodes[match.story.start];
         await interaction.reply(renderNode({ ...startNode, id: match.story.start }, campaign));
         if (startNode.ending === true) campaigns.delete(campaign.id);
@@ -91,14 +100,18 @@ module.exports = {
             }
             const selectedChoice = sourceNode.choices[numericChoiceIndex];
             const choiceKey = `${sourceNodeId}:${numericChoiceIndex}`;
-            if (campaign.usedChoices.has(choiceKey)) {
+            if (selectedChoice.next && campaign.visitedNodes.has(selectedChoice.next)) {
+                await interaction.reply({ content: 'That option leads to a story step you have already visited.', ephemeral: true });
+                return;
+            }
+            if (!selectedChoice.next && campaign.usedResponses.has(choiceKey)) {
                 await interaction.reply({ content: 'You already selected that option in this investigation.', ephemeral: true });
                 return;
             }
-            campaign.usedChoices.add(choiceKey);
             campaign.updatedAt = Date.now();
 
             if (selectedChoice.response !== undefined) {
+                campaign.usedResponses.add(choiceKey);
                 await interaction.update(renderNode({ ...sourceNode, id: sourceNodeId }, campaign));
                 await interaction.followUp({ content: selectedChoice.response, ephemeral: true });
                 return;
@@ -106,10 +119,10 @@ module.exports = {
 
             const targetNode = found.story.nodes[selectedChoice.next];
             if (!targetNode) {
-                campaign.usedChoices.delete(choiceKey);
                 await interaction.reply({ content: 'This story step is no longer available. Please start the investigation again.', ephemeral: true });
                 return;
             }
+            campaign.visitedNodes.add(selectedChoice.next);
             await interaction.update({
                 content: sourceNode.text,
                 embeds: [new EmbedBuilder().setDescription(`**You chose:** ${selectedChoice.label}`)],
