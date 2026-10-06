@@ -42,8 +42,13 @@ function validateStory(story, storyKey) {
                 continue;
             }
             if (typeof choice.label !== 'string' || !choice.label.trim() || choice.label.length > 80) errors.push(`Choice ${index + 1} in node "${nodeId}" needs a label (1–80 characters).`);
-            if (typeof choice.next !== 'string' || !NODE_ID_PATTERN.test(choice.next)) errors.push(`Choice ${index + 1} in node "${nodeId}" needs a valid next node ID.`);
-            else if (!Object.hasOwn(story.nodes, choice.next)) errors.push(`Choice ${index + 1} in node "${nodeId}" points to missing node "${choice.next}".`);
+            const hasNext = choice.next !== undefined;
+            const hasResponse = choice.response !== undefined;
+            if (hasNext === hasResponse) errors.push(`Choice ${index + 1} in node "${nodeId}" must have exactly one of next or response.`);
+            if (hasNext && (typeof choice.next !== 'string' || !NODE_ID_PATTERN.test(choice.next))) errors.push(`Choice ${index + 1} in node "${nodeId}" needs a valid next node ID.`);
+            else if (hasNext && !Object.hasOwn(story.nodes, choice.next)) errors.push(`Choice ${index + 1} in node "${nodeId}" points to missing node "${choice.next}".`);
+            if (hasResponse && (typeof choice.response !== 'string' || !choice.response.trim())) errors.push(`Choice ${index + 1} in node "${nodeId}" needs non-empty response text.`);
+            if (typeof choice.response === 'string' && choice.response.length > 2000) errors.push(`Response ${index + 1} in node "${nodeId}" must be 2000 characters or fewer.`);
         }
     }
     return errors;

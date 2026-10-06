@@ -1,15 +1,33 @@
 const { SlashCommandBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle, EmbedBuilder } = require('discord.js');
+const { randomBytes } = require('crypto');
 const { getStories, getStoryByKey } = require('../../utils/investigationStories');
 
 const CUSTOM_ID_PREFIX = 'investigate:';
+const CAMPAIGN_TTL_MS = 7 * 24 * 60 * 60 * 1000;
+const campaigns = new Map();
 
-function renderNode(storyKey, node, callerId) {
+function createCampaign(storyKey, callerId) {
+    const now = Date.now();
+    for (const [id, campaign] of campaigns) {
+        if (campaign.updatedAt + CAMPAIGN_TTL_MS <= now) campaigns.delete(id);
+    }
+    let id;
+    do {
+        id = randomBytes(4).toString('hex');
+    } while (campaigns.has(id));
+    const campaign = { id, storyKey, callerId, usedChoices: new Set(), updatedAt: now };
+    campaigns.set(id, campaign);
+    return campaign;
+}
+
+function renderNode(node, campaign) {
     if (node.ending === true) return { content: node.text, components: [] };
 
     const buttons = node.choices.map((choice, index) => new ButtonBuilder()
-        .setCustomId(`${CUSTOM_ID_PREFIX}${storyKey}:${node.id}:${choice.next}:${callerId}:${index}`)
+        .setCustomId(`${CUSTOM_ID_PREFIX}${campaign.id}:${campaign.storyKey}:${node.id}:${campaign.callerId}:${index}`)
         .setLabel(choice.label)
-        .setStyle(ButtonStyle.Primary));
+        .setStyle(ButtonStyle.Primary)
+        .setDisabled(campaign.usedChoices.has(`${node.id}:${index}`)));
     const rows = [];
     for (let index = 0; index < buttons.length; index += 5) {
         rows.push(new ActionRowBuilder().addComponents(buttons.slice(index, index + 5)));
@@ -43,34 +61,62 @@ module.exports = {
             await interaction.reply({ content: `I couldn't find a story named "${requestedName}". Use autocomplete to see available stories.`, ephemeral: true });
             return;
         }
+        const campaign = createCampaign(match.key, interaction.user.id);
         const startNode = match.story.nodes[match.story.start];
-        await interaction.reply(renderNode(match.key, { ...startNode, id: match.story.start }, interaction.user.id));
+        await interaction.reply(renderNode({ ...startNode, id: match.story.start }, campaign));
+        if (startNode.ending === true) campaigns.delete(campaign.id);
     },
 
     async handleButton(interaction) {
-        const [, storyKey, sourceNodeId, nodeId, callerId, choiceIndex] = interaction.customId.split(':');
+        const [, campaignId, storyKey, sourceNodeId, callerId, choiceIndex] = interaction.customId.split(':');
         if (interaction.user.id !== callerId) {
             await interaction.reply({ content: 'Only the person who started this investigation can choose what happens next.', ephemeral: true });
             return;
         }
         try {
+            const campaign = campaigns.get(campaignId);
+            if (!campaign || campaign.callerId !== callerId || campaign.storyKey !== storyKey) {
+                await interaction.reply({ content: 'This investigation has expired. Please start it again with /investigate.', ephemeral: true });
+                return;
+            }
             const found = getStoryByKey(storyKey);
-            const targetNode = found?.story.nodes[nodeId];
             const sourceNode = found?.story.nodes[sourceNodeId];
-            const validChoice = Array.isArray(sourceNode?.choices)
-                && Number.isInteger(Number(choiceIndex))
-                && sourceNode.choices[Number(choiceIndex)]?.next === nodeId;
-            if (!targetNode || !validChoice) {
+            const numericChoiceIndex = Number(choiceIndex);
+            const validIndex = Number.isInteger(numericChoiceIndex)
+                && numericChoiceIndex >= 0
+                && numericChoiceIndex < (sourceNode?.choices?.length ?? 0);
+            if (!sourceNode || !validIndex) {
                 await interaction.reply({ content: 'This story step is no longer available. Please start the investigation again.', ephemeral: true });
                 return;
             }
-            const selectedChoice = sourceNode.choices[Number(choiceIndex)];
+            const selectedChoice = sourceNode.choices[numericChoiceIndex];
+            const choiceKey = `${sourceNodeId}:${numericChoiceIndex}`;
+            if (campaign.usedChoices.has(choiceKey)) {
+                await interaction.reply({ content: 'You already selected that option in this investigation.', ephemeral: true });
+                return;
+            }
+            campaign.usedChoices.add(choiceKey);
+            campaign.updatedAt = Date.now();
+
+            if (selectedChoice.response !== undefined) {
+                await interaction.update(renderNode({ ...sourceNode, id: sourceNodeId }, campaign));
+                await interaction.followUp({ content: selectedChoice.response, ephemeral: true });
+                return;
+            }
+
+            const targetNode = found.story.nodes[selectedChoice.next];
+            if (!targetNode) {
+                campaign.usedChoices.delete(choiceKey);
+                await interaction.reply({ content: 'This story step is no longer available. Please start the investigation again.', ephemeral: true });
+                return;
+            }
             await interaction.update({
                 content: sourceNode.text,
                 embeds: [new EmbedBuilder().setDescription(`**You chose:** ${selectedChoice.label}`)],
                 components: [],
             });
-            await interaction.followUp(renderNode(found.key, { ...targetNode, id: nodeId }, callerId));
+            await interaction.followUp(renderNode({ ...targetNode, id: selectedChoice.next }, campaign));
+            if (targetNode.ending === true) campaigns.delete(campaign.id);
         } catch (error) {
             const response = { content: 'This story could not be loaded. Please try starting the investigation again later.', ephemeral: true };
             if (interaction.replied || interaction.deferred) await interaction.followUp(response);
