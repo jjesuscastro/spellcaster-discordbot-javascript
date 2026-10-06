@@ -14,6 +14,7 @@
     "beds": {
       "text": "The beds are all neat and undisturbed, ready to house its next patient. The pillows all fluffed, the blankets nice and think. It looks sooo comfy. Surely, you won't get scolded if you nap here, right...?",
       "choices": [
+        { "label": "Look at the beds", "next": "beds" },
         { "label": "Search through the cabinets", "next": "cabinets" },
         { "label": "Go to the head nurse's table", "next": "table" },
         { "label": "Head towards the last bed", "next": "lastbed" }
@@ -23,6 +24,7 @@
       "text": "The cabinets are locked. How anti-climactic…",
       "choices": [
         { "label": "Look at the beds", "next": "beds" },
+        { "label": "Search through the cabinets", "next": "cabinets" },
         { "label": "Go to the head nurse's table", "next": "table" },
         { "label": "Head towards the last bed", "next": "lastbed" }
       ]
@@ -32,6 +34,7 @@
       "choices": [
         { "label": "Look at the beds", "next": "beds" },
         { "label": "Search through the cabinets", "next": "cabinets" },
+        { "label": "Go to the head nurse's table", "next": "table" },
         { "label": "Head towards the last bed", "next": "lastbed" }
       ]
     },
