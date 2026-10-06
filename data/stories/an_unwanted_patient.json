@@ -35,7 +35,7 @@
         { "label": "Head towards the last bed", "next": "lastbed" }
       ]
     },
-    "last bed": {
+    "lastbed": {
       "text": "a",
       "ending": true
     }
