@@ -1,0 +1,50 @@
+{
+  "name": "Restless Eyes",
+  "start": "courtyard",
+  "nodes": {
+    "courtyard": {
+      "text": "```During the month of Night of Veils, upperclassmen tell you to avoid the courtyard. They say that the statue in the courtyard follows you with its gaze. Don’t look it in the eyes.``` \nThe courtyard is as it always is. Wide and open for students to frolic in, the breeze slowly turning colder as the season is slowly changing. Notably, there’s less students around than there usually is. Could it be because of the rumor…?\n",
+      "choices": [
+        {
+          "label": "test",
+          "response": "test"
+        },
+        { "label": "Go to the benches", "next": "benches" },
+        { "label": "Touch grass", "next": "grass" },
+        { "label": "Visit the fountain", "next": "fountain" },
+        { "label": "Look at the statue", "next": "statue" }
+      ]
+    },
+    "benches": {
+      "text": "There seems to be nothing usual about the bench… it’s just a bench! Come sit, enjoy the dimming sky. Reflect and be introspective.",
+      "choices": [
+        { "label": "Go to the benches", "next": "benches" },
+        { "label": "Touch grass", "next": "grass" },
+        { "label": "Visit the fountain", "next": "fountain" },
+        { "label": "Look at the statue", "next": "statue" }
+      ]
+    },
+    "grass": {
+      "text": "The grass… It’s nice. It’s soft to the touch, slightly cool, brushing against your skin gently. The clouds are kind today, shielding you from the slowly setting sun, but sprase enough for you to view the changing skies. \n\nCongratulations, you touched grass!",
+      "choices": [
+        { "label": "Go to the benches", "next": "benches" },
+        { "label": "Touch grass", "next": "grass" },
+        { "label": "Visit the fountain", "next": "fountain" },
+        { "label": "Look at the statue", "next": "statue" }
+      ]
+    },
+    "fountain": {
+      "text": "You look closely into the waters…\n\nYou find your own reflection staring back at you! Hello!",
+      "choices": [
+        { "label": "Go to the benches", "next": "benches" },
+        { "label": "Touch grass", "next": "grass" },
+        { "label": "Visit the fountain", "next": "fountain" },
+        { "label": "Look at the statue", "next": "statue" }
+      ]
+    },
+    "statue": {
+      "text": "The statue… is looking at you! \n\nBut it’s looking at you the same way that it looked at you yesterday… and the day before that, and the day before that. Could it be that someone paranoid made up the rumor? This is just an optical illusion…",
+      "ending": true
+    }
+  }
+}
