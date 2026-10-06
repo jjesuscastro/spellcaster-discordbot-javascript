@@ -12,7 +12,7 @@
       ]
     },
     "beds": {
-      "text": "a",
+      "text": "The beds are all neat and undisturbed, ready to house its next patient. The pillows all fluffed, the blankets nice and think. It looks sooo comfy. Surely, you won't get scolded if you nap here, right...?",
       "choices": [
         { "label": "Search through the cabinets", "next": "cabinets" },
         { "label": "Go to the head nurse's table", "next": "table" },
@@ -20,7 +20,7 @@
       ]
     },
     "cabinets": {
-      "text": "a",
+      "text": "The cabinets are locked. How anti-climactic…",
       "choices": [
         { "label": "Look at the beds", "next": "beds" },
         { "label": "Go to the head nurse's table", "next": "table" },
@@ -28,7 +28,7 @@
       ]
     },
     "table": {
-      "text": "a",
+      "text": "You find scattered pieces of paper, prescription notes, and a few files from the head nurse written in classic doctor gibberish that is way too hard to understand.",
       "choices": [
         { "label": "Look at the beds", "next": "beds" },
         { "label": "Search through the cabinets", "next": "cabinets" },
@@ -36,7 +36,7 @@
       ]
     },
     "lastbed": {
-      "text": "a",
+      "text": "You find— nothing. Just an empty bed. The cries you thought you were hearing? There’s a vent by the wall, where the wind blows just enough to create a strange whistling sound. Ah… perhaps it was this all along?",
       "ending": true
     }
   }
