@@ -1,0 +1,43 @@
+{
+  "name": "An Unwanted Patient",
+  "start": "infirmary",
+  "nodes": {
+    "infirmary": {
+      "text": "```They say that at night, when there are supposedly no overnight patients in the infirmary — you will sometimes hear a ghoulish, almost inhumane cry come from the clinic. All the way at the end, where the last bed lies with its curtains drawn shut… it continues to cry…``` \nThe infirmary looks the same as it always does. Chairs, tables, medicine cabinets.  A line of beds on one side of the room, all of them with curtains for privacy if needed. They’re all drawn open — all of them, except the last one at the end of the infirmary. Just like the ghost story said, the curtains are drawn shut.\n\nWhat will you do?\n",
+      "choices": [
+        { "label": "Look at the beds", "next": "beds" },
+        { "label": "Search through the cabinets", "next": "cabinets" },
+        { "label": "Go to the head nurse's table", "next": "table" },
+        { "label": "Head towards the last bed", "next": "lastbed" }
+      ]
+    },
+    "beds": {
+      "text": "The beds are all neat and undisturbed, ready to house its next patient. The pillows all fluffed, the blankets nice and think. It looks sooo comfy. Surely, you won't get scolded if you nap here, right...?",
+      "choices": [
+        { "label": "Search through the cabinets", "next": "cabinets" },
+        { "label": "Go to the head nurse's table", "next": "table" },
+        { "label": "Head towards the last bed", "next": "lastbed" }
+      ]
+    },
+    "cabinets": {
+      "text": "The cabinets are locked. How anti-climactic…",
+      "choices": [
+        { "label": "Look at the beds", "next": "beds" },
+        { "label": "Go to the head nurse's table", "next": "table" },
+        { "label": "Head towards the last bed", "next": "lastbed" }
+      ]
+    },
+    "table": {
+      "text": "You find scattered pieces of paper, prescription notes, and a few files from the head nurse written in classic doctor gibberish that is way too hard to understand.",
+      "choices": [
+        { "label": "Look at the beds", "next": "beds" },
+        { "label": "Search through the cabinets", "next": "cabinets" },
+        { "label": "Head towards the last bed", "next": "lastbed" }
+      ]
+    },
+    "lastbed": {
+      "text": "You find— nothing. Just an empty bed. The cries you thought you were hearing? There’s a vent by the wall, where the wind blows just enough to create a strange whistling sound. Ah… perhaps it was this all along?",
+      "ending": true
+    }
+  }
+}
