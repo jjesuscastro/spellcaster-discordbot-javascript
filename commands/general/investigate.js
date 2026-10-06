@@ -27,6 +27,11 @@ function createCampaign(storyKey, callerId, startNodeId) {
     return campaign;
 }
 
+function getChoiceTargets(choice) {
+    if (Array.isArray(choice.next)) return choice.next;
+    return typeof choice.next === 'string' ? [choice.next] : [];
+}
+
 function renderNode(node, campaign) {
     if (node.ending === true) return { content: node.text, components: [] };
 
@@ -34,8 +39,8 @@ function renderNode(node, campaign) {
         .setCustomId(`${CUSTOM_ID_PREFIX}${campaign.id}:${campaign.storyKey}:${node.id}:${campaign.callerId}:${index}`)
         .setLabel(choice.label)
         .setStyle(ButtonStyle.Primary)
-        .setDisabled(choice.next
-            ? campaign.visitedNodes.has(choice.next)
+        .setDisabled(choice.next !== undefined
+            ? getChoiceTargets(choice).every(target => campaign.visitedNodes.has(target))
             : campaign.usedResponses.has(`${node.id}:${index}`)));
     const rows = [];
     for (let index = 0; index < buttons.length; index += 5) {
@@ -100,11 +105,13 @@ module.exports = {
             }
             const selectedChoice = sourceNode.choices[numericChoiceIndex];
             const choiceKey = `${sourceNodeId}:${numericChoiceIndex}`;
-            if (selectedChoice.next && campaign.visitedNodes.has(selectedChoice.next)) {
+            const availableTargets = getChoiceTargets(selectedChoice)
+                .filter(target => !campaign.visitedNodes.has(target));
+            if (selectedChoice.next !== undefined && availableTargets.length === 0) {
                 await interaction.reply({ content: 'That option leads to a story step you have already visited.', ephemeral: true });
                 return;
             }
-            if (!selectedChoice.next && campaign.usedResponses.has(choiceKey)) {
+            if (selectedChoice.next === undefined && campaign.usedResponses.has(choiceKey)) {
                 await interaction.reply({ content: 'You already selected that option in this investigation.', ephemeral: true });
                 return;
             }
@@ -117,18 +124,19 @@ module.exports = {
                 return;
             }
 
-            const targetNode = found.story.nodes[selectedChoice.next];
+            const destinationNodeId = availableTargets[Math.floor(Math.random() * availableTargets.length)];
+            const targetNode = found.story.nodes[destinationNodeId];
             if (!targetNode) {
                 await interaction.reply({ content: 'This story step is no longer available. Please start the investigation again.', ephemeral: true });
                 return;
             }
-            campaign.visitedNodes.add(selectedChoice.next);
+            campaign.visitedNodes.add(destinationNodeId);
             await interaction.update({
                 content: sourceNode.text,
                 embeds: [new EmbedBuilder().setDescription(`**You chose:** ${selectedChoice.label}`)],
                 components: [],
             });
-            await interaction.followUp(renderNode({ ...targetNode, id: selectedChoice.next }, campaign));
+            await interaction.followUp(renderNode({ ...targetNode, id: destinationNodeId }, campaign));
             if (targetNode.ending === true) campaigns.delete(campaign.id);
         } catch (error) {
             const response = { content: 'This story could not be loaded. Please try starting the investigation again later.', ephemeral: true };

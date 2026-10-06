@@ -45,8 +45,18 @@ function validateStory(story, storyKey) {
             const hasNext = choice.next !== undefined;
             const hasResponse = choice.response !== undefined;
             if (hasNext === hasResponse) errors.push(`Choice ${index + 1} in node "${nodeId}" must have exactly one of next or response.`);
-            if (hasNext && (typeof choice.next !== 'string' || !NODE_ID_PATTERN.test(choice.next))) errors.push(`Choice ${index + 1} in node "${nodeId}" needs a valid next node ID.`);
-            else if (hasNext && !Object.hasOwn(story.nodes, choice.next)) errors.push(`Choice ${index + 1} in node "${nodeId}" points to missing node "${choice.next}".`);
+            if (hasNext) {
+                const targets = typeof choice.next === 'string' ? [choice.next] : choice.next;
+                if (!Array.isArray(targets) || targets.length === 0) {
+                    errors.push(`Choice ${index + 1} in node "${nodeId}" needs a node ID or a non-empty array of node IDs in next.`);
+                } else {
+                    if (new Set(targets).size !== targets.length) errors.push(`Choice ${index + 1} in node "${nodeId}" cannot repeat a destination in next.`);
+                    for (const target of targets) {
+                        if (typeof target !== 'string' || !NODE_ID_PATTERN.test(target)) errors.push(`Choice ${index + 1} in node "${nodeId}" has an invalid destination node ID.`);
+                        else if (!Object.hasOwn(story.nodes, target)) errors.push(`Choice ${index + 1} in node "${nodeId}" points to missing node "${target}".`);
+                    }
+                }
+            }
             if (hasResponse && (typeof choice.response !== 'string' || !choice.response.trim())) errors.push(`Choice ${index + 1} in node "${nodeId}" needs non-empty response text.`);
             if (typeof choice.response === 'string' && choice.response.length > 2000) errors.push(`Response ${index + 1} in node "${nodeId}" must be 2000 characters or fewer.`);
         }
