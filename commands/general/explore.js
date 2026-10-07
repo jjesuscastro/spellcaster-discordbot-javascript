@@ -40,7 +40,7 @@ function renderNode(node, campaign) {
         .setLabel(choice.label)
         .setStyle(ButtonStyle.Primary)
         .setDisabled(choice.next !== undefined
-            ? getChoiceTargets(choice).some(target => campaign.visitedNodes.includes(target))
+            ? getChoiceTargets(choice).some(target => campaign.visitedNodes.has(target))
             : campaign.usedResponses.has(`${node.id}:${index}`)));
     const rows = [];
     
