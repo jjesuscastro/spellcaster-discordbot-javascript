@@ -58,7 +58,7 @@
     "cabinets": {
       "text": "The cabinets are locked. How anti-climactic…",
       "choices": [
-        { "label": "Look at the beds", "next": "beds" },
+        { "label": "Look at the beds", "next": ["bed1", "bed2", "bed3", "bed4", "bed5", "bed6"] },
         { "label": "Search through the cabinets", "next": "cabinets" },
         { "label": "Go to the head nurse's table", "next": "table" },
         { "label": "Head towards the last bed", "next": "lastbed" }
@@ -67,7 +67,7 @@
     "table": {
       "text": "You find scattered pieces of paper, prescription notes, and a few files from the head nurse written in classic doctor gibberish that is way too hard to understand.",
       "choices": [
-        { "label": "Look at the beds", "next": "beds" },
+        { "label": "Look at the beds", "next": ["bed1", "bed2", "bed3", "bed4", "bed5", "bed6"] },
         { "label": "Search through the cabinets", "next": "cabinets" },
         { "label": "Go to the head nurse's table", "next": "table" },
         { "label": "Head towards the last bed", "next": "lastbed" }
