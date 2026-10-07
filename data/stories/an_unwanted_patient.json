@@ -6,75 +6,169 @@
       "text": "```They say that at night, when there are supposedly no overnight patients in the infirmary — you will sometimes hear a ghoulish, almost inhumane cry come from the clinic. All the way at the end, where the last bed lies with its curtains drawn shut… it continues to cry…``` \nThe infirmary looks the same as it always does. Chairs, tables, medicine cabinets.  A line of beds on one side of the room, all of them with curtains for privacy if needed. They’re all drawn open — all of them, except the last one at the end of the infirmary. Just like the ghost story said, the curtains are drawn shut.\n\nWhat will you do?\n",
       "choices": [
         { "label": "Look at the beds", "next": ["bed1", "bed2", "bed3", "bed4", "bed5", "bed6"] },
-        { "label": "Search through the cabinets", "next": "cabinets" },
-        { "label": "Go to the head nurse's table", "next": "table" },
-        { "label": "Head towards the last bed", "next": "lastbed" }
+        { "label": "Search through the cabinets", "next": ["cabinets", "cabinets2", "cabinets3", "cabinets4", "cabinets5", "cabinets6"] },
+        { "label": "Go to the head nurse's table", "next": ["table", "table2", "table3", "table4", "table5"] },
+        { "label": "Head towards the last bed", "next": ["lastbed", "lastbed2", "lastbed3", "lastbed4", "lastbed5", "lastbed6", "lastbed7"] }
       ]
     },
+
+
     "bed1": {
       "text": "You look through the line of beds — \n\nThere’s a dead body on one of them. \n\n(Although, upon closer inspection… It's obviously fake. A senior had planted them there as a Night of Veils prank on the first years.)",
       "choices": [
-        { "label": "Search through the cabinets", "next": "cabinets" },
-        { "label": "Go to the head nurse's table", "next": "table" },
-        { "label": "Head towards the last bed", "next": "lastbed" }
+        { "label": "Search through the cabinets", "next": ["cabinets", "cabinets2", "cabinets3", "cabinets4", "cabinets5", "cabinets6"] },
+        { "label": "Go to the head nurse's table", "next": ["table", "table2", "table3", "table4", "table5"] },
+        { "label": "Head towards the last bed", "next": ["lastbed", "lastbed2", "lastbed3", "lastbed4", "lastbed5", "lastbed6", "lastbed7"] }
       ]
     },
     "bed2": {
       "text": "The beds are all neat and undisturbed, ready to house its next patient. The pillows all fluffed, the blankets nice and think. It looks sooo comfy. Surely, you won't get scolded if you nap here, right...?",
       "choices": [
-        { "label": "Search through the cabinets", "next": "cabinets" },
-        { "label": "Go to the head nurse's table", "next": "table" },
-        { "label": "Head towards the last bed", "next": "lastbed" }
+        { "label": "Search through the cabinets", "next": ["cabinets", "cabinets2", "cabinets3", "cabinets4", "cabinets5", "cabinets6"] },
+        { "label": "Go to the head nurse's table", "next": ["table", "table2", "table3", "table4", "table5"] },
+        { "label": "Head towards the last bed", "next": ["lastbed", "lastbed2", "lastbed3", "lastbed4", "lastbed5", "lastbed6", "lastbed7"] }
       ]
     },
     "bed3": {
       "text": "There’s a lump underneath the blanket on one of the beds… unveiling the blanket reveals…. candy?!\n\nYou collect {{d6}} pieces of candy!",
       "choices": [
-        { "label": "Search through the cabinets", "next": "cabinets" },
-        { "label": "Go to the head nurse's table", "next": "table" },
-        { "label": "Head towards the last bed", "next": "lastbed" }
+        { "label": "Search through the cabinets", "next": ["cabinets", "cabinets2", "cabinets3", "cabinets4", "cabinets5", "cabinets6"] },
+        { "label": "Go to the head nurse's table", "next": ["table", "table2", "table3", "table4", "table5"] },
+        { "label": "Head towards the last bed", "next": ["lastbed", "lastbed2", "lastbed3", "lastbed4", "lastbed5", "lastbed6", "lastbed7"] }
       ]
     },
     "bed4": {
       "text": "As you move through the many beds, checking each one, you suddenly hear a creaking noise, as if someone was moving on top of one of the beds behind you. The ones that you just checked. Wasn't it empty just a few seconds ago?\n\nIt creaks again. Closer. Louder.\n\nWhen you turn around, it's silent.",
       "choices": [
-        { "label": "Search through the cabinets", "next": "cabinets" },
-        { "label": "Go to the head nurse's table", "next": "table" },
-        { "label": "Head towards the last bed", "next": "lastbed" }
+        { "label": "Search through the cabinets", "next": ["cabinets", "cabinets2", "cabinets3", "cabinets4", "cabinets5", "cabinets6"] },
+        { "label": "Go to the head nurse's table", "next": ["table", "table2", "table3", "table4", "table5"] },
+        { "label": "Head towards the last bed", "next": ["lastbed", "lastbed2", "lastbed3", "lastbed4", "lastbed5", "lastbed6", "lastbed7"] }
       ]
     },
     "bed5": {
       "text": "You check the beds, when you suddenly feel a breeze hit you. Cold...\n\nLooking up, you realize it's becase one window is open. That's odd. You take a brief look outside, taking note of the forest trees, before closing it.",
       "choices": [
-        { "label": "Search through the cabinets", "next": "cabinets" },
-        { "label": "Go to the head nurse's table", "next": "table" },
-        { "label": "Head towards the last bed", "next": "lastbed" }
+        { "label": "Search through the cabinets", "next": ["cabinets", "cabinets2", "cabinets3", "cabinets4", "cabinets5", "cabinets6"] },
+        { "label": "Go to the head nurse's table", "next": ["table", "table2", "table3", "table4", "table5"] },
+        { "label": "Head towards the last bed", "next": ["lastbed", "lastbed2", "lastbed3", "lastbed4", "lastbed5", "lastbed6", "lastbed7"] }
       ]
     },
     "bed6": {
       "text": "You hear a noise, but before you can do anything – like hide under the table or make your escape, you hear the head nurse’s voice behind you.\n\n“...Hello. Care to explain what you’re doing?”\n\nAs you don’t seem in need of a heal, they kindly tell you to leave, and so you do.",
       "ending": true
     },
+
+
     "cabinets": {
       "text": "The cabinets are locked. How anti-climactic…",
       "choices": [
         { "label": "Look at the beds", "next": ["bed1", "bed2", "bed3", "bed4", "bed5", "bed6"] },
-        { "label": "Search through the cabinets", "next": "cabinets" },
-        { "label": "Go to the head nurse's table", "next": "table" },
-        { "label": "Head towards the last bed", "next": "lastbed" }
+        { "label": "Go to the head nurse's table", "next": ["table", "table2", "table3", "table4", "table5"] },
+        { "label": "Head towards the last bed", "next": ["lastbed", "lastbed2", "lastbed3", "lastbed4", "lastbed5", "lastbed6", "lastbed7"] }
       ]
     },
+    "cabinets2": {
+      "text": "The cabinets are filled with various bandages, pills, and medicinal potions. Some of them you can recognize as your standard medical potions - pain killers, fever potions, etc. Best not to tamper with any of them though…",
+      "choices": [
+        { "label": "Look at the beds", "next": ["bed1", "bed2", "bed3", "bed4", "bed5", "bed6"] },
+        { "label": "Go to the head nurse's table", "next": ["table", "table2", "table3", "table4", "table5"] },
+        { "label": "Head towards the last bed", "next": ["lastbed", "lastbed2", "lastbed3", "lastbed4", "lastbed5", "lastbed6", "lastbed7"] }
+      ]
+    },
+    "cabinets3": {
+      "text": "Opening one of the cabinets — a spider suddenly lunges at you. Boo!\n\nAside from that, the cabinet is empty.",
+      "choices": [
+        { "label": "Look at the beds", "next": ["bed1", "bed2", "bed3", "bed4", "bed5", "bed6"] },
+        { "label": "Go to the head nurse's table", "next": ["table", "table2", "table3", "table4", "table5"] },
+        { "label": "Head towards the last bed", "next": ["lastbed", "lastbed2", "lastbed3", "lastbed4", "lastbed5", "lastbed6", "lastbed7"] }
+      ]
+    },
+    "cabinets4": {
+      "text": "One of the cabinets seems to be slightly ajar… what’s this? You find {{d6}} candies inside!",
+      "choices": [
+        { "label": "Look at the beds", "next": ["bed1", "bed2", "bed3", "bed4", "bed5", "bed6"] },
+        { "label": "Go to the head nurse's table", "next": ["table", "table2", "table3", "table4", "table5"] },
+        { "label": "Head towards the last bed", "next": ["lastbed", "lastbed2", "lastbed3", "lastbed4", "lastbed5", "lastbed6", "lastbed7"] }
+      ]
+    },
+    "cabinets5": {
+      "text": "You open the cabinents...\n\nThat's strange.\n\nWhy is the inside of the cabinets pitch black?\n\nIt's almost like a void. But then you blink, and suddenly you're staring into bandages and other medical items.",
+      "choices": [
+        { "label": "Look at the beds", "next": ["bed1", "bed2", "bed3", "bed4", "bed5", "bed6"] },
+        { "label": "Go to the head nurse's table", "next": ["table", "table2", "table3", "table4", "table5"] },
+        { "label": "Head towards the last bed", "next": ["lastbed", "lastbed2", "lastbed3", "lastbed4", "lastbed5", "lastbed6", "lastbed7"] }
+      ]
+    },
+    "cabinets6": {
+      "text": "You hear a noise, but before you can do anything – like hide under the table or make your escape, you hear the head nurse’s voice behind you.\n\n“...Hello. Care to explain what you’re doing?”\n\nAs you don’t seem in need of a heal, they kindly tell you to leave, and so you do.",
+      "ending": true
+    },
+
+
     "table": {
       "text": "You find scattered pieces of paper, prescription notes, and a few files from the head nurse written in classic doctor gibberish that is way too hard to understand.",
       "choices": [
         { "label": "Look at the beds", "next": ["bed1", "bed2", "bed3", "bed4", "bed5", "bed6"] },
-        { "label": "Search through the cabinets", "next": "cabinets" },
-        { "label": "Go to the head nurse's table", "next": "table" },
-        { "label": "Head towards the last bed", "next": "lastbed" }
+        { "label": "Search through the cabinets", "next": ["cabinets", "cabinets2", "cabinets3", "cabinets4", "cabinets5", "cabinets6"] },
+        { "label": "Head towards the last bed", "next": ["lastbed", "lastbed2", "lastbed3", "lastbed4", "lastbed5", "lastbed6", "lastbed7"] }
       ]
     },
+    "table2": {
+      "text": "There's a small pumpkin in the middle of the table. Could there be candies inside?!\n\nReaching inside, you feel a something slimey coat your hand... eugh... Your hand is sticky and vaguely pumpkin spice scendted now.",
+      "choices": [
+        { "label": "Look at the beds", "next": ["bed1", "bed2", "bed3", "bed4", "bed5", "bed6"] },
+        { "label": "Search through the cabinets", "next": ["cabinets", "cabinets2", "cabinets3", "cabinets4", "cabinets5", "cabinets6"] },
+        { "label": "Head towards the last bed", "next": ["lastbed", "lastbed2", "lastbed3", "lastbed4", "lastbed5", "lastbed6", "lastbed7"] }
+      ]
+    },
+    "table3": {
+      "text": "There’s a small pumpkin in the middle of the table. Inside the pumpkin reveals {{d6}} pieces of candy. Yay!",
+      "choices": [
+        { "label": "Look at the beds", "next": ["bed1", "bed2", "bed3", "bed4", "bed5", "bed6"] },
+        { "label": "Search through the cabinets", "next": ["cabinets", "cabinets2", "cabinets3", "cabinets4", "cabinets5", "cabinets6"] },
+        { "label": "Head towards the last bed", "next": ["lastbed", "lastbed2", "lastbed3", "lastbed4", "lastbed5", "lastbed6", "lastbed7"] }
+      ]
+    },
+    "table4": {
+      "text": "The table is as it always is. Papers and notes, a mug refashioned into a pen holder.\n\nHow peculiar. There are a few leaves on the table. The windows are closed. Where did it come from…?",
+      "choices": [
+        { "label": "Look at the beds", "next": ["bed1", "bed2", "bed3", "bed4", "bed5", "bed6"] },
+        { "label": "Search through the cabinets", "next": ["cabinets", "cabinets2", "cabinets3", "cabinets4", "cabinets5", "cabinets6"] },
+        { "label": "Head towards the last bed", "next": ["lastbed", "lastbed2", "lastbed3", "lastbed4", "lastbed5", "lastbed6", "lastbed7"] }
+      ]
+    },
+    "table5": {
+      "text": "You hear a noise, but before you can do anything – like hide under the table or make your escape, you hear the head nurse’s voice behind you.\n\n“...Hello. Care to explain what you’re doing?”\n\nAs you don’t seem in need of a heal, they kindly tell you to leave, and so you do.",
+      "ending": true
+    },
+
+
     "lastbed": {
       "text": "You find— nothing. Just an empty bed. The cries you thought you were hearing? There’s a vent by the wall, where the wind blows just enough to create a strange whistling sound. Ah… perhaps it was this all along?",
+      "ending": true
+    },
+    "lastbed2": {
+      "text": "You find an empty bed. The sheets are slightly messed up, but that's about it. Really, it could have been a student. What's so spooky about this!",
+      "ending": true
+    },
+    "lastbed3": {
+      "text": "You hear it. The crying. It's real.\n\nYou move to draw the curtains back, your heart hammering in your chest, waiting to find a ghost-\n\nYou find repeat stones on the bed. The crying was coming from the stones. Ah... is this a prank?",
+      "ending": true
+    },
+    "lastbed4": {
+      "text": "There’s a lump underneath the blanket… could this be the ghost... you unveil it only to find— candy?!\n\nYou collect {{d6}} pieces of candy!",
+      "ending": true
+    },
+    "lastbed5": {
+      "text": "You find— an empty bed. There’s nothing. No ghost patient, no secret mystery. Until —\n\nYou hear something. Crying. Right beside your ear— yet you turn towards the noise and no one is in your immediate vicinity.\n\nYou open the curtains and find … nothing.",
+      "ending": true
+    },
+    "lastbed6": {
+      "text": "You open the curtains and find … nothing. The air seems to be shifting oddly — like it was cracking? It lasts for just a second. It’s gone before you can even tell what it was.",
+      "ending": true
+    },
+    "lastbed7": {
+      "text": "You hear it.\n\nThe crying. You swear it wasn’t there before. Echoing, almost inhumane noises right behind the curtain. Your hand reaches forward, about to pull the curtains back —\n\n“What do you think you’re doing here?”\n\nBefore you can open the curtain, a teacher catches and sends you back to your dorms. Curfew is soon. Go to bed.",
       "ending": true
     }
   }
