@@ -69,7 +69,7 @@ module.exports = {
     },
 
     async execute(interaction) {
-        const requestedName = interaction.options.getString('storyname').trim();
+        const requestedName = interaction.options.getString('location').trim();
         const match = getStories().find(({ story }) => story.name.toLocaleLowerCase() === requestedName.toLocaleLowerCase());
         if (!match) {
             await interaction.reply({ content: `I couldn't find a story named "${requestedName}". Use autocomplete to see available stories.`, ephemeral: true });
