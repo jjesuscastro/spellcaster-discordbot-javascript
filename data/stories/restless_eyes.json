@@ -9,41 +9,178 @@
           "label": "test",
           "response": "test"
         },
-        { "label": "Go to the benches", "next": "benches" },
-        { "label": "Touch grass", "next": "grass" },
-        { "label": "Visit the fountain", "next": "fountain" },
+        { "label": "Go to the benches", "next": ["benches", "benches2", "benches3", "benches4", "benches5"] },
+        { "label": "Touch grass", "next": ["grass", "grass2", "grass3", "grass4", "grass5", "grass6"] },
+        { "label": "Visit the fountain", "next": ["fountain", "fountain2", "fountain3", "fountain4", "fountain5", "fountain6", "fountain7"] },
         { "label": "Look at the statue", "next": "statue" }
       ]
     },
+
+
     "benches": {
       "text": "There seems to be nothing usual about the bench… it’s just a bench! Come sit, enjoy the dimming sky. Reflect and be introspective.",
       "choices": [
-        { "label": "Go to the benches", "next": "benches" },
-        { "label": "Touch grass", "next": "grass" },
-        { "label": "Visit the fountain", "next": "fountain" },
+        { "label": "Touch grass", "next": ["grass", "grass2", "grass3", "grass4", "grass5", "grass6"] },
+        { "label": "Visit the fountain", "next": ["fountain", "fountain2", "fountain3", "fountain4", "fountain5", "fountain6", "fountain7"] },
         { "label": "Look at the statue", "next": "statue" }
       ]
     },
+    "benches2": {
+      "text": "You sit on the bench. \n\n...\n\nNothing happens.",
+      "choices": [
+        { "label": "Touch grass", "next": ["grass", "grass2", "grass3", "grass4", "grass5", "grass6"] },
+        { "label": "Visit the fountain", "next": ["fountain", "fountain2", "fountain3", "fountain4", "fountain5", "fountain6", "fountain7"] },
+        { "label": "Look at the statue", "next": "statue" }
+      ]
+    },
+    "benches3": {
+      "text": "As you approach the bench you hear a whisper. \n\n“[...] she said she knew his secret… that he’s secretly three Seedlings in a coat…!” – It seems like the bench is whispering ridiculous rumors about people you may or may not know.\n\nAs you sit down, you notice a repeat stone painted to look like a mischievous little pumpkin.",
+      "choices": [
+        { "label": "Touch grass", "next": ["grass", "grass2", "grass3", "grass4", "grass5", "grass6"] },
+        { "label": "Visit the fountain", "next": ["fountain", "fountain2", "fountain3", "fountain4", "fountain5", "fountain6", "fountain7"] },
+        { "label": "Look at the statue", "next": "statue" }
+      ]
+    },
+    "benches4": {
+      "text": "The bench is… just a bench. For some reason though, you feel compelled to look under the seats.\n\n…? \n\nYou find a stash of candy! {{d6}} pieces to be exact!",
+      "choices": [
+        { "label": "Touch grass", "next": ["grass", "grass2", "grass3", "grass4", "grass5", "grass6"] },
+        { "label": "Visit the fountain", "next": ["fountain", "fountain2", "fountain3", "fountain4", "fountain5", "fountain6", "fountain7"] },
+        { "label": "Look at the statue", "next": "statue" }
+      ]
+    },
+    "benches5": {
+      "text": "You sit down on the bench, and you feel a light tap on your shoulder. You turn around… and nobody’s here.\n\nA moment passes, and you think someone, or something, taps your shoulder again – except this time, it feels like claws.\n\nAgain, there is no one behind you.",
+      "choices": [
+        { "label": "Touch grass", "next": ["grass", "grass2", "grass3", "grass4", "grass5", "grass6"] },
+        { "label": "Visit the fountain", "next": ["fountain", "fountain2", "fountain3", "fountain4", "fountain5", "fountain6", "fountain7"] },
+        { "label": "Look at the statue", "next": "statue" }
+      ]
+    },
+
+
     "grass": {
       "text": "The grass… It’s nice. It’s soft to the touch, slightly cool, brushing against your skin gently. The clouds are kind today, shielding you from the slowly setting sun, but sprase enough for you to view the changing skies. \n\nCongratulations, you touched grass!",
       "choices": [
-        { "label": "Go to the benches", "next": "benches" },
-        { "label": "Touch grass", "next": "grass" },
-        { "label": "Visit the fountain", "next": "fountain" },
+        { "label": "Go to the benches", "next": ["benches", "benches2", "benches3", "benches4", "benches5"] },
+        { "label": "Visit the fountain", "next": ["fountain", "fountain2", "fountain3", "fountain4", "fountain5", "fountain6", "fountain7"] },
         { "label": "Look at the statue", "next": "statue" }
       ]
     },
+    "grass2": {
+      "text": "The grass is nice. You even lie down to just appreciate it.\n\n... Ouch! Something bit your leg!\n\nYou sit up just in time to see a Brewble scampering away.",
+      "choices": [
+        { "label": "Go to the benches", "next": ["benches", "benches2", "benches3", "benches4", "benches5"] },
+        { "label": "Visit the fountain", "next": ["fountain", "fountain2", "fountain3", "fountain4", "fountain5", "fountain6", "fountain7"] },
+        { "label": "Look at the statue", "next": "statue" }
+      ]
+    },
+    "grass3": {
+      "text": "There’s a mound of dirt that looks suspiciously artificial… \n\nDigging it up — you find a severed hand. Though this one looks obviously fake, down to the much too shiny, vaguely chocolate smelling fake blood….",
+      "choices": [
+        { "label": "Go to the benches", "next": ["benches", "benches2", "benches3", "benches4", "benches5"] },
+        { "label": "Visit the fountain", "next": ["fountain", "fountain2", "fountain3", "fountain4", "fountain5", "fountain6", "fountain7"] },
+        { "label": "Look at the statue", "next": "statue" }
+      ]
+    },
+    "grass4": {
+      "text": "There’s a mound of dirt that looks suspiciously artificial… \n\nDigging it up, you find {{d6}} candies! How lucky!",
+      "choices": [
+        { "label": "Go to the benches", "next": ["benches", "benches2", "benches3", "benches4", "benches5"] },
+        { "label": "Visit the fountain", "next": ["fountain", "fountain2", "fountain3", "fountain4", "fountain5", "fountain6", "fountain7"] },
+        { "label": "Look at the statue", "next": "statue" }
+      ]
+    },
+    "grass5": {
+      "text": "Looking at the grass closer… there seems to be something that vaguely looks like track marks? Almost like footprints — belonging to something not human. \n\nIt leads out to the courtyard, but trails off into nothing.",
+      "choices": [
+        { "label": "Go to the benches", "next": ["benches", "benches2", "benches3", "benches4", "benches5"] },
+        { "label": "Visit the fountain", "next": ["fountain", "fountain2", "fountain3", "fountain4", "fountain5", "fountain6", "fountain7"] },
+        { "label": "Look at the statue", "next": "statue" }
+      ]
+    },
+    "grass6": {
+      "text": "Your lying down on the grass, enjoying this lovely day...\n\nA teacher looms over your figure.\n\nThey tell you to go back to class.\n```INVESTIGATION: END```",
+      "ending": true
+    },
+
+
     "fountain": {
       "text": "You look closely into the waters…\n\nYou find your own reflection staring back at you! Hello!",
       "choices": [
-        { "label": "Go to the benches", "next": "benches" },
-        { "label": "Touch grass", "next": "grass" },
-        { "label": "Visit the fountain", "next": "fountain" },
+        { "label": "Go to the benches", "next": ["benches", "benches2", "benches3", "benches4", "benches5"] },
+        { "label": "Touch grass", "next": ["grass", "grass2", "grass3", "grass4", "grass5", "grass6"] },
         { "label": "Look at the statue", "next": "statue" }
       ]
     },
+    "fountain2": {
+      "text": "The fountain in the center of the courtyard stands tall as it always does, the water gleaming under the sunlight (or moonlight, if you’re out here late at night).\n\nThere are edels on the bottom of the fountain! There usually are, from when students throw a coin or two in to make a wish.\n\nTry to pick up some coins? You fish out {{d50}} edels.",
+      "choices": [
+        { "label": "Go to the benches", "next": ["benches", "benches2", "benches3", "benches4", "benches5"] },
+        { "label": "Touch grass", "next": ["grass", "grass2", "grass3", "grass4", "grass5", "grass6"] },
+        { "label": "Look at the statue", "next": "statue" }
+      ]
+    },
+    "fountain3": {
+      "text": "You stare into your own reflection in the waters... when something appears behind you.\n\nA ghost?! It quickly disappears. That's when you hear it:\n\nUpperclassmen giggling amognst each other, their mediums out. Ah... it was a prank by them.",
+      "choices": [
+        { "label": "Go to the benches", "next": ["benches", "benches2", "benches3", "benches4", "benches5"] },
+        { "label": "Touch grass", "next": ["grass", "grass2", "grass3", "grass4", "grass5", "grass6"] },
+        { "label": "Look at the statue", "next": "statue" }
+      ]
+    },
+    "fountain4": {
+      "text": "The fountain is as it always is. Carved stones, shining water. There are edels on the bottom of the fountain! There usually are, from when students throw a coin or two in to make a wish.\n\nBut what’s this…? Squinting into the fountain, you spot something colorful amongst the edels.\n\nYou find {{d6}} candies!",
+      "choices": [
+        { "label": "Go to the benches", "next": ["benches", "benches2", "benches3", "benches4", "benches5"] },
+        { "label": "Touch grass", "next": ["grass", "grass2", "grass3", "grass4", "grass5", "grass6"] },
+        { "label": "Look at the statue", "next": "statue" }
+      ]
+    },
+    "fountain5": {
+      "text": "The water suddenly turns dark red for a few seconds, before returning back to normal. Did your eyes deceive you…? You could swear it just happened.",
+      "choices": [
+        { "label": "Go to the benches", "next": ["benches", "benches2", "benches3", "benches4", "benches5"] },
+        { "label": "Touch grass", "next": ["grass", "grass2", "grass3", "grass4", "grass5", "grass6"] },
+        { "label": "Look at the statue", "next": "statue" }
+      ]
+    },
+    "fountain6": {
+      "text": "You look closely into the waters…\n\nYou find your own reflection staring back at you! But then something else appears behind you— a shadow— a strange bend of the air getting closer to you— you feel something cold drape against your back,\n\nWhen you turn around to look at what it was, it’s gone. ",
+      "choices": [
+        { "label": "Go to the benches", "next": ["benches", "benches2", "benches3", "benches4", "benches5"] },
+        { "label": "Touch grass", "next": ["grass", "grass2", "grass3", "grass4", "grass5", "grass6"] },
+        { "label": "Look at the statue", "next": "statue" }
+      ]
+    },
+    "fountain7": {
+      "text": "There are edels on the bottom of the fountain! There usually are, from when students throw a coin or two in to make a wish.\n\nYou dip your hand in, trying to get edels, when a teacher suddenly finds you. \n\nThey scold you for trying to steal edels, then sends you back to your dorms.\n```INVESTIGATION: END```",
+      "ending": true
+    },
+
+
     "statue": {
-      "text": "The statue… is looking at you! \n\nBut it’s looking at you the same way that it looked at you yesterday… and the day before that, and the day before that. Could it be that someone paranoid made up the rumor? This is just an optical illusion…",
+      "text": "The statue… is looking at you! \n\nBut it’s looking at you the same way that it looked at you yesterday… and the day before that, and the day before that. Could it be that someone paranoid made up the rumor? This is just an optical illusion…\n```INVESTIGATION: END```",
+      "ending": true
+    },
+    "statue2": {
+      "text": "The statue is looking at you.\n\nWait a second.... No it's not. It's looking behind you...?\n\nYou turn around and find {{d6}} candies right where the statue was looking at. Yay!\n```INVESTIGATION: END```",
+      "ending": true
+    },
+    "statue3": {
+      "text": "The statue is looking at you. It’s eyes… has it always looked like that? Even when you move, although the pupils aren’t moving in a way that’s obvious, you can’t help but swear that they were following you. Creepy…\n```INVESTIGATION: END```",
+      "ending": true
+    },
+    "statue4": {
+      "text": "Did the statue just blink? No, it couldn’t have. Statues don’t blink. Maybe it was just your imagination\n```INVESTIGATION: END```",
+      "ending": true
+    },
+    "statue5": {
+      "text": "The statue isn’t looking at you.\n\nIn fact, it isn’t looking at anyone at all. That’s odd. You can’t help but remember that that wasn’t always the case?\n\nIt seems to be looking in the distance, towards the lake. Or past that, even. Towards the forest…\n```INVESTIGATION: END```",
+      "ending": true
+    },
+    "statue6": {
+      "text": "The statue is looking at you.\n\nIt's mesmerizing... you move to touch it... your hand is inches away-\n\n'Hey!'\n\nA teacher scolds you for trying to mess with the statue, saying something about students always messing with the statues. They send you back to your dorms.\n```INVESTIGATION: END```",
       "ending": true
     }
   }
