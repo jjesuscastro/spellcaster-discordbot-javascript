@@ -51,11 +51,11 @@ function renderNode(node, campaign) {
 
 module.exports = {
     data: new SlashCommandBuilder()
-        .setName('investigate')
-        .setDescription('Investigate a story and choose how it unfolds.')
+        .setName('explore')
+        .setDescription('Explore a location and find something.')
         .addStringOption(option => option
-            .setName('storyname')
-            .setDescription('The story you want to investigate.')
+            .setName('location')
+            .setDescription('The location you want to explore.')
             .setRequired(true)
             .setAutocomplete(true)),
 
