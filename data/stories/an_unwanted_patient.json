@@ -1,5 +1,5 @@
 {
-  "name": "An Unwanted Patient",
+  "name": "infirmary",
   "start": "infirmary",
   "nodes": {
     "infirmary": {
