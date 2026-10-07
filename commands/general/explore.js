@@ -40,9 +40,10 @@ function renderNode(node, campaign) {
         .setLabel(choice.label)
         .setStyle(ButtonStyle.Primary)
         .setDisabled(choice.next !== undefined
-            ? getChoiceTargets(choice).every(target => campaign.visitedNodes.has(target))
+            ? getChoiceTargets(choice).some(target => campaign.visitedNodes.includes(target))
             : campaign.usedResponses.has(`${node.id}:${index}`)));
     const rows = [];
+    
     for (let index = 0; index < buttons.length; index += 5) {
         rows.push(new ActionRowBuilder().addComponents(buttons.slice(index, index + 5)));
     }
@@ -52,7 +53,7 @@ function renderNode(node, campaign) {
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('explore')
-        .setDescription('Explore a location and find something.')
+        .setDescription('Explore a location.')
         .addStringOption(option => option
             .setName('location')
             .setDescription('The location you want to explore.')
@@ -72,7 +73,7 @@ module.exports = {
         const requestedName = interaction.options.getString('location').trim();
         const match = getStories().find(({ story }) => story.name.toLocaleLowerCase() === requestedName.toLocaleLowerCase());
         if (!match) {
-            await interaction.reply({ content: `I couldn't find a story named "${requestedName}". Use autocomplete to see available stories.`, ephemeral: true });
+            await interaction.reply({ content: `"${requestedName}" not found. Use autocomplete to see available locations!`, ephemeral: true });
             return;
         }
         const campaign = createCampaign(match.key, interaction.user.id, match.story.start);
@@ -100,7 +101,7 @@ module.exports = {
                 && numericChoiceIndex >= 0
                 && numericChoiceIndex < (sourceNode?.choices?.length ?? 0);
             if (!sourceNode || !validIndex) {
-                await interaction.reply({ content: 'This story step is no longer available. Please start the investigation again.', ephemeral: true });
+                await interaction.reply({ content: 'This story step is no longer available. Please start the exploration again.', ephemeral: true });
                 return;
             }
             const selectedChoice = sourceNode.choices[numericChoiceIndex];
@@ -112,7 +113,7 @@ module.exports = {
                 return;
             }
             if (selectedChoice.next === undefined && campaign.usedResponses.has(choiceKey)) {
-                await interaction.reply({ content: 'You already selected that option in this investigation.', ephemeral: true });
+                await interaction.reply({ content: 'You already selected that option in this exploration.', ephemeral: true });
                 return;
             }
             campaign.updatedAt = Date.now();
@@ -127,7 +128,7 @@ module.exports = {
             const destinationNodeId = availableTargets[Math.floor(Math.random() * availableTargets.length)];
             const targetNode = found.story.nodes[destinationNodeId];
             if (!targetNode) {
-                await interaction.reply({ content: 'This story step is no longer available. Please start the investigation again.', ephemeral: true });
+                await interaction.reply({ content: 'This story step is no longer available. Please start the exploration again.', ephemeral: true });
                 return;
             }
             campaign.visitedNodes.add(destinationNodeId);
@@ -139,7 +140,7 @@ module.exports = {
             await interaction.followUp(renderNode({ ...targetNode, id: destinationNodeId }, campaign));
             if (targetNode.ending === true) campaigns.delete(campaign.id);
         } catch (error) {
-            const response = { content: 'This story could not be loaded. Please try starting the investigation again later.', ephemeral: true };
+            const response = { content: 'This story could not be loaded. Please try starting the exploration again later.', ephemeral: true };
             if (interaction.replied || interaction.deferred) await interaction.followUp(response);
             else await interaction.reply(response);
             throw error;
