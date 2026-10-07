@@ -61,13 +61,15 @@ client.on('interactionCreate', async interaction => {
         return;
     }
 
-    if (interaction.isButton() && interaction.customId.startsWith('investigate:')) {
-        const command = client.commands.get('investigate');
-        if (!command?.handleButton) return;
-        try {
-            await command.handleButton(interaction);
-        } catch (err) {
-            logInteractionError('Investigation button failed', err, interaction);
+    if (interaction.isButton()) {
+        const commandName = interaction.customId.split(':', 1)[0];
+        const command = client.commands.get(commandName);
+        if (command?.handleButton) {
+            try {
+                await command.handleButton(interaction);
+            } catch (err) {
+                logInteractionError('Button interaction failed', err, interaction);
+            }
         }
         return;
     }

@@ -20,6 +20,7 @@ function createCampaign(storyKey, callerId, startNodeId) {
         storyKey,
         callerId,
         visitedNodes: new Set([startNodeId]),
+        usedRandomChoices: new Set(),
         usedResponses: new Set(),
         updatedAt: now,
     };
@@ -40,7 +41,10 @@ function renderNode(node, campaign) {
         .setLabel(choice.label)
         .setStyle(ButtonStyle.Primary)
         .setDisabled(choice.next !== undefined
-            ? getChoiceTargets(choice).some(target => campaign.visitedNodes.has(target))
+            ? (Array.isArray(choice.next)
+                ? campaign.usedRandomChoices.has(`${node.id}:${index}`)
+                    || getChoiceTargets(choice).every(target => campaign.visitedNodes.has(target))
+                : campaign.visitedNodes.has(choice.next))
             : campaign.usedResponses.has(`${node.id}:${index}`)));
     const rows = [];
     
@@ -116,6 +120,10 @@ module.exports = {
                 await interaction.reply({ content: 'You already selected that option in this exploration.', ephemeral: true });
                 return;
             }
+            if (Array.isArray(selectedChoice.next) && campaign.usedRandomChoices.has(choiceKey)) {
+                await interaction.reply({ content: 'You already used that random option in this exploration.', ephemeral: true });
+                return;
+            }
             campaign.updatedAt = Date.now();
 
             if (selectedChoice.response !== undefined) {
@@ -132,6 +140,7 @@ module.exports = {
                 return;
             }
             campaign.visitedNodes.add(destinationNodeId);
+            if (Array.isArray(selectedChoice.next)) campaign.usedRandomChoices.add(choiceKey);
             await interaction.update({
                 content: sourceNode.text,
                 embeds: [new EmbedBuilder().setDescription(`**You chose:** ${selectedChoice.label}`)],
