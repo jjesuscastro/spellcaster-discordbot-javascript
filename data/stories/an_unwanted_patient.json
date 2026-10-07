@@ -54,7 +54,7 @@
       ]
     },
     "bed6": {
-      "text": "You hear a noise, but before you can do anything – like hide under the table or make your escape, you hear the head nurse’s voice behind you.\n\n“...Hello. Care to explain what you’re doing?”\n\nAs you don’t seem in need of a heal, they kindly tell you to leave, and so you do.",
+      "text": "You hear a noise, but before you can do anything – like hide under the table or make your escape, you hear the head nurse’s voice behind you.\n\n“...Hello. Care to explain what you’re doing?”\n\nAs you don’t seem in need of a heal, they kindly tell you to leave, and so you do.\n```INVESTIGATION: END```",
       "ending": true
     },
 
@@ -100,7 +100,7 @@
       ]
     },
     "cabinets6": {
-      "text": "You hear a noise, but before you can do anything – like hide under the table or make your escape, you hear the head nurse’s voice behind you.\n\n“...Hello. Care to explain what you’re doing?”\n\nAs you don’t seem in need of a heal, they kindly tell you to leave, and so you do.",
+      "text": "You hear a noise, but before you can do anything – like hide under the table or make your escape, you hear the head nurse’s voice behind you.\n\n“...Hello. Care to explain what you’re doing?”\n\nAs you don’t seem in need of a heal, they kindly tell you to leave, and so you do.\n```INVESTIGATION: END```",
       "ending": true
     },
 
@@ -138,37 +138,37 @@
       ]
     },
     "table5": {
-      "text": "You hear a noise, but before you can do anything – like hide under the table or make your escape, you hear the head nurse’s voice behind you.\n\n“...Hello. Care to explain what you’re doing?”\n\nAs you don’t seem in need of a heal, they kindly tell you to leave, and so you do.",
+      "text": "You hear a noise, but before you can do anything – like hide under the table or make your escape, you hear the head nurse’s voice behind you.\n\n“...Hello. Care to explain what you’re doing?”\n\nAs you don’t seem in need of a heal, they kindly tell you to leave, and so you do.\n```INVESTIGATION: END```",
       "ending": true
     },
 
 
     "lastbed": {
-      "text": "You find— nothing. Just an empty bed. The cries you thought you were hearing? There’s a vent by the wall, where the wind blows just enough to create a strange whistling sound. Ah… perhaps it was this all along?",
+      "text": "You find— nothing. Just an empty bed. The cries you thought you were hearing? There’s a vent by the wall, where the wind blows just enough to create a strange whistling sound. Ah… perhaps it was this all along?\n```INVESTIGATION: END```",
       "ending": true
     },
     "lastbed2": {
-      "text": "You find an empty bed. The sheets are slightly messed up, but that's about it. Really, it could have been a student. What's so spooky about this!",
+      "text": "You find an empty bed. The sheets are slightly messed up, but that's about it. Really, it could have been a student. What's so spooky about this!\n```INVESTIGATION: END```",
       "ending": true
     },
     "lastbed3": {
-      "text": "You hear it. The crying. It's real.\n\nYou move to draw the curtains back, your heart hammering in your chest, waiting to find a ghost-\n\nYou find repeat stones on the bed. The crying was coming from the stones. Ah... is this a prank?",
+      "text": "You hear it. The crying. It's real.\n\nYou move to draw the curtains back, your heart hammering in your chest, waiting to find a ghost-\n\nYou find repeat stones on the bed. The crying was coming from the stones. Ah... is this a prank?\n```INVESTIGATION: END```",
       "ending": true
     },
     "lastbed4": {
-      "text": "There’s a lump underneath the blanket… could this be the ghost... you unveil it only to find— candy?!\n\nYou collect {{d6}} pieces of candy!",
+      "text": "There’s a lump underneath the blanket… could this be the ghost... you unveil it only to find— candy?!\n\nYou collect {{d6}} pieces of candy!\n```INVESTIGATION: END```",
       "ending": true
     },
     "lastbed5": {
-      "text": "You find— an empty bed. There’s nothing. No ghost patient, no secret mystery. Until —\n\nYou hear something. Crying. Right beside your ear— yet you turn towards the noise and no one is in your immediate vicinity.\n\nYou open the curtains and find … nothing.",
+      "text": "You find— an empty bed. There’s nothing. No ghost patient, no secret mystery. Until —\n\nYou hear something. Crying. Right beside your ear— yet you turn towards the noise and no one is in your immediate vicinity.\n\nYou open the curtains and find … nothing.\n```INVESTIGATION: END```",
       "ending": true
     },
     "lastbed6": {
-      "text": "You open the curtains and find … nothing. The air seems to be shifting oddly — like it was cracking? It lasts for just a second. It’s gone before you can even tell what it was.",
+      "text": "You open the curtains and find … nothing. The air seems to be shifting oddly — like it was cracking? It lasts for just a second. It’s gone before you can even tell what it was.\n```INVESTIGATION: END```",
       "ending": true
     },
     "lastbed7": {
-      "text": "You hear it.\n\nThe crying. You swear it wasn’t there before. Echoing, almost inhumane noises right behind the curtain. Your hand reaches forward, about to pull the curtains back —\n\n“What do you think you’re doing here?”\n\nBefore you can open the curtain, a teacher catches and sends you back to your dorms. Curfew is soon. Go to bed.",
+      "text": "You hear it.\n\nThe crying. You swear it wasn’t there before. Echoing, almost inhumane noises right behind the curtain. Your hand reaches forward, about to pull the curtains back —\n\n“What do you think you’re doing here?”\n\nBefore you can open the curtain, a teacher catches and sends you back to your dorms. Curfew is soon. Go to bed.\n```INVESTIGATION: END```",
       "ending": true
     }
   }
