@@ -2,7 +2,7 @@ const { SlashCommandBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle, Embed
 const { randomBytes } = require('crypto');
 const { getStories, getStoryByKey } = require('../../utils/investigationStories');
 
-const CUSTOM_ID_PREFIX = 'investigate:';
+const CUSTOM_ID_PREFIX = 'explore:';
 const CAMPAIGN_TTL_MS = 7 * 24 * 60 * 60 * 1000;
 const campaigns = new Map();
 
@@ -84,13 +84,13 @@ module.exports = {
     async handleButton(interaction) {
         const [, campaignId, storyKey, sourceNodeId, callerId, choiceIndex] = interaction.customId.split(':');
         if (interaction.user.id !== callerId) {
-            await interaction.reply({ content: 'Only the person who started this investigation can choose what happens next.', ephemeral: true });
+            await interaction.reply({ content: 'Only the person who started this exploration can choose what happens next.', ephemeral: true });
             return;
         }
         try {
             const campaign = campaigns.get(campaignId);
             if (!campaign || campaign.callerId !== callerId || campaign.storyKey !== storyKey) {
-                await interaction.reply({ content: 'This investigation has expired. Please start it again with /investigate.', ephemeral: true });
+                await interaction.reply({ content: 'This exploration has expired. Please start it again with /explore.', ephemeral: true });
                 return;
             }
             const found = getStoryByKey(storyKey);
