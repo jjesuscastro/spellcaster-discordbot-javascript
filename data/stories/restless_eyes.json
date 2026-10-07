@@ -1,8 +1,8 @@
 {
   "name": "courtyard",
-  "start": "courtyard",
+  "start": "courtyard1",
   "nodes": {
-    "courtyard": {
+    "courtyard1": {
       "text": "```During the month of Night of Veils, upperclassmen tell you to avoid the courtyard. They say that the statue in the courtyard follows you with its gaze. Don’t look it in the eyes.``` \nThe courtyard is as it always is. Wide and open for students to frolic in, the breeze slowly turning colder as the season is slowly changing. Notably, there’s less students around than there usually is. Could it be because of the rumor…?\n",
       "choices": [
         {
