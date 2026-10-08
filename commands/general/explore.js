@@ -44,6 +44,7 @@ function renderNode(node, campaign) {
             ? (Array.isArray(choice.next)
                 ? campaign.usedRandomChoices.has(`${node.id}:${index}`)
                     || campaign.usedResponses.has(`${node.id}:${index}`)
+                    || campaign.visitedNodes.has(`${node.id}:${index}`)
                     || getChoiceTargets(choice).every(target => campaign.visitedNodes.has(target))
                 : campaign.visitedNodes.has(choice.next))
             : campaign.usedResponses.has(`${node.id}:${index}`)));
