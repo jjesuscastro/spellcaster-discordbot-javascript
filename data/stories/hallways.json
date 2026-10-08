@@ -8,7 +8,7 @@
         { "label": "Go inside a classroom", "next": ["classroom", "classroom", "classroom2", "classroom2", "classroom3", "classroom3", "classroom4", "classroom5", "classroom6"] },
         { "label": "Inspect a lantern", "next": ["lantern", "lantern", "lantern", "lantern2", "lantern3", "lantern3", "lantern4", "lantern5"] },
         { "label": "Look at the floor", "next": ["floor", "floor", "floor2", "floor2", "floor3", "floor3", "floor4", "floor5", "floor6", "floor7"] },
-        { "label": "Turn Around", "next": [""] }
+        { "label": "Turn Around", "next": ["turn", "turn", "turn2", "turn2", "turn3", "turn3", "turn4", "turn5", "turn6", "turn7"] }
       ]
     },
 
@@ -18,7 +18,7 @@
       "choices": [
         { "label": "Inspect a lantern", "next": ["lantern", "lantern", "lantern", "lantern2", "lantern3", "lantern3", "lantern4", "lantern5"] },
         { "label": "Look at the floor", "next": ["floor", "floor", "floor2", "floor2", "floor3", "floor3", "floor4", "floor5", "floor6", "floor7"] },
-        { "label": "Turn Around", "next": [""] }
+        { "label": "Turn Around", "next": ["turn", "turn", "turn2", "turn2", "turn3", "turn3", "turn4", "turn5", "turn6", "turn7"] }
       ]
     },
     "classroom2": {
@@ -26,7 +26,7 @@
       "choices": [
         { "label": "Inspect a lantern", "next": ["lantern", "lantern", "lantern", "lantern2", "lantern3", "lantern3", "lantern4", "lantern5"] },
         { "label": "Look at the floor", "next": ["floor", "floor", "floor2", "floor2", "floor3", "floor3", "floor4", "floor5", "floor6", "floor7"] },
-        { "label": "Turn Around", "next": [""] }
+        { "label": "Turn Around", "next": ["turn", "turn", "turn2", "turn2", "turn3", "turn3", "turn4", "turn5", "turn6", "turn7"] }
       ]
     },
     "classroom3": {
@@ -34,7 +34,7 @@
       "choices": [
         { "label": "Inspect a lantern", "next": ["lantern", "lantern", "lantern", "lantern2", "lantern3", "lantern3", "lantern4", "lantern5"] },
         { "label": "Look at the floor", "next": ["floor", "floor", "floor2", "floor2", "floor3", "floor3", "floor4", "floor5", "floor6", "floor7"] },
-        { "label": "Turn Around", "next": [""] }
+        { "label": "Turn Around", "next": ["turn", "turn", "turn2", "turn2", "turn3", "turn3", "turn4", "turn5", "turn6", "turn7"] }
       ]
     },
     "classroom4": {
@@ -42,7 +42,7 @@
       "choices": [
         { "label": "Inspect a lantern", "next": ["lantern", "lantern", "lantern", "lantern2", "lantern3", "lantern3", "lantern4", "lantern5"] },
         { "label": "Look at the floor", "next": ["floor", "floor", "floor2", "floor2", "floor3", "floor3", "floor4", "floor5", "floor6", "floor7"] },
-        { "label": "Turn Around", "next": [""] }
+        { "label": "Turn Around", "next": ["turn", "turn", "turn2", "turn2", "turn3", "turn3", "turn4", "turn5", "turn6", "turn7"] }
       ]
     },
     "classroom5": {
@@ -50,16 +50,12 @@
       "choices": [
         { "label": "Inspect a lantern", "next": ["lantern", "lantern", "lantern", "lantern2", "lantern3", "lantern3", "lantern4", "lantern5"] },
         { "label": "Look at the floor", "next": ["floor", "floor", "floor2", "floor2", "floor3", "floor3", "floor4", "floor5", "floor6", "floor7"] },
-        { "label": "Turn Around", "next": [""] }
+        { "label": "Turn Around", "next": ["turn", "turn", "turn2", "turn2", "turn3", "turn3", "turn4", "turn5", "turn6", "turn7"] }
       ]
     },
     "classroom6": {
-      "text": "You place your hand on the doorknob, about to look inside one of the classrooms, when a teacher suddenly clears their throat.\n\n'What are you doing here so close to curfew?'\n\nYou're sent back to your dorms.",
-      "choices": [
-        { "label": "Inspect a lantern", "next": ["lantern", "lantern", "lantern", "lantern2", "lantern3", "lantern3", "lantern4", "lantern5"] },
-        { "label": "Look at the floor", "next": ["floor", "floor", "floor2", "floor2", "floor3", "floor3", "floor4", "floor5", "floor6", "floor7"] },
-        { "label": "Turn Around", "next": [""] }
-      ]
+      "text": "You place your hand on the doorknob, about to look inside one of the classrooms, when a teacher suddenly clears their throat.\n\n'What are you doing here so close to curfew?'\n\nYou're sent back to your dorms.\n```INVESTIGATION: END```",
+      "ending": true
     },
 
 
@@ -68,7 +64,7 @@
       "choices": [
         { "label": "Go inside a classroom", "next": ["classroom", "classroom", "classroom2", "classroom2", "classroom3", "classroom3", "classroom4", "classroom5", "classroom6"] },
         { "label": "Look at the floor", "next": ["floor", "floor", "floor2", "floor2", "floor3", "floor3", "floor4", "floor5", "floor6", "floor7"] },
-        { "label": "Turn Around", "next": [""] }
+        { "label": "Turn Around", "next": ["turn", "turn", "turn2", "turn2", "turn3", "turn3", "turn4", "turn5", "turn6", "turn7"] }
       ]
     },
     "lantern2": {
@@ -76,7 +72,7 @@
       "choices": [
         { "label": "Go inside a classroom", "next": ["classroom", "classroom", "classroom2", "classroom2", "classroom3", "classroom3", "classroom4", "classroom5", "classroom6"] },
         { "label": "Look at the floor", "next": ["floor", "floor", "floor2", "floor2", "floor3", "floor3", "floor4", "floor5", "floor6", "floor7"] },
-        { "label": "Turn Around", "next": [""] }
+        { "label": "Turn Around", "next": ["turn", "turn", "turn2", "turn2", "turn3", "turn3", "turn4", "turn5", "turn6", "turn7"] }
       ]
     },
     "lantern3": {
@@ -84,7 +80,7 @@
       "choices": [
         { "label": "Go inside a classroom", "next": ["classroom", "classroom", "classroom2", "classroom2", "classroom3", "classroom3", "classroom4", "classroom5", "classroom6"] },
         { "label": "Look at the floor", "next": ["floor", "floor", "floor2", "floor2", "floor3", "floor3", "floor4", "floor5", "floor6", "floor7"] },
-        { "label": "Turn Around", "next": [""] }
+        { "label": "Turn Around", "next": ["turn", "turn", "turn2", "turn2", "turn3", "turn3", "turn4", "turn5", "turn6", "turn7"] }
       ]
     },
     "lantern4": {
@@ -92,16 +88,12 @@
       "choices": [
         { "label": "Go inside a classroom", "next": ["classroom", "classroom", "classroom2", "classroom2", "classroom3", "classroom3", "classroom4", "classroom5", "classroom6"] },
         { "label": "Look at the floor", "next": ["floor", "floor", "floor2", "floor2", "floor3", "floor3", "floor4", "floor5", "floor6", "floor7"] },
-        { "label": "Turn Around", "next": [""] }
+        { "label": "Turn Around", "next": ["turn", "turn", "turn2", "turn2", "turn3", "turn3", "turn4", "turn5", "turn6", "turn7"] }
       ]
     },
     "lantern5": {
-      "text": "Getting closer towards the lanterns, perhaps you lost your footing, or maybe someone bumped into you. Whatever the case, you hit one of the lanterns and it comes crashing down.\n\n'Hey!'\n\nA teacher catches you and sends you back to the dorms. You're lucky you didn't get penalized for property damage...",
-      "choices": [
-        { "label": "Go inside a classroom", "next": ["classroom", "classroom", "classroom2", "classroom2", "classroom3", "classroom3", "classroom4", "classroom5", "classroom6"] },
-        { "label": "Look at the floor", "next": ["floor", "floor", "floor2", "floor2", "floor3", "floor3", "floor4", "floor5", "floor6", "floor7"] },
-        { "label": "Turn Around", "next": [""] }
-      ]
+      "text": "Getting closer towards the lanterns, perhaps you lost your footing, or maybe someone bumped into you. Whatever the case, you hit one of the lanterns and it comes crashing down.\n\n'Hey!'\n\nA teacher catches you and sends you back to the dorms. You're lucky you didn't get penalized for property damage...\n```INVESTIGATION: END```",
+      "ending": true
     },
     
 
@@ -111,7 +103,7 @@
       "choices": [
         { "label": "Go inside a classroom", "next": ["classroom", "classroom", "classroom2", "classroom2", "classroom3", "classroom3", "classroom4", "classroom5", "classroom6"] },
         { "label": "Inspect a lantern", "next": ["lantern", "lantern", "lantern", "lantern2", "lantern3", "lantern3", "lantern4", "lantern5"] },
-        { "label": "Turn Around", "next": [""] }
+        { "label": "Turn Around", "next": ["turn", "turn", "turn2", "turn2", "turn3", "turn3", "turn4", "turn5", "turn6", "turn7"] }
       ]
     },
     "floor2": {
@@ -119,7 +111,7 @@
       "choices": [
         { "label": "Go inside a classroom", "next": ["classroom", "classroom", "classroom2", "classroom2", "classroom3", "classroom3", "classroom4", "classroom5", "classroom6"] },
         { "label": "Inspect a lantern", "next": ["lantern", "lantern", "lantern", "lantern2", "lantern3", "lantern3", "lantern4", "lantern5"] },
-        { "label": "Turn Around", "next": [""] }
+        { "label": "Turn Around", "next": ["turn", "turn", "turn2", "turn2", "turn3", "turn3", "turn4", "turn5", "turn6", "turn7"] }
       ]
     },
     "floor3": {
@@ -127,7 +119,7 @@
       "choices": [
         { "label": "Go inside a classroom", "next": ["classroom", "classroom", "classroom2", "classroom2", "classroom3", "classroom3", "classroom4", "classroom5", "classroom6"] },
         { "label": "Inspect a lantern", "next": ["lantern", "lantern", "lantern", "lantern2", "lantern3", "lantern3", "lantern4", "lantern5"] },
-        { "label": "Turn Around", "next": [""] }
+        { "label": "Turn Around", "next": ["turn", "turn", "turn2", "turn2", "turn3", "turn3", "turn4", "turn5", "turn6", "turn7"] }
       ]
     },
     "floor4": {
@@ -135,7 +127,7 @@
       "choices": [
         { "label": "Go inside a classroom", "next": ["classroom", "classroom", "classroom2", "classroom2", "classroom3", "classroom3", "classroom4", "classroom5", "classroom6"] },
         { "label": "Inspect a lantern", "next": ["lantern", "lantern", "lantern", "lantern2", "lantern3", "lantern3", "lantern4", "lantern5"] },
-        { "label": "Turn Around", "next": [""] }
+        { "label": "Turn Around", "next": ["turn", "turn", "turn2", "turn2", "turn3", "turn3", "turn4", "turn5", "turn6", "turn7"] }
       ]
     },
     "floor5": {
@@ -143,7 +135,7 @@
       "choices": [
         { "label": "Go inside a classroom", "next": ["classroom", "classroom", "classroom2", "classroom2", "classroom3", "classroom3", "classroom4", "classroom5", "classroom6"] },
         { "label": "Inspect a lantern", "next": ["lantern", "lantern", "lantern", "lantern2", "lantern3", "lantern3", "lantern4", "lantern5"] },
-        { "label": "Turn Around", "next": [""] }
+        { "label": "Turn Around", "next": ["turn", "turn", "turn2", "turn2", "turn3", "turn3", "turn4", "turn5", "turn6", "turn7"] }
       ]
     },
     "floor6": {
@@ -151,16 +143,12 @@
       "choices": [
         { "label": "Go inside a classroom", "next": ["classroom", "classroom", "classroom2", "classroom2", "classroom3", "classroom3", "classroom4", "classroom5", "classroom6"] },
         { "label": "Inspect a lantern", "next": ["lantern", "lantern", "lantern", "lantern2", "lantern3", "lantern3", "lantern4", "lantern5"] },
-        { "label": "Turn Around", "next": [""] }
+        { "label": "Turn Around", "next": ["turn", "turn", "turn2", "turn2", "turn3", "turn3", "turn4", "turn5", "turn6", "turn7"] }
       ]
     },
     "floor7": {
-      "text": "Before you can do anything else, a teacher suddenly clears their throat.\n\n'What are you doing here so close to curfew?'\n\nYou're sent back to your dorms.",
-      "choices": [
-        { "label": "Go inside a classroom", "next": ["classroom", "classroom", "classroom2", "classroom2", "classroom3", "classroom3", "classroom4", "classroom5", "classroom6"] },
-        { "label": "Inspect a lantern", "next": ["lantern", "lantern", "lantern", "lantern2", "lantern3", "lantern3", "lantern4", "lantern5"] },
-        { "label": "Turn Around", "next": ["turn", "turn", "turn2", "turn2", "turn3", "turn3", "turn4", "turn5", "turn6", "turn7"] }
-      ]
+      "text": "Before you can do anything else, a teacher suddenly clears their throat.\n\n'What are you doing here so close to curfew?'\n\nYou're sent back to your dorms.\n```INVESTIGATION: END```",
+      "ending": true
     },
 
 
