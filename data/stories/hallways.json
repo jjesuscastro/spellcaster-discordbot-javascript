@@ -68,7 +68,7 @@
       ]
     },
     "lantern2": {
-      "text": "You approach one of the lanterns. You’re not sure why, maybe it’s because it was warm, and the fire inside looks so mesmerizing — but you reach out to touch a lantern, maybe grab one when you explore, when —\n\n*crash.*\n\nOne of the lanterns falls to the ground. The glass shatters on impact.",
+      "text": "You approach one of the lanterns. You’re not sure why, maybe it’s because it was warm, and the fire inside looks so mesmerizing — but you reach out to touch a lantern, maybe grab one when you explore, when —\n\n*Crash!*\n\nOne of the lanterns falls to the ground. The glass shatters on impact.",
       "choices": [
         { "label": "Go inside a classroom", "next": ["classroom", "classroom", "classroom2", "classroom2", "classroom3", "classroom3", "classroom4", "classroom5", "classroom6"] },
         { "label": "Look at the floor", "next": ["floor", "floor", "floor2", "floor2", "floor3", "floor3", "floor4", "floor5", "floor6", "floor7"] },
