@@ -1,4 +1,4 @@
-const { SlashCommandBuilder, AttachmentBuilder, EmbedBuilder, PermissionFlagsBits } = require('discord.js');
+/*const { SlashCommandBuilder, AttachmentBuilder, EmbedBuilder, PermissionFlagsBits } = require('discord.js');
 const { createCanvas, loadImage } = require('canvas');
 
 module.exports = {
@@ -82,3 +82,4 @@ module.exports = {
         }
     },
 };
+*/

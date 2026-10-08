@@ -43,7 +43,7 @@ function renderNode(node, campaign) {
         .setDisabled(choice.next !== undefined
             ? (Array.isArray(choice.next)
                 ? campaign.usedRandomChoices.has(`${node.id}:${index}`)
-                    || getChoiceTargets(choice).every(target => campaign.visitedNodes.has(target))
+                    //|| getChoiceTargets(choice).every(target => campaign.visitedNodes.has(target))
                 : campaign.visitedNodes.has(choice.next))
             : campaign.usedResponses.has(`${node.id}:${index}`)));
     const rows = [];
