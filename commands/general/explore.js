@@ -143,8 +143,9 @@ module.exports = {
             campaign.visitedNodes.add(destinationNodeId);
             if (Array.isArray(selectedChoice.next)) campaign.usedRandomChoices.add(choiceKey);
             await interaction.update({
-                content: sourceNode.text,
-                embeds: [new EmbedBuilder().setDescription(`**You chose:** ${selectedChoice.label}`)],
+                //content: sourceNode.text,
+                //embeds: [new EmbedBuilder().setDescription(`**You chose:** ${selectedChoice.label}`)],
+                embeds: [new EmbedBuilder().setDescription(`${sourceNode.text}`).setFooter({text:`**You chose:** ${selectedChoice.label}`})],
                 components: [],
             });
             await interaction.followUp(renderNode({ ...targetNode, id: destinationNodeId }, campaign));
