@@ -38,7 +38,7 @@
       ]
     },
     "benches4": {
-      "text": "The bench is… just a bench. For some reason though, you feel compelled to look under the seats.\n\n…? \n\nYou find a stash of candy! {{d6}} pieces to be exact!",
+      "text": "The bench is… just a bench. For some reason though, you feel compelled to look under the seats.\n\n…? \n\nYou find a stash of candy! `{{d6}}` pieces to be exact!",
       "choices": [
         { "label": "Touch grass", "next": ["grass", "grass", "grass2", "grass2", "grass3", "grass3", "grass4", "grass4", "grass5", "grass6"] },
         { "label": "Visit the fountain", "next": ["fountain", "fountain", "fountain2", "fountain2", "fountain3", "fountain3", "fountain4", "fountain5", "fountain6", "fountain7"] },
@@ -80,7 +80,7 @@
       ]
     },
     "grass4": {
-      "text": "There’s a mound of dirt that looks suspiciously artificial… \n\nDigging it up, you find {{d6}} candies! How lucky!",
+      "text": "There’s a mound of dirt that looks suspiciously artificial… \n\nDigging it up, you find `{{d6}}` candies! How lucky!",
       "choices": [
         { "label": "Go to the benches", "next": ["benches", "benches", "benches2", "benches2", "benches3", "benches3", "benches4", "benches4", "benches5"] },
         { "label": "Visit the fountain", "next": ["fountain", "fountain", "fountain2", "fountain2", "fountain3", "fountain3", "fountain4", "fountain5", "fountain6", "fountain7"] },
@@ -126,7 +126,7 @@
       ]
     },
     "fountain4": {
-      "text": "The fountain is as it always is. Carved stones, shining water. There are edels on the bottom of the fountain! There usually are, from when students throw a coin or two in to make a wish.\n\nBut what’s this…? Squinting into the fountain, you spot something colorful amongst the edels.\n\nYou find {{d6}} candies!",
+      "text": "The fountain is as it always is. Carved stones, shining water. There are edels on the bottom of the fountain! There usually are, from when students throw a coin or two in to make a wish.\n\nBut what’s this…? Squinting into the fountain, you spot something colorful amongst the edels.\n\nYou find `{{d6}}` candies!",
       "choices": [
         { "label": "Go to the benches", "next": ["benches", "benches", "benches2", "benches2", "benches3", "benches3", "benches4", "benches4", "benches5"] },
         { "label": "Touch grass", "next": ["grass", "grass", "grass2", "grass2", "grass3", "grass3", "grass4", "grass4", "grass5", "grass6"] },
@@ -160,7 +160,7 @@
       "ending": true
     },
     "statue2": {
-      "text": "The statue is looking at you.\n\nWait a second.... No it's not. It's looking behind you...?\n\nYou turn around and find {{d6}} candies right where the statue was looking at. Yay!\n```INVESTIGATION: END```",
+      "text": "The statue is looking at you.\n\nWait a second.... No it's not. It's looking behind you...?\n\nYou turn around and find `{{d6}}` candies right where the statue was looking at. Yay!\n```INVESTIGATION: END```",
       "ending": true
     },
     "statue3": {

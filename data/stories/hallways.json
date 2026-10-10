@@ -30,7 +30,7 @@
       ]
     },
     "classroom3": {
-      "text": "You poke your head into one of the classrooms and find a skull on top of one of the desks.\n\nInside… you’ll find a wonderful stash of {{d6}} candies.",
+      "text": "You poke your head into one of the classrooms and find a skull on top of one of the desks.\n\nInside… you’ll find a wonderful stash of `{{d6}}` candies.",
       "choices": [
         { "label": "Inspect a lantern", "next": ["lantern", "lantern", "lantern", "lantern2", "lantern3", "lantern3", "lantern4", "lantern5"] },
         { "label": "Look at the floor", "next": ["floor", "floor", "floor2", "floor2", "floor3", "floor3", "floor4", "floor5", "floor6", "floor7"] },
@@ -84,7 +84,7 @@
       ]
     },
     "lantern4": {
-      "text": "You notice that the shadows cast by one of the lanterns look a little strange… perhaps even candy shaped…? \n\n…How lucky! You find {{d6}} candies.",
+      "text": "You notice that the shadows cast by one of the lanterns look a little strange… perhaps even candy shaped…? \n\n…How lucky! You find `{{d6}}` candies.",
       "choices": [
         { "label": "Go inside a classroom", "next": ["classroom", "classroom", "classroom2", "classroom2", "classroom3", "classroom3", "classroom4", "classroom5", "classroom6"] },
         { "label": "Look at the floor", "next": ["floor", "floor", "floor2", "floor2", "floor3", "floor3", "floor4", "floor5", "floor6", "floor7"] },
@@ -123,7 +123,7 @@
       ]
     },
     "floor4": {
-      "text": "You catch a glimpse of something — oh? It's {{d6}} candies on the floor. Sneaky!",
+      "text": "You catch a glimpse of something — oh? It's `{{d6}}` candies on the floor. Sneaky!",
       "choices": [
         { "label": "Go inside a classroom", "next": ["classroom", "classroom", "classroom2", "classroom2", "classroom3", "classroom3", "classroom4", "classroom5", "classroom6"] },
         { "label": "Inspect a lantern", "next": ["lantern", "lantern", "lantern", "lantern2", "lantern3", "lantern3", "lantern4", "lantern5"] },
@@ -165,7 +165,7 @@
       "ending": true
     },
     "turn4": {
-      "text": "You turn around and find no one.\n\nWhat’s that? Upon closer inspection, you find {{d6}} candies tucked behind the bust statue of a famous mage along one of the walls.\n```INVESTIGATION: END```",
+      "text": "You turn around and find no one.\n\nWhat’s that? Upon closer inspection, you find `{{d6}}` candies tucked behind the bust statue of a famous mage along one of the walls.\n```INVESTIGATION: END```",
       "ending": true
     },
     "turn5": {

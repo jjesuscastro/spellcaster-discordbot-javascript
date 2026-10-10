@@ -1,0 +1,175 @@
+{
+  "name": "observatory",
+  "start": "observatory1",
+  "nodes": {
+    "observatory1": {
+      "text": "```There’s a rumor about the observatory saying that sometimes, the telescope points itself toward the Academy instead of the sky – and that those who look through it swear they can see someone watching them from the second window of the east wing’s second classroom. Isn’t it creepy?``` \nLarge and towering close to the lake, the Observatory stands proud. As one of the favorite destinations of students both as a pasttime, and as an assignment, the Observatory is more often than not occupied. Now though, it's empty. Every step seems to echo. Go inside?\n",
+      "choices": [
+        { "label": "Inspect the entrance before going inside", "next": ["entrance", "entrance", "entrance2", "entrance2", "entrance3", "entrance3", "entrance4", "entrance5"] },
+        { "label": "Head to the storage rooms", "next": ["storage", "storage", "storage2", "storage2", "storage3", "storage3", "storage4", "storage5", "storage6", "storage7"] },
+        { "label": "Head straight to the upper floors", "next": ["upper", "upper", "upper", "upper2", "upper2", "upper3", "upper4", "upper5"] },
+        { "label": "Head inside and find a telescope", "next": ["telescope", "telescope", "telescope2", "telescope2", "telescope3", "telescope4", "telescope5", "telescope6"] }
+      ]
+    },
+
+
+    "entrance": {
+      "text": "Large ornate double doors greet you, a mix of both wood carvings and delicate, metal work in the shape of stars and constellations lining the arches on the doors.  You never really took the time to admire the doors... Isn't it pretty?",
+      "choices": [
+        { "label": "Head to the storage rooms", "next": ["storage", "storage", "storage2", "storage2", "storage3", "storage3", "storage4", "storage5", "storage6", "storage7"] },
+        { "label": "Head straight to the upper floors", "next": ["upper", "upper", "upper", "upper2", "upper2", "upper3", "upper4", "upper5"] },
+        { "label": "Head inside and find a telescope", "next": ["telescope", "telescope", "telescope2", "telescope2", "telescope3", "telescope4", "telescope5", "telescope6"] }
+      ]
+    },
+    "entrance2": {
+      "text": "Large ornate doors greet you... along with... bloody handprints on the door?\n\nThere seems to be blood seeping from inside the door as well...\n\n(Upon closer inspection, you will realize that the blood is fake. And very very watery. It's not even good quality fake blood.)",
+      "choices": [
+        { "label": "Head to the storage rooms", "next": ["storage", "storage", "storage2", "storage2", "storage3", "storage3", "storage4", "storage5", "storage6", "storage7"] },
+        { "label": "Head straight to the upper floors", "next": ["upper", "upper", "upper", "upper2", "upper2", "upper3", "upper4", "upper5"] },
+        { "label": "Head inside and find a telescope", "next": ["telescope", "telescope", "telescope2", "telescope2", "telescope3", "telescope4", "telescope5", "telescope6"] }
+      ]
+    },
+    "entrance3": {
+      "text": "There’s a basket sitting by the entrance, filled with candies. You count `{{d6}}` of them inside… and just like that, they’re yours now. How easy!",
+      "choices": [
+        { "label": "Head to the storage rooms", "next": ["storage", "storage", "storage2", "storage2", "storage3", "storage3", "storage4", "storage5", "storage6", "storage7"] },
+        { "label": "Head straight to the upper floors", "next": ["upper", "upper", "upper", "upper2", "upper2", "upper3", "upper4", "upper5"] },
+        { "label": "Head inside and find a telescope", "next": ["telescope", "telescope", "telescope2", "telescope2", "telescope3", "telescope4", "telescope5", "telescope6"] }
+      ]
+    },
+    "entrance4": {
+      "text": "Large ornate double doors greet you, a mix of both wood carvings and delicate, metal work in the shape of stars and constellations lining the arches on the doors.\n\n... there's a strange mark on the door. That wasn't there before. You can't decipher it, and you don't recognize this as any of the runes you've read in your assignments. Whatever it is... it doesn't feel... right.",
+      "choices": [
+        { "label": "Head to the storage rooms", "next": ["storage", "storage", "storage2", "storage2", "storage3", "storage3", "storage4", "storage5", "storage6", "storage7"] },
+        { "label": "Head straight to the upper floors", "next": ["upper", "upper", "upper", "upper2", "upper2", "upper3", "upper4", "upper5"] },
+        { "label": "Head inside and find a telescope", "next": ["telescope", "telescope", "telescope2", "telescope2", "telescope3", "telescope4", "telescope5", "telescope6"] }
+      ]
+    },
+    "entrance5": {
+      "text": "The doors are as it always is, and so are the surroundings. There's a breeze in the air, it's chilly.\n\nIt blows a few leaves around, flying past you, towards the forest.\n\nNothing seems to be wrong.",
+      "choices": [
+        { "label": "Head to the storage rooms", "next": ["storage", "storage", "storage2", "storage2", "storage3", "storage3", "storage4", "storage5", "storage6", "storage7"] },
+        { "label": "Head straight to the upper floors", "next": ["upper", "upper", "upper", "upper2", "upper2", "upper3", "upper4", "upper5"] },
+        { "label": "Head inside and find a telescope", "next": ["telescope", "telescope", "telescope2", "telescope2", "telescope3", "telescope4", "telescope5", "telescope6"] }
+      ]
+    },
+
+
+    "storage": {
+      "text": "You peek into the observatory’s storage room and find rows of telescopes, spare lenses, and various astronomical instruments arranged along the shelves, including divination tools. Nothing seems out of the ordinary.",
+      "choices": [
+        { "label": "Inspect the entrance before going inside", "next": ["entrance", "entrance", "entrance2", "entrance2", "entrance3", "entrance3", "entrance4", "entrance5"] },
+        { "label": "Head straight to the upper floors", "next": ["upper", "upper", "upper", "upper2", "upper2", "upper3", "upper4", "upper5"] },
+        { "label": "Head inside and find a telescope", "next": ["telescope", "telescope", "telescope2", "telescope2", "telescope3", "telescope4", "telescope5", "telescope6"] }
+      ]
+    },
+    "storage2": {
+      "text": "You peek into the observatory's storage room and find it... empty. Aww...",
+      "choices": [
+        { "label": "Inspect the entrance before going inside", "next": ["entrance", "entrance", "entrance2", "entrance2", "entrance3", "entrance3", "entrance4", "entrance5"] },
+        { "label": "Head straight to the upper floors", "next": ["upper", "upper", "upper", "upper2", "upper2", "upper3", "upper4", "upper5"] },
+        { "label": "Head inside and find a telescope", "next": ["telescope", "telescope", "telescope2", "telescope2", "telescope3", "telescope4", "telescope5", "telescope6"] }
+      ]
+    },
+    "storage3": {
+      "text": "You peek into the observatory's storange room - your heart drops.\n\nA murder scene... right in front of you! A corpse lays on the ground, leaking blood, the murder weapon inches away...\n\n(Upon closer inspection, you will realize that the body is fake, and so is the flimsy, rubber knife. The blood is simply loads of food coloring mixed with water.)",
+      "choices": [
+        { "label": "Inspect the entrance before going inside", "next": ["entrance", "entrance", "entrance2", "entrance2", "entrance3", "entrance3", "entrance4", "entrance5"] },
+        { "label": "Head straight to the upper floors", "next": ["upper", "upper", "upper", "upper2", "upper2", "upper3", "upper4", "upper5"] },
+        { "label": "Head inside and find a telescope", "next": ["telescope", "telescope", "telescope2", "telescope2", "telescope3", "telescope4", "telescope5", "telescope6"] }
+      ]
+    },
+    "storage4": {
+      "text": "One of the Seedlings taking care of keeping this place clean motions for you to take those `{{d6}}` candies it had found in the storage room. Take it, take it! It doesn’t belong here!",
+      "choices": [
+        { "label": "Inspect the entrance before going inside", "next": ["entrance", "entrance", "entrance2", "entrance2", "entrance3", "entrance3", "entrance4", "entrance5"] },
+        { "label": "Head straight to the upper floors", "next": ["upper", "upper", "upper", "upper2", "upper2", "upper3", "upper4", "upper5"] },
+        { "label": "Head inside and find a telescope", "next": ["telescope", "telescope", "telescope2", "telescope2", "telescope3", "telescope4", "telescope5", "telescope6"] }
+      ]
+    },
+    "storage5": {
+      "text": "You open the door to the storage room, and right as you do, you notice how something seems to seep out. It's hard to explain, but you just know it. \n\nSomething was here just now. ",
+      "choices": [
+        { "label": "Inspect the entrance before going inside", "next": ["entrance", "entrance", "entrance2", "entrance2", "entrance3", "entrance3", "entrance4", "entrance5"] },
+        { "label": "Head straight to the upper floors", "next": ["upper", "upper", "upper", "upper2", "upper2", "upper3", "upper4", "upper5"] },
+        { "label": "Head inside and find a telescope", "next": ["telescope", "telescope", "telescope2", "telescope2", "telescope3", "telescope4", "telescope5", "telescope6"] }
+      ]
+    },
+    "storage6": {
+      "text": " Peeking into the storage room, a chill seems to go down your spine. The air seems to be shifting oddly — like it was deforming. It's cold, much colder than just a literal step ago outside the storage room.\n\nIt lasts for a few seconds.",
+      "choices": [
+        { "label": "Inspect the entrance before going inside", "next": ["entrance", "entrance", "entrance2", "entrance2", "entrance3", "entrance3", "entrance4", "entrance5"] },
+        { "label": "Head straight to the upper floors", "next": ["upper", "upper", "upper", "upper2", "upper2", "upper3", "upper4", "upper5"] },
+        { "label": "Head inside and find a telescope", "next": ["telescope", "telescope", "telescope2", "telescope2", "telescope3", "telescope4", "telescope5", "telescope6"] }
+      ]
+    },
+    "storage7": {
+      "text": "You peek into the storage room... is this allowed? You get a glimpse of a few telescopes, some astronomical instruments, when you suddenly hear a voice from behind you.\n\n'What are you first years doing?'\n\nA teacher sends you out of the observatory and back to class...",
+      "ending": true
+    },
+
+
+    "upper": {
+      "text": "The upper floor of the observatory is lined with bookshelves filled with guides to astronomy and old records of celestial observations. An exterior balcony surrounds the dome, offering a clear view of the night sky – it reminds you of your 8pm astronomy classes. Have you done your homework yet?",
+      "choices": [
+        { "label": "Inspect the entrance before going inside", "next": ["entrance", "entrance", "entrance2", "entrance2", "entrance3", "entrance3", "entrance4", "entrance5"] },
+        { "label": "Head to the storage rooms", "next": ["storage", "storage", "storage2", "storage2", "storage3", "storage3", "storage4", "storage5", "storage6", "storage7"] },
+        { "label": "Head inside and find a telescope", "next": ["telescope", "telescope", "telescope2", "telescope2", "telescope3", "telescope4", "telescope5", "telescope6"] }
+      ]
+    },
+    "upper2": {
+      "text": "Looking through the shelves of the upper floors, you pull out a book. And with it, a swarm of spiders come crawling out of the space. It crawls along the shelves, some of it even getting on your arms-\n\n- and then they disappear. It was only an illussion.",
+      "choices": [
+        { "label": "Inspect the entrance before going inside", "next": ["entrance", "entrance", "entrance2", "entrance2", "entrance3", "entrance3", "entrance4", "entrance5"] },
+        { "label": "Head to the storage rooms", "next": ["storage", "storage", "storage2", "storage2", "storage3", "storage3", "storage4", "storage5", "storage6", "storage7"] },
+        { "label": "Head inside and find a telescope", "next": ["telescope", "telescope", "telescope2", "telescope2", "telescope3", "telescope4", "telescope5", "telescope6"] }
+      ]
+    },
+    "upper3": {
+      "text": "You pull a copy of *The Astronomer’s Handbook* from one of the shelves. \n\nUpon opening it, you discover that the book has been hollowed out! There are `{{d6}}` candies tucked inside instead.",
+      "choices": [
+        { "label": "Inspect the entrance before going inside", "next": ["entrance", "entrance", "entrance2", "entrance2", "entrance3", "entrance3", "entrance4", "entrance5"] },
+        { "label": "Head to the storage rooms", "next": ["storage", "storage", "storage2", "storage2", "storage3", "storage3", "storage4", "storage5", "storage6", "storage7"] },
+        { "label": "Head inside and find a telescope", "next": ["telescope", "telescope", "telescope2", "telescope2", "telescope3", "telescope4", "telescope5", "telescope6"] }
+      ]
+    },
+    "upper4": {
+      "text": "It's quieter in the upper floors. Every footstep seems much too loud, bouncing along walls, it's almost defeaning. You can't help but be hypersensitive to any new noise, and that's when you hear it:\n\nSomething whispers in your ear. The words indiscernable. It doesn't sound - doesn't feel - human.\n\nWhen you look around to find the source, you find no one there.",
+      "choices": [
+        { "label": "Inspect the entrance before going inside", "next": ["entrance", "entrance", "entrance2", "entrance2", "entrance3", "entrance3", "entrance4", "entrance5"] },
+        { "label": "Head to the storage rooms", "next": ["storage", "storage", "storage2", "storage2", "storage3", "storage3", "storage4", "storage5", "storage6", "storage7"] },
+        { "label": "Head inside and find a telescope", "next": ["telescope", "telescope", "telescope2", "telescope2", "telescope3", "telescope4", "telescope5", "telescope6"] }
+      ]
+    },
+    "upper5": {
+      "text": "You rattle the door leading to the balcony. Seems like it's locked...\n\nYou don't spot anything else of interest. Time to head back out.",
+      "ending": true
+    },
+
+
+    "telescope": {
+      "text": "The dome is wide open — the beautiful night sky hangs above your head. The telescope is exactly where it should be. The stars are shining. There is no one watching you from the second window of the east wing’s second classroom. Everything is perfectly normal.\n```INVESTIGATION: END```",
+      "ending": true
+    },
+    "telescope2": {
+      "text": "You peek into the telescope and -- look! A star! How beautiful.\n```INVESTIGATION: END```",
+      "ending": true
+    },
+    "telescope3": {
+      "text": "You point the telescope toward the second window of the east wing’s second classroom and take a peek.\n\nChills immediately run down your spine when you do catch a ghostly figure watching you.\n\nWait – upon closer inspection, you realize it’s nothing more than a remarkably realistic cutout. Phew.\n```INVESTIGATION: END```",
+      "ending": true
+    },
+    "telescope4": {
+      "text": "You peek into the telescope and -- oh, what? Someone taped `{{d6}}` onto the lens.\n```INVESTIGATION: END```",
+      "ending": true
+    },
+    "telescope5": {
+      "text": "You try to point the telescope toward the second window of the east wing’s second classroom.\n\nAnd – you can’t. No matter what you do, the telescope refuses to budge. Is it broken?\n\nYou take a peek anyways, and you find that the telescope is stuck pointing directly toward the forest. Or perhaps toward this particular part of the lake? You’re not entirely sure, except that you can’t see anything unusual through the lens.\n```INVESTIGATION: END```",
+      "ending": true
+    },
+    "telescope6": {
+      "text": "You try to point the telescope toward the second window of the east wing’s second classroom.\n\nBut before you could take a peek, a teacher comes in. They scold you for tampering with the telescope so recklessly - 'Equipment is meant to be used on the skies, not to spy on students!'\n\nThey send you back to class.\n```INVESTIGATION: END```",
+      "ending": true
+    }
+  }
+}

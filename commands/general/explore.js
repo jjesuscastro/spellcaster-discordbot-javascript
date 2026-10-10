@@ -130,7 +130,10 @@ module.exports = {
             if (selectedChoice.response !== undefined) {
                 campaign.usedResponses.add(choiceKey);
                 await interaction.update(renderNode({ ...sourceNode, id: sourceNodeId }, campaign));
-                await interaction.followUp({ content: selectedChoice.response, ephemeral: true });
+                await interaction.followUp({ 
+                    //content: selectedChoice.response, 
+                    embeds: [new EmbedBuilder().setDescription(`${selectedChoice.response}`)],
+                    ephemeral: true });
                 return;
             }
 
@@ -145,7 +148,7 @@ module.exports = {
             await interaction.update({
                 //content: sourceNode.text,
                 //embeds: [new EmbedBuilder().setDescription(`**You chose:** ${selectedChoice.label}`)],
-                embeds: [new EmbedBuilder().setDescription(`${sourceNode.text}`).setFooter({text:`**You chose:** ${selectedChoice.label}`})],
+                embeds: [new EmbedBuilder().setDescription(`${sourceNode.text}`).setFooter({text:`You chose: ${selectedChoice.label}`})],
                 components: [],
             });
             await interaction.followUp(renderNode({ ...targetNode, id: destinationNodeId }, campaign));
