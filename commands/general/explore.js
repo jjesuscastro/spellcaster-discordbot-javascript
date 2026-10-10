@@ -52,7 +52,10 @@ function renderNode(node, campaign) {
     for (let index = 0; index < buttons.length; index += 5) {
         rows.push(new ActionRowBuilder().addComponents(buttons.slice(index, index + 5)));
     }
-    return { content: node.text, components: rows };
+    return { 
+        embeds: [new EmbedBuilder().setDescription(`${node.text}`)],
+        //content: node.text, 
+        components: rows };
 }
 
 module.exports = {
