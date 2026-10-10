@@ -30,7 +30,7 @@
       ]
     },
     "bed3": {
-      "text": "There’s a lump underneath the blanket on one of the beds… unveiling the blanket reveals…. candy?!\n\nYou collect {{d6}} pieces of candy!",
+      "text": "There’s a lump underneath the blanket on one of the beds… unveiling the blanket reveals…. candy?!\n\nYou collect `{{d6}}` pieces of candy!",
       "choices": [
         { "label": "Search through the cabinets", "next": ["cabinets", "cabinets", "cabinets2", "cabinets2", "cabinets3", "cabinets3", "cabinets4", "cabinets5", "cabinets6"] },
         { "label": "Go to the head nurse's table", "next": ["table", "table", "table2", "table2", "table3", "table3", "table4", "table5"] },
@@ -84,7 +84,7 @@
       ]
     },
     "cabinets4": {
-      "text": "One of the cabinets seems to be slightly ajar… what’s this? You find {{d6}} candies inside!",
+      "text": "One of the cabinets seems to be slightly ajar… what’s this? You find `{{d6}}` candies inside!",
       "choices": [
         { "label": "Look at the beds", "next": ["bed1", "bed1", "bed2", "bed2", "bed3", "bed3", "bed4", "bed5", "bed5", "bed6"] },
         { "label": "Go to the head nurse's table", "next": ["table", "table", "table2", "table2", "table3", "table3", "table4", "table5"] },
@@ -122,7 +122,7 @@
       ]
     },
     "table3": {
-      "text": "There’s a small pumpkin in the middle of the table. Inside the pumpkin reveals {{d6}} pieces of candy. Yay!",
+      "text": "There’s a small pumpkin in the middle of the table. Inside the pumpkin reveals `{{d6}}` pieces of candy. Yay!",
       "choices": [
         { "label": "Look at the beds", "next": ["bed1", "bed1", "bed2", "bed2", "bed3", "bed3", "bed4", "bed5", "bed5", "bed6"] },
         { "label": "Search through the cabinets", "next": ["cabinets", "cabinets", "cabinets2", "cabinets2", "cabinets3", "cabinets3", "cabinets4", "cabinets5", "cabinets6"] },
@@ -156,7 +156,7 @@
       "ending": true
     },
     "lastbed4": {
-      "text": "There’s a lump underneath the blanket… could this be the ghost... you unveil it only to find— candy?!\n\nYou collect {{d6}} pieces of candy!\n```INVESTIGATION: END```",
+      "text": "There’s a lump underneath the blanket… could this be the ghost... you unveil it only to find— candy?!\n\nYou collect `{{d6}}` pieces of candy!\n```INVESTIGATION: END```",
       "ending": true
     },
     "lastbed5": {

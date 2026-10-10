@@ -118,7 +118,7 @@
       ]
     },
     "upper2": {
-      "text": "Looking through the shelves of the upper floors, you pull out a book. And with it, a swarm of spiders come crawling out of the space. It crawls along the shelves, some of it even getting on your arms-\n\n- and then they disappear. It was only an illussion.",
+      "text": "Looking through the shelves of the upper floors, you pull out a book. And with it, a swarm of spiders come crawling out of the space. It crawls along the shelves, some of it even getting on your arms-\n\n and then they disappear. It was only an illusion.",
       "choices": [
         { "label": "Inspect the entrance before going inside", "next": ["entrance", "entrance", "entrance2", "entrance2", "entrance3", "entrance3", "entrance4", "entrance5"] },
         { "label": "Head to the storage rooms", "next": ["storage", "storage", "storage2", "storage2", "storage3", "storage3", "storage4", "storage5", "storage6", "storage7"] },
