@@ -34,7 +34,11 @@ function getChoiceTargets(choice) {
 }
 
 function renderNode(node, campaign) {
-    if (node.ending === true) return { content: node.text, components: [] };
+    if (node.ending === true) 
+        return { 
+            embeds: [new EmbedBuilder().setDescription(`${node.text}`)],
+            //content: node.text, 
+            components: [] };
 
     const buttons = node.choices.map((choice, index) => new ButtonBuilder()
         .setCustomId(`${CUSTOM_ID_PREFIX}${campaign.id}:${campaign.storyKey}:${node.id}:${campaign.callerId}:${index}`)
