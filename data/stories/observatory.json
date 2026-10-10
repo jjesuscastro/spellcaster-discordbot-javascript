@@ -104,7 +104,7 @@
       ]
     },
     "storage7": {
-      "text": "You peek into the storage room... is this allowed? You get a glimpse of a few telescopes, some astronomical instruments, when you suddenly hear a voice from behind you.\n\n'What are you first years doing?'\n\nA teacher sends you out of the observatory and back to class...",
+      "text": "You peek into the storage room... is this allowed? You get a glimpse of a few telescopes, some astronomical instruments, when you suddenly hear a voice from behind you.\n\n'What are you first years doing?'\n\nA teacher sends you out of the observatory and back to class...\n```INVESTIGATION: END```",
       "ending": true
     },
 
@@ -142,7 +142,7 @@
       ]
     },
     "upper5": {
-      "text": "You rattle the door leading to the balcony. Seems like it's locked...\n\nYou don't spot anything else of interest. Time to head back out.",
+      "text": "You rattle the door leading to the balcony. Seems like it's locked...\n\nYou don't spot anything else of interest. Time to head back out.\n```INVESTIGATION: END```",
       "ending": true
     },
 

@@ -46,7 +46,7 @@
       ]
     },
     "halls5": {
-      "text": "The librarian notices that you aren't here to study nor to read.\n\nThey promptly ask you to leave the library. Bye bye rumor...",
+      "text": "The librarian notices that you aren't here to study nor to read.\n\nThey promptly ask you to leave the library. Bye bye rumor...\n```INVESTIGATION: END```",
       "ending": true
     },
     
@@ -84,7 +84,7 @@
       ]
     },
     "ground5": {
-      "text": "Here you are, between the shelves. Nothing happens, nothing exciting. You pull out a book, when you hear something - it's voice so faint that you can't tell if it was real or not-\n\nYou hear something unfamiliar calling your name.",
+      "text": "Here you are, between the shelves. Nothing happens, nothing exciting. You pull out a book, when you hear something - it's voice so faint that you can't tell if it was real or not-\n\nYou hear something unfamiliar calling your name...something unnatural. It's gone before you know it.",
       "choices": [
         { "label": "Explore the reading halls", "next": ["halls", "halls", "halls2", "halls2", "halls3", "halls4", "halls5"] },
         { "label": "Head straight to the upper floors", "next": ["upper", "upper", "upper2", "upper2", "upper3", "upper4", "upper5", "upper6"] },
@@ -100,76 +100,68 @@
       ]
     },
     "ground7": {
-      "text": "You pull out a book, but you must have moved it wrong- before you know it, multiple books come crashing down. It creates quite the scene.\n\nBefore you know it, you're kicked out of the library...",
+      "text": "You pull out a book, but you must have moved it wrong- before you know it, multiple books come crashing down. It creates quite the scene.\n\nBefore you know it, you're kicked out of the library...\n```INVESTIGATION: END```",
       "ending": true
     },
 
 
     "upper": {
-      "text": "You find yourself looking at the *Theology* section. Books full of the history of Vellune, books of prayer, there are even a few books on other religions. Maybe you should take one out and just pray instead of doing whatever it is you're doing now.../",
-      "choices": [
-        { "label": "Explore the reading halls", "next": ["halls", "halls", "halls2", "halls2", "halls3", "halls4", "halls5"] },
-        { "label": "Go to the ground floor shelves", "next": ["ground", "ground", "ground2", "ground2", "ground3", "ground3", "ground4", "ground5", "ground6", "ground7"] },
-        { "label": "Go to the backrooms", "next": ["backrooms", "backrooms", "backrooms", "backrooms2", "backrooms2", "backrooms3", "backrooms4", "backrooms5"] }
-      ]
+      "text": "You find yourself looking at the *Theology* section. Books full of the history of Vellune, books of prayer, there are even a few books on other religions. Maybe you should take one out and just pray instead of doing whatever it is you're doing now...\n```INVESTIGATION: END```",
+      "ending": true
     },
     "upper2": {
-      "text": "Here you are, between the shelves- there. You hear it. Someone is calling your name!\n\n...\n\nHang on. That's just your classmate. Aw...",
-      "choices": [
-        { "label": "Explore the reading halls", "next": ["halls", "halls", "halls2", "halls2", "halls3", "halls4", "halls5"] },
-        { "label": "Go to the ground floor shelves", "next": ["ground", "ground", "ground2", "ground2", "ground3", "ground3", "ground4", "ground5", "ground6", "ground7"] },
-        { "label": "Go to the backrooms", "next": ["backrooms", "backrooms", "backrooms", "backrooms2", "backrooms2", "backrooms3", "backrooms4", "backrooms5"] }
-      ]
+      "text": "Here you are, between the shelves- there. You hear it. Someone is calling your name!\n\n...\n\nHang on. That's just your classmate. Aw...\n```INVESTIGATION: END```",
+      "ending": true
     },
     "upper3": {
-      "text": "For some reason, something compels you to look on top of the bookshelves...\n\nBoo! You find a plastic skeleton staring back at you.",
-      "choices": [
-        { "label": "Explore the reading halls", "next": ["halls", "halls", "halls2", "halls2", "halls3", "halls4", "halls5"] },
-        { "label": "Go to the ground floor shelves", "next": ["ground", "ground", "ground2", "ground2", "ground3", "ground3", "ground4", "ground5", "ground6", "ground7"] },
-        { "label": "Go to the backrooms", "next": ["backrooms", "backrooms", "backrooms", "backrooms2", "backrooms2", "backrooms3", "backrooms4", "backrooms5"] }
-      ]
+      "text": "For some reason, something compels you to look on top of the bookshelves...\n\nBoo! You find a plastic skeleton staring back at you.\n```INVESTIGATION: END```",
+      "ending": true
     },
     "upper4": {
-      "text": "You pull out one of the books to inspect it, when suddenly, `{{d6}}` candies fall along with it! Woah!",
-      "choices": [
-        { "label": "Explore the reading halls", "next": ["halls", "halls", "halls2", "halls2", "halls3", "halls4", "halls5"] },
-        { "label": "Go to the ground floor shelves", "next": ["ground", "ground", "ground2", "ground2", "ground3", "ground3", "ground4", "ground5", "ground6", "ground7"] },
-        { "label": "Go to the backrooms", "next": ["backrooms", "backrooms", "backrooms", "backrooms2", "backrooms2", "backrooms3", "backrooms4", "backrooms5"] }
-      ]
+      "text": "You pull out one of the books to inspect it, when suddenly, `{{d6}}` candies fall along with it! Woah!\n```INVESTIGATION: END```",
+      "ending": true
     },
     "upper5": {
-      "text": "You check one of the book return carts. Nothing seems to be wrong with it. You reach down to grab a hold of one of the books-\n\nSomething cold seems to grip at your hand. It wraps around, *tugging*, which is odd - because you don't see anything at all holding you.\n\nThe feeling disappears after a few seconds.",
-      "choices": [
-        { "label": "Explore the reading halls", "next": ["halls", "halls", "halls2", "halls2", "halls3", "halls4", "halls5"] },
-        { "label": "Go to the ground floor shelves", "next": ["ground", "ground", "ground2", "ground2", "ground3", "ground3", "ground4", "ground5", "ground6", "ground7"] },
-        { "label": "Go to the backrooms", "next": ["backrooms", "backrooms", "backrooms", "backrooms2", "backrooms2", "backrooms3", "backrooms4", "backrooms5"] }
-      ]
+      "text": "You check one of the book return carts. Nothing seems to be wrong with it. You reach down to grab a hold of one of the books-\n\nSomething cold seems to grip at your hand. It wraps around, *tugging*, which is odd - because you don't see anything at all holding you.\n\nThe feeling disappears after a few seconds.\n```INVESTIGATION: END```",
+      "ending": true
     },
     "upper6": {
-      "text": "Here you are, between the shelves. Nothing is happening... so you pull out a book. And when you do, you almost drop it in shock when you realize--\n\nSomething was watching you from behind the shelves.\n\nIt disappears before you can tell what it was.",
-      "choices": [
-        { "label": "Explore the reading halls", "next": ["halls", "halls", "halls2", "halls2", "halls3", "halls4", "halls5"] },
-        { "label": "Go to the ground floor shelves", "next": ["ground", "ground", "ground2", "ground2", "ground3", "ground3", "ground4", "ground5", "ground6", "ground7"] },
-        { "label": "Go to the backrooms", "next": ["backrooms", "backrooms", "backrooms", "backrooms2", "backrooms2", "backrooms3", "backrooms4", "backrooms5"] }
-      ]
+      "text": "Here you are, between the shelves. Nothing is happening... so you pull out a book. And when you do, you almost drop it in shock when you realize--\n\nSomething was watching you from behind the shelves.\n\nIt disappears before you can tell what it was.\n```INVESTIGATION: END```",
+      "ending": true
     },
 
 
     "backrooms": {
-      "text": "A small maze of staff only rooms, including bookbinding and repair rooms, storage areas... anything where the library's books are sorted and maintained, whether through mundane or magic means.\n```INVESTIGATION: END```",
-      "ending": true
+      "text": "A small maze of staff only rooms, including bookbinding and repair rooms, storage areas... anything where the library's books are sorted and maintained, whether through mundane or magic means.",
+      "choices": [
+        { "label": "Explore the reading halls", "next": ["halls", "halls", "halls2", "halls2", "halls3", "halls4", "halls5"] },
+        { "label": "Go to the ground floor shelves", "next": ["ground", "ground", "ground2", "ground2", "ground3", "ground3", "ground4", "ground5", "ground6", "ground7"] },
+        { "label": "Head straight to the upper floors", "next": ["upper", "upper", "upper2", "upper2", "upper3", "upper4", "upper5", "upper6"] }
+      ]
     },
     "backrooms2": {
-      "text": "*Scritch scratch.*\n\nA quill scratches away on its own in the far corner of the book repair room. Letter after letter appears on the page, writing what seems to be... a curse?\n\n...Not quite. \n\nA closer look reveals that the quill is enchanted to move on its own. The 'curse' is nothing more than meaningless scratches... seems like someone else got here before you.\n```INVESTIGATION: END```",
-      "ending": true
+      "text": "*Scritch scratch.*\n\nA quill scratches away on its own in the far corner of the book repair room. Letter after letter appears on the page, writing what seems to be... a curse?\n\n...Not quite. \n\nA closer look reveals that the quill is enchanted to move on its own. The 'curse' is nothing more than meaningless scratches... seems like someone else got here before you.",
+      "choices": [
+        { "label": "Explore the reading halls", "next": ["halls", "halls", "halls2", "halls2", "halls3", "halls4", "halls5"] },
+        { "label": "Go to the ground floor shelves", "next": ["ground", "ground", "ground2", "ground2", "ground3", "ground3", "ground4", "ground5", "ground6", "ground7"] },
+        { "label": "Head straight to the upper floors", "next": ["upper", "upper", "upper2", "upper2", "upper3", "upper4", "upper5", "upper6"] }
+      ]
     },
     "backrooms3": {
-      "text": "You find yourself in an empty place with yellow walls and a yellow floor. There are no bookshelves. No doors. No windows. \n\nYou blink --\n\nAnd around you, is the library's cataloguing room. It leaves you wondering if you imagined the whole thing, but you swear it was real.\n```INVESTIGATION: END```",
-      "ending": true
+      "text": "You find yourself in an empty place with yellow walls and a yellow floor. There are no bookshelves. No doors. No windows. \n\nYou blink --\n\nAnd around you, is the library's cataloguing room. It leaves you wondering if you imagined the whole thing, but you swear it was real.",
+      "choices": [
+        { "label": "Explore the reading halls", "next": ["halls", "halls", "halls2", "halls2", "halls3", "halls4", "halls5"] },
+        { "label": "Go to the ground floor shelves", "next": ["ground", "ground", "ground2", "ground2", "ground3", "ground3", "ground4", "ground5", "ground6", "ground7"] },
+        { "label": "Head straight to the upper floors", "next": ["upper", "upper", "upper2", "upper2", "upper3", "upper4", "upper5", "upper6"] }
+      ]
     },
     "backrooms4": {
-      "text": "You make your way through the backrooms, and you smell it -- the faint scent of pine.\n\nYou notice smudges of mud on the wall and floor, too. \n\n...*strange*. This far inside the library, where could it possibly come from?\n```INVESTIGATION: END```",
-      "ending": true
+      "text": "You make your way through the backrooms, and you smell it -- the faint scent of pine.\n\nYou notice smudges of mud on the wall and floor, too. \n\n...*strange*. This far inside the library, where could it possibly come from?",
+      "choices": [
+        { "label": "Explore the reading halls", "next": ["halls", "halls", "halls2", "halls2", "halls3", "halls4", "halls5"] },
+        { "label": "Go to the ground floor shelves", "next": ["ground", "ground", "ground2", "ground2", "ground3", "ground3", "ground4", "ground5", "ground6", "ground7"] },
+        { "label": "Head straight to the upper floors", "next": ["upper", "upper", "upper2", "upper2", "upper3", "upper4", "upper5", "upper6"] }
+      ]
     },
     "backrooms5": {
       "text": "You shouldn't be here -- and the librarian silently standing right behind you is proof of it. \n\nWhen they finally catch your attention, they give you a stern warning before kicking you out of the room. Seems like you have no choice but to actually study if you want to stay in the library...\n```INVESTIGATION: END```",
