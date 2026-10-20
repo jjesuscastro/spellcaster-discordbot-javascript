@@ -34,7 +34,11 @@ function getChoiceTargets(choice) {
 }
 
 function renderNode(node, campaign) {
-    if (node.ending === true) return { content: node.text, components: [] };
+    if (node.ending === true) 
+        return { 
+            embeds: [new EmbedBuilder().setDescription(`${node.text}`)],
+            //content: node.text, 
+            components: [] };
 
     const buttons = node.choices.map((choice, index) => new ButtonBuilder()
         .setCustomId(`${CUSTOM_ID_PREFIX}${campaign.id}:${campaign.storyKey}:${node.id}:${campaign.callerId}:${index}`)
@@ -44,6 +48,7 @@ function renderNode(node, campaign) {
             ? (Array.isArray(choice.next)
                 ? campaign.usedRandomChoices.has(`${node.id}:${index}`)
                     || getChoiceTargets(choice).every(target => campaign.visitedNodes.has(target))
+                    || getChoiceTargets(choice).some(target => campaign.visitedNodes.has(target))
                 : campaign.visitedNodes.has(choice.next))
             : campaign.usedResponses.has(`${node.id}:${index}`)));
     const rows = [];
@@ -51,7 +56,10 @@ function renderNode(node, campaign) {
     for (let index = 0; index < buttons.length; index += 5) {
         rows.push(new ActionRowBuilder().addComponents(buttons.slice(index, index + 5)));
     }
-    return { content: node.text, components: rows };
+    return { 
+        embeds: [new EmbedBuilder().setDescription(`${node.text}`)],
+        //content: node.text, 
+        components: rows };
 }
 
 module.exports = {
@@ -129,7 +137,10 @@ module.exports = {
             if (selectedChoice.response !== undefined) {
                 campaign.usedResponses.add(choiceKey);
                 await interaction.update(renderNode({ ...sourceNode, id: sourceNodeId }, campaign));
-                await interaction.followUp({ content: selectedChoice.response, ephemeral: true });
+                await interaction.followUp({ 
+                    //content: selectedChoice.response, 
+                    embeds: [new EmbedBuilder().setDescription(`${selectedChoice.response}`)],
+                    ephemeral: true });
                 return;
             }
 
@@ -142,8 +153,9 @@ module.exports = {
             campaign.visitedNodes.add(destinationNodeId);
             if (Array.isArray(selectedChoice.next)) campaign.usedRandomChoices.add(choiceKey);
             await interaction.update({
-                content: sourceNode.text,
-                embeds: [new EmbedBuilder().setDescription(`**You chose:** ${selectedChoice.label}`)],
+                //content: sourceNode.text,
+                //embeds: [new EmbedBuilder().setDescription(`**You chose:** ${selectedChoice.label}`)],
+                embeds: [new EmbedBuilder().setDescription(`${sourceNode.text}`).setFooter({text:`You chose: ${selectedChoice.label}`})],
                 components: [],
             });
             await interaction.followUp(renderNode({ ...targetNode, id: destinationNodeId }, campaign));

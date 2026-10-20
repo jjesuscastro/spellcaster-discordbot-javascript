@@ -50,7 +50,7 @@ function validateStory(story, storyKey) {
                 if (!Array.isArray(targets) || targets.length === 0) {
                     errors.push(`Choice ${index + 1} in node "${nodeId}" needs a node ID or a non-empty array of node IDs in next.`);
                 } else {
-                    if (new Set(targets).size !== targets.length) errors.push(`Choice ${index + 1} in node "${nodeId}" cannot repeat a destination in next.`);
+                    //if (new Set(targets).size !== targets.length) errors.push(`Choice ${index + 1} in node "${nodeId}" cannot repeat a destination in next.`);
                     for (const target of targets) {
                         if (typeof target !== 'string' || !NODE_ID_PATTERN.test(target)) errors.push(`Choice ${index + 1} in node "${nodeId}" has an invalid destination node ID.`);
                         else if (!Object.hasOwn(story.nodes, target)) errors.push(`Choice ${index + 1} in node "${nodeId}" points to missing node "${target}".`);
