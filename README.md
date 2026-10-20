@@ -34,9 +34,34 @@ GUILD_ID=
 SPREADSHEET_ID=
 GOOGLE_SERVICE_ACCOUNT_EMAIL=
 GOOGLE_PRIVATE_KEY=
+DATABASE_URL=
 ```
 
 `BOT_TOKEN` and `CLIENT_ID` come from the Discord Developer Portal. `GUILD_ID` is the server ID used by `npm run deploy:dev`. The Google Sheets values are only needed by commands that use `utils/sheets.js`.
+
+Combat data is stored in PostgreSQL. Set `DATABASE_URL` to the shared Bookkeeper database, then create Spellcaster's separate combat table with:
+
+```bash
+npm run db:apply-schema
+```
+
+Each row in `spellcaster_combat_characters` represents one character and links it to a Discord account with `discord_id`. Populate the table with each character's current and maximum HP/MP, AC, stats, modifiers, attack/heal values, and skill data. Skills are a JSON array with `slot`, `name`, `type`, `damage`, `crit`, `mpDrain`, `cooldown`, and `turnsActive` fields. The runtime uses PostgreSQL only; the downloaded Sheets HTML is a reference for these fields and their behavior.
+
+Example character row (replace IDs and values with the character's data):
+
+```sql
+INSERT INTO spellcaster_combat_characters (
+    discord_id, character_name, max_hp, hp, max_mp, mp, armor_class,
+    stats, modifiers, base_skill_modifier, skill_modifier,
+    attack_base, attack_crit, heal_base, heal_crit, skills
+) VALUES (
+    'DISCORD_USER_ID', 'Character Name', 40, 40, 30, 30, 12,
+    '{"INT": 2, "CHA": 1, "WIS": 0, "WILL": 2, "STR": 1, "DEX": 3}',
+    '{"MAG": 3, "MGT": 2, "FIN": 1, "RES": 2, "ESN": 1, "ARC": 1}',
+    2, 2, 18, 24, 8, 12,
+    '[{"slot":1,"name":"Skill 1","type":"DPS","damage":18,"crit":27,"mpDrain":5,"cooldown":2,"turnsActive":0}]'
+);
+```
 
 ## Commands
 

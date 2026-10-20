@@ -8,6 +8,7 @@
     "deploy": "node deploy-commands.js",
     "deploy:dev": "node deploy-dev-commands.js",
     "clear:dev": "node clear-dev-commands.js",
+    "db:apply-schema": "node scripts/apply-postgres-schema.js",
     "dev": "node deploy-dev-commands.js && node index.js",
     "test": "node --test"
   },
@@ -19,7 +20,8 @@
     "canvas": "^3.2.3",
     "discord.js": "^14.27.0",
     "dotenv": "^17.4.2",
-    "googleapis": "^173.0.0"
+    "googleapis": "^173.0.0",
+    "pg": "^8.23.1"
   },
   "allowScripts": {
     "canvas@3.2.3": true
