@@ -5,10 +5,10 @@
     "hallways1": {
       "text": "```There’s a rumor every October, where from 9pm to 10pm, if you hear footsteps behind you in the first floor hallway of the west corridor, do not turn around. Will you?``` \nThe hallways are dim, lit only by the wall mounted lanterns placed every few steps away from each other. Like this, the Academy looks more peaceful… but also, eerie. The bustle and noise of students attending classes is absent, replaced with a silence that makes every footstep sound louder, echoing along the halls.\n",
       "choices": [
-        { "label": "Go inside a classroom", "next": ["classroom", "classroom", "classroom2", "classroom2", "classroom3", "classroom3", "classroom4", "classroom5", "classroom6"] },
-        { "label": "Inspect a lantern", "next": ["lantern", "lantern", "lantern", "lantern2", "lantern3", "lantern3", "lantern4", "lantern5"] },
-        { "label": "Look at the floor", "next": ["floor", "floor", "floor2", "floor2", "floor3", "floor3", "floor4", "floor5", "floor6", "floor7"] },
-        { "label": "Turn Around", "next": ["turn", "turn", "turn2", "turn2", "turn3", "turn3", "turn4", "turn5", "turn6", "turn7"] }
+        { "label": "Go inside a classroom", "next": ["classroom", "classroom2", "classroom3", "classroom4", "classroom5", "classroom6"] },
+        { "label": "Inspect a lantern", "next": ["lantern", "lantern2", "lantern3", "lantern4", "lantern5"] },
+        { "label": "Look at the floor", "next": ["floor", "floor2", "floor3", "floor4", "floor5", "floor6", "floor7"] },
+        { "label": "Turn Around", "next": ["turn", "turn2", "turn3", "turn4", "turn5", "turn6", "turn7"] }
       ]
     },
 
@@ -16,41 +16,41 @@
     "classroom": {
       "text": "You peek into one of the many classrooms and find… an empty classroom! The chairs are a little messy. Whoever was tasked with cleaning this classroom did a bad job…",
       "choices": [
-        { "label": "Inspect a lantern", "next": ["lantern", "lantern", "lantern", "lantern2", "lantern3", "lantern3", "lantern4", "lantern5"] },
-        { "label": "Look at the floor", "next": ["floor", "floor", "floor2", "floor2", "floor3", "floor3", "floor4", "floor5", "floor6", "floor7"] },
-        { "label": "Turn Around", "next": ["turn", "turn", "turn2", "turn2", "turn3", "turn3", "turn4", "turn5", "turn6", "turn7"] }
+        { "label": "Inspect a lantern", "next": ["lantern", "lantern2", "lantern3", "lantern4", "lantern5"] },
+        { "label": "Look at the floor", "next": ["floor", "floor2", "floor3", "floor4", "floor5", "floor6", "floor7"] },
+        { "label": "Turn Around", "next": ["turn", "turn2", "turn3", "turn4", "turn5", "turn6", "turn7"] }
       ]
     },
     "classroom2": {
       "text": "As you open the classroom door, a swarm of bats come flying straight at you!\n\n…Thankfully, they pass right through your body. They’re nothing more than a harmless illusion. Happy Night of Veils.",
       "choices": [
-        { "label": "Inspect a lantern", "next": ["lantern", "lantern", "lantern", "lantern2", "lantern3", "lantern3", "lantern4", "lantern5"] },
-        { "label": "Look at the floor", "next": ["floor", "floor", "floor2", "floor2", "floor3", "floor3", "floor4", "floor5", "floor6", "floor7"] },
-        { "label": "Turn Around", "next": ["turn", "turn", "turn2", "turn2", "turn3", "turn3", "turn4", "turn5", "turn6", "turn7"] }
+        { "label": "Inspect a lantern", "next": ["lantern", "lantern2", "lantern3", "lantern4", "lantern5"] },
+        { "label": "Look at the floor", "next": ["floor", "floor2", "floor3", "floor4", "floor5", "floor6", "floor7"] },
+        { "label": "Turn Around", "next": ["turn", "turn2", "turn3", "turn4", "turn5", "turn6", "turn7"] }
       ]
     },
     "classroom3": {
       "text": "You poke your head into one of the classrooms and find a skull on top of one of the desks.\n\nInside… you’ll find a wonderful stash of `{{d6}}` candies.",
       "choices": [
-        { "label": "Inspect a lantern", "next": ["lantern", "lantern", "lantern", "lantern2", "lantern3", "lantern3", "lantern4", "lantern5"] },
-        { "label": "Look at the floor", "next": ["floor", "floor", "floor2", "floor2", "floor3", "floor3", "floor4", "floor5", "floor6", "floor7"] },
-        { "label": "Turn Around", "next": ["turn", "turn", "turn2", "turn2", "turn3", "turn3", "turn4", "turn5", "turn6", "turn7"] }
+        { "label": "Inspect a lantern", "next": ["lantern", "lantern2", "lantern3", "lantern4", "lantern5"] },
+        { "label": "Look at the floor", "next": ["floor", "floor2", "floor3", "floor4", "floor5", "floor6", "floor7"] },
+        { "label": "Turn Around", "next": ["turn", "turn2", "turn3", "turn4", "turn5", "turn6", "turn7"] }
       ]
     },
     "classroom4": {
       "text": "As you move to peek into one of the classrooms, you hear it. Footsteps. Right behind you. Coming closer, closer, closer-\n\nand right when it's behind you, the footsteps stop.",
       "choices": [
-        { "label": "Inspect a lantern", "next": ["lantern", "lantern", "lantern", "lantern2", "lantern3", "lantern3", "lantern4", "lantern5"] },
-        { "label": "Look at the floor", "next": ["floor", "floor", "floor2", "floor2", "floor3", "floor3", "floor4", "floor5", "floor6", "floor7"] },
-        { "label": "Turn Around", "next": ["turn", "turn", "turn2", "turn2", "turn3", "turn3", "turn4", "turn5", "turn6", "turn7"] }
+        { "label": "Inspect a lantern", "next": ["lantern", "lantern2", "lantern3", "lantern4", "lantern5"] },
+        { "label": "Look at the floor", "next": ["floor", "floor2", "floor3", "floor4", "floor5", "floor6", "floor7"] },
+        { "label": "Turn Around", "next": ["turn", "turn2", "turn3", "turn4", "turn5", "turn6", "turn7"] }
       ]
     },
     "classroom5": {
       "text": "All the classroom doors are locked. You check each one. Until you find one that's unlocked.\n\nPeering inside, there doesn't seem to be anything special about the classroom though. The shaows are a little ominous from the forest trees closeby, but that's it.\n\nYou leave the classroom.",
       "choices": [
-        { "label": "Inspect a lantern", "next": ["lantern", "lantern", "lantern", "lantern2", "lantern3", "lantern3", "lantern4", "lantern5"] },
-        { "label": "Look at the floor", "next": ["floor", "floor", "floor2", "floor2", "floor3", "floor3", "floor4", "floor5", "floor6", "floor7"] },
-        { "label": "Turn Around", "next": ["turn", "turn", "turn2", "turn2", "turn3", "turn3", "turn4", "turn5", "turn6", "turn7"] }
+        { "label": "Inspect a lantern", "next": ["lantern", "lantern2", "lantern3", "lantern4", "lantern5"] },
+        { "label": "Look at the floor", "next": ["floor", "floor2", "floor3", "floor4", "floor5", "floor6", "floor7"] },
+        { "label": "Turn Around", "next": ["turn", "turn2", "turn3", "turn4", "turn5", "turn6", "turn7"] }
       ]
     },
     "classroom6": {
@@ -62,33 +62,33 @@
     "lantern": {
       "text": "Lanterns lit by magical fire, it’s warmer when you get closer to them – a good break from the cold night. Cozy. Nothing seems to be amiss.",
       "choices": [
-        { "label": "Go inside a classroom", "next": ["classroom", "classroom", "classroom2", "classroom2", "classroom3", "classroom3", "classroom4", "classroom5", "classroom6"] },
-        { "label": "Look at the floor", "next": ["floor", "floor", "floor2", "floor2", "floor3", "floor3", "floor4", "floor5", "floor6", "floor7"] },
-        { "label": "Turn Around", "next": ["turn", "turn", "turn2", "turn2", "turn3", "turn3", "turn4", "turn5", "turn6", "turn7"] }
+        { "label": "Go inside a classroom", "next": ["classroom", "classroom2", "classroom3", "classroom4", "classroom5", "classroom6"] },
+        { "label": "Look at the floor", "next": ["floor", "floor2", "floor3", "floor4", "floor5", "floor6", "floor7"] },
+        { "label": "Turn Around", "next": ["turn", "turn2", "turn3", "turn4", "turn5", "turn6", "turn7"] }
       ]
     },
     "lantern2": {
       "text": "You approach one of the lanterns. You’re not sure why, maybe it’s because it was warm, and the fire inside looks so mesmerizing — but you reach out to touch a lantern, maybe grab one when you explore, when —\n\n*Crash!*\n\nOne of the lanterns falls to the ground. The glass shatters on impact.",
       "choices": [
-        { "label": "Go inside a classroom", "next": ["classroom", "classroom", "classroom2", "classroom2", "classroom3", "classroom3", "classroom4", "classroom5", "classroom6"] },
-        { "label": "Look at the floor", "next": ["floor", "floor", "floor2", "floor2", "floor3", "floor3", "floor4", "floor5", "floor6", "floor7"] },
-        { "label": "Turn Around", "next": ["turn", "turn", "turn2", "turn2", "turn3", "turn3", "turn4", "turn5", "turn6", "turn7"] }
+        { "label": "Go inside a classroom", "next": ["classroom", "classroom2", "classroom3", "classroom4", "classroom5", "classroom6"] },
+        { "label": "Look at the floor", "next": ["floor", "floor2", "floor3", "floor4", "floor5", "floor6", "floor7"] },
+        { "label": "Turn Around", "next": ["turn", "turn2", "turn3", "turn4", "turn5", "turn6", "turn7"] }
       ]
     },
     "lantern3": {
       "text": "Getting closer towards the magical lanterns when out of nowhere — the flames inside the lanterns suddenly extinguish.\n\nYou are now surrounded by darkness. \n\n(You may roll for a lightsource! The hallways are empty, no strange footsteps are heard.)",
       "choices": [
-        { "label": "Go inside a classroom", "next": ["classroom", "classroom", "classroom2", "classroom2", "classroom3", "classroom3", "classroom4", "classroom5", "classroom6"] },
-        { "label": "Look at the floor", "next": ["floor", "floor", "floor2", "floor2", "floor3", "floor3", "floor4", "floor5", "floor6", "floor7"] },
-        { "label": "Turn Around", "next": ["turn", "turn", "turn2", "turn2", "turn3", "turn3", "turn4", "turn5", "turn6", "turn7"] }
+        { "label": "Go inside a classroom", "next": ["classroom", "classroom2", "classroom3", "classroom4", "classroom5", "classroom6"] },
+        { "label": "Look at the floor", "next": ["floor", "floor2", "floor3", "floor4", "floor5", "floor6", "floor7"] },
+        { "label": "Turn Around", "next": ["turn", "turn2", "turn3", "turn4", "turn5", "turn6", "turn7"] }
       ]
     },
     "lantern4": {
       "text": "You notice that the shadows cast by one of the lanterns look a little strange… perhaps even candy shaped…? \n\n…How lucky! You find `{{d6}}` candies.",
       "choices": [
-        { "label": "Go inside a classroom", "next": ["classroom", "classroom", "classroom2", "classroom2", "classroom3", "classroom3", "classroom4", "classroom5", "classroom6"] },
-        { "label": "Look at the floor", "next": ["floor", "floor", "floor2", "floor2", "floor3", "floor3", "floor4", "floor5", "floor6", "floor7"] },
-        { "label": "Turn Around", "next": ["turn", "turn", "turn2", "turn2", "turn3", "turn3", "turn4", "turn5", "turn6", "turn7"] }
+        { "label": "Go inside a classroom", "next": ["classroom", "classroom2", "classroom3", "classroom4", "classroom5", "classroom6"] },
+        { "label": "Look at the floor", "next": ["floor", "floor2", "floor3", "floor4", "floor5", "floor6", "floor7"] },
+        { "label": "Turn Around", "next": ["turn", "turn2", "turn3", "turn4", "turn5", "turn6", "turn7"] }
       ]
     },
     "lantern5": {
@@ -101,49 +101,49 @@
     "floor": {
       "text": "Academy floors, always neat and shiny. The janitor does an excellent job of keeping the campus clean. There’s nothing of note. It’s just floors.",
       "choices": [
-        { "label": "Go inside a classroom", "next": ["classroom", "classroom", "classroom2", "classroom2", "classroom3", "classroom3", "classroom4", "classroom5", "classroom6"] },
-        { "label": "Inspect a lantern", "next": ["lantern", "lantern", "lantern", "lantern2", "lantern3", "lantern3", "lantern4", "lantern5"] },
-        { "label": "Turn Around", "next": ["turn", "turn", "turn2", "turn2", "turn3", "turn3", "turn4", "turn5", "turn6", "turn7"] }
+        { "label": "Go inside a classroom", "next": ["classroom", "classroom2", "classroom3", "classroom4", "classroom5", "classroom6"] },
+        { "label": "Inspect a lantern", "next": ["lantern", "lantern2", "lantern3", "lantern4", "lantern5"] },
+        { "label": "Turn Around", "next": ["turn", "turn2", "turn3", "turn4", "turn5", "turn6", "turn7"] }
       ]
     },
     "floor2": {
       "text": "The floors are just floors. The shadows cast from the lanterns on the wall are a little creepy, but that's to be expected with the time of day.",
       "choices": [
-        { "label": "Go inside a classroom", "next": ["classroom", "classroom", "classroom2", "classroom2", "classroom3", "classroom3", "classroom4", "classroom5", "classroom6"] },
-        { "label": "Inspect a lantern", "next": ["lantern", "lantern", "lantern", "lantern2", "lantern3", "lantern3", "lantern4", "lantern5"] },
-        { "label": "Turn Around", "next": ["turn", "turn", "turn2", "turn2", "turn3", "turn3", "turn4", "turn5", "turn6", "turn7"] }
+        { "label": "Go inside a classroom", "next": ["classroom", "classroom2", "classroom3", "classroom4", "classroom5", "classroom6"] },
+        { "label": "Inspect a lantern", "next": ["lantern", "lantern2", "lantern3", "lantern4", "lantern5"] },
+        { "label": "Turn Around", "next": ["turn", "turn2", "turn3", "turn4", "turn5", "turn6", "turn7"] }
       ]
     },
     "floor3": {
       "text": "You look at your shadows cast onto the floors, flickering from the lanterns mounted on the walls. \n\nThen your shadows shift. It turns.... into... the shape of a pumpkin! Before it morphs back into your shadow. Cute... ",
       "choices": [
-        { "label": "Go inside a classroom", "next": ["classroom", "classroom", "classroom2", "classroom2", "classroom3", "classroom3", "classroom4", "classroom5", "classroom6"] },
-        { "label": "Inspect a lantern", "next": ["lantern", "lantern", "lantern", "lantern2", "lantern3", "lantern3", "lantern4", "lantern5"] },
-        { "label": "Turn Around", "next": ["turn", "turn", "turn2", "turn2", "turn3", "turn3", "turn4", "turn5", "turn6", "turn7"] }
+        { "label": "Go inside a classroom", "next": ["classroom", "classroom2", "classroom3", "classroom4", "classroom5", "classroom6"] },
+        { "label": "Inspect a lantern", "next": ["lantern", "lantern2", "lantern3", "lantern4", "lantern5"] },
+        { "label": "Turn Around", "next": ["turn", "turn2", "turn3", "turn4", "turn5", "turn6", "turn7"] }
       ]
     },
     "floor4": {
       "text": "You catch a glimpse of something — oh? It's `{{d6}}` candies on the floor. Sneaky!",
       "choices": [
-        { "label": "Go inside a classroom", "next": ["classroom", "classroom", "classroom2", "classroom2", "classroom3", "classroom3", "classroom4", "classroom5", "classroom6"] },
-        { "label": "Inspect a lantern", "next": ["lantern", "lantern", "lantern", "lantern2", "lantern3", "lantern3", "lantern4", "lantern5"] },
-        { "label": "Turn Around", "next": ["turn", "turn", "turn2", "turn2", "turn3", "turn3", "turn4", "turn5", "turn6", "turn7"] }
+        { "label": "Go inside a classroom", "next": ["classroom", "classroom2", "classroom3", "classroom4", "classroom5", "classroom6"] },
+        { "label": "Inspect a lantern", "next": ["lantern", "lantern2", "lantern3", "lantern4", "lantern5"] },
+        { "label": "Turn Around", "next": ["turn", "turn2", "turn3", "turn4", "turn5", "turn6", "turn7"] }
       ]
     },
     "floor5": {
       "text": "You look at your shadows cast onto the floors, flickering from the lanterns mounted on the walls. \n\nA shadow seems to loom over you for a few seconds.\n\nWhen you look up, no one else is with you.",
       "choices": [
-        { "label": "Go inside a classroom", "next": ["classroom", "classroom", "classroom2", "classroom2", "classroom3", "classroom3", "classroom4", "classroom5", "classroom6"] },
-        { "label": "Inspect a lantern", "next": ["lantern", "lantern", "lantern", "lantern2", "lantern3", "lantern3", "lantern4", "lantern5"] },
-        { "label": "Turn Around", "next": ["turn", "turn", "turn2", "turn2", "turn3", "turn3", "turn4", "turn5", "turn6", "turn7"] }
+        { "label": "Go inside a classroom", "next": ["classroom", "classroom2", "classroom3", "classroom4", "classroom5", "classroom6"] },
+        { "label": "Inspect a lantern", "next": ["lantern", "lantern2", "lantern3", "lantern4", "lantern5"] },
+        { "label": "Turn Around", "next": ["turn", "turn2", "turn3", "turn4", "turn5", "turn6", "turn7"] }
       ]
     },
     "floor6": {
       "text": "There are leaves on the floor. That's odd... all the windows and doors are closed.",
       "choices": [
-        { "label": "Go inside a classroom", "next": ["classroom", "classroom", "classroom2", "classroom2", "classroom3", "classroom3", "classroom4", "classroom5", "classroom6"] },
-        { "label": "Inspect a lantern", "next": ["lantern", "lantern", "lantern", "lantern2", "lantern3", "lantern3", "lantern4", "lantern5"] },
-        { "label": "Turn Around", "next": ["turn", "turn", "turn2", "turn2", "turn3", "turn3", "turn4", "turn5", "turn6", "turn7"] }
+        { "label": "Go inside a classroom", "next": ["classroom", "classroom2", "classroom3", "classroom4", "classroom5", "classroom6"] },
+        { "label": "Inspect a lantern", "next": ["lantern", "lantern2", "lantern3", "lantern4", "lantern5"] },
+        { "label": "Turn Around", "next": ["turn", "turn2", "turn3", "turn4", "turn5", "turn6", "turn7"] }
       ]
     },
     "floor7": {
