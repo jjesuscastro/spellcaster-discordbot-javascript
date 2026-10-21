@@ -52,7 +52,7 @@ async function getCharacterByName(name, client = pool) {
 async function getActor(interaction, client = pool) {
     const characters = await getOwnedCharacters(interaction.user.id);
     if (!characters.length) {
-        throw new Error('Your combat character is not set up yet. Ask a server admin to add it to the combat database.');
+        throw new Error('Your combat character is not set up yet. Wait for a mod to add it to the combat database.');
     }
     const name = interaction.options.getString('character');
     if (name) {
