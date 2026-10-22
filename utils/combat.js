@@ -269,6 +269,7 @@ async function executeSimple(interaction, commandName) {
         if (!target) throw new Error('That character is not in the combat database.');
         const die = roll20();
         const modifier = getModifier(actor, 'ESN');
+        const total = die + modifier;
         const crit = die + modifier >= 20;
         const amount = crit ? actor.heal_crit : actor.heal_base;
         const healed = await withTransaction(async client => {
@@ -281,7 +282,7 @@ async function executeSimple(interaction, commandName) {
             texttarget = `themsevles`;
         var result = `⮞ ${target.character_name} is healed for **${amount} HP**.\n✨ ${healed.value}/${healed.maximum} ✨`;
         if (healed.value = healed.maximum)
-            var result = `⮞ ${target.character_name} is healed for **${amount} HP**.\n✨ FULL HP RESTOREDD ✨`;
+            var result = `⮞ ${target.character_name} is healed for **${amount} HP**.\n✨ FULL HP RESTORED! ✨`;
         const embed = new EmbedBuilder()
                 .setTitle(`✧ HEAL`)
                 .setColor(0xB7B75F)
