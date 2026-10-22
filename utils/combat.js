@@ -133,7 +133,7 @@ function renderStats(actor) {
             { name: '🪄 **MP**', value: `\`\`\`${actor.mp}/${actor.max_mp}\`\`\``   || '—', inline: true },
             { name: '🛡️ **AC**', value: `\`\`\`${actor.armor_class}\`\`\``          || '—', inline: true },
             { name: '✦ SPELL POINTS ✦',    value: ` `    || '—', inline: false },
-            { name: ' ', value: `MAG \` ${modifierLines.get("MAG").value} \``          || '—', inline: true },
+            { name: ' ', value: `MAG \` ${modifierLines[3][1]} \``          || '—', inline: true },
             
         );
     return embed;
