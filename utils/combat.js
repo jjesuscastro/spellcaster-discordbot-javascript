@@ -125,7 +125,12 @@ function renderStats(actor) {
     ];
     if (statLines.length) lines.push(`**Stats:** ${statLines.join(' · ')}`);
     if (modifierLines.length) lines.push(`**Modifiers:** ${modifierLines.join(' · ')}`);
-    return `**${actor.character_name}**\n${lines.join('\n')}`;
+    const embed = new EmbedBuilder()
+        .setTitle(`✧ ${actor.character_name}`)
+        .setColor(0xB7B75F)
+        .setDescription(`${lines.join('\n')}`);
+    return embed;
+    //return `**${actor.character_name}**\n${lines.join('\n')}`;
 }
 
 async function reply(interaction, content) {
@@ -147,7 +152,8 @@ async function executeSimple(interaction, commandName) {
         if (selectedUser) {
             const targets = await getOwnedCharacters(selectedUser.id);
             if (!targets.length) throw new Error('That user has no combat character configured.');
-            return reply(interaction, targets.map(renderStats).join('\n\n'));
+            //return reply(interaction, targets.map(renderStats).join('\n\n'));
+            return reply(interaction, renderStats);
         }
     }
 
@@ -407,7 +413,7 @@ const requiredTarget = data => data.addStringOption(option => option.setName('ta
 const userOption = data => data.addUserOption(option => option.setName('user').setDescription('Whose character to view.').setRequired(false));
 
 const commands = {
-    stats: makeCommand('stats', 'Display character stats, HP, MP, and AC.', [userOption]),
+    stats: makeCommand('stats', 'Display a character\'s stats', [userOption]),
     int: makeCommand('int', 'Roll an INT check.'),
     cha: makeCommand('cha', 'Roll a CHA check.'),
     wis: makeCommand('wis', 'Roll a WIS check.'),
