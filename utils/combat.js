@@ -181,7 +181,8 @@ async function executeSimple(interaction, commandName) {
             if (!targets.length) throw new Error('That user has no combat character configured.');
             //return reply(interaction, targets.map(renderStats).join('\n\n'));
             const targetName = targets[0].character_name;
-            const target = targetName ? await getCharacterByName(targetName);
+            const actor = await getActor(interaction);
+            const target = targetName ? await getCharacterByName(targetName) : actor;
             return reply(interaction, renderStats(target));
         }
     }
