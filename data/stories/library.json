@@ -5,10 +5,10 @@
     "library1": {
       "text": "```Among all the unwritten rules of a library, the Royal Academy has one more: never answer if someone calls your name from between the shelves. Even less during the Night of Veils.``` \nThe E.R.A library, as impressive as always with its towering bookshelves, countless study halls, and arched ceilings. Whatever your opinion on studying and reading is, there's no denying the beauty and grandiose of the library. Now... where will you start?\n",
       "choices": [
-        { "label": "Explore the reading halls", "next": ["halls", "halls", "halls2", "halls2", "halls3", "halls4", "halls5"] },
-        { "label": "Go to the ground floor shelves", "next": ["ground", "ground", "ground2", "ground2", "ground3", "ground3", "ground4", "ground5", "ground6", "ground7"] },
-        { "label": "Head straight to the upper floors", "next": ["upper", "upper", "upper2", "upper2", "upper3", "upper4", "upper5", "upper6"] },
-        { "label": "Go to the backrooms", "next": ["backrooms", "backrooms", "backrooms", "backrooms2", "backrooms2", "backrooms3", "backrooms4", "backrooms5"] }
+        { "label": "Explore the reading halls", "next": ["halls", "halls2", "halls3", "halls4", "halls5"] },
+        { "label": "Go to the ground floor shelves", "next": ["ground", "ground2", "ground3", "ground4", "ground5", "ground6", "ground7"] },
+        { "label": "Head straight to the upper floors", "next": ["upper", "upper2", "upper3", "upper4", "upper5", "upper6"] },
+        { "label": "Go to the backrooms", "next": ["backrooms", "backrooms2", "backrooms3", "backrooms4", "backrooms5"] }
       ]
     },
 
@@ -16,33 +16,33 @@
     "halls": {
       "text": "It's... a library. Tons of tables, even more chairs. It's quiet, as expected of a library.",
       "choices": [
-        { "label": "Go to the ground floor shelves", "next": ["ground", "ground", "ground2", "ground2", "ground3", "ground3", "ground4", "ground5", "ground6", "ground7"] },
-        { "label": "Head straight to the upper floors", "next": ["upper", "upper", "upper2", "upper2", "upper3", "upper4", "upper5", "upper6"] },
-        { "label": "Go to the backrooms", "next": ["backrooms", "backrooms", "backrooms", "backrooms2", "backrooms2", "backrooms3", "backrooms4", "backrooms5"] }
+        { "label": "Go to the ground floor shelves", "next": ["ground", "ground2", "ground3", "ground4", "ground5", "ground6", "ground7"] },
+        { "label": "Head straight to the upper floors", "next": ["upper", "upper2", "upper3", "upper4", "upper5", "upper6"] },
+        { "label": "Go to the backrooms", "next": ["backrooms", "backrooms2", "backrooms3", "backrooms4", "backrooms5"] }
       ]
     },
     "halls2": {
       "text": "A few tables are occupied by students, some of them writing something, some reading, but most of them looking deeply concentrated in whatever they were doing. It's best not to disturb them for now...",
       "choices": [
-        { "label": "Go to the ground floor shelves", "next": ["ground", "ground", "ground2", "ground2", "ground3", "ground3", "ground4", "ground5", "ground6", "ground7"] },
-        { "label": "Head straight to the upper floors", "next": ["upper", "upper", "upper2", "upper2", "upper3", "upper4", "upper5", "upper6"] },
-        { "label": "Go to the backrooms", "next": ["backrooms", "backrooms", "backrooms", "backrooms2", "backrooms2", "backrooms3", "backrooms4", "backrooms5"] }
+        { "label": "Go to the ground floor shelves", "next": ["ground", "ground2", "ground3", "ground4", "ground5", "ground6", "ground7"] },
+        { "label": "Head straight to the upper floors", "next": ["upper", "upper2", "upper3", "upper4", "upper5", "upper6"] },
+        { "label": "Go to the backrooms", "next": ["backrooms", "backrooms2", "backrooms3", "backrooms4", "backrooms5"] }
       ]
     },
     "halls3": {
       "text": "At one of the end tables, you see a figure hunched over. Long, dark hair drapes over their face, hiding what they look like. They're not wearing the uniform, instead, they don a white dress.\n\nSlowly, as if sensing your gaze, the figure turns slowly to look at you. They smile, slowly, uncannily, much too  w i d e.\n\n(In hindsight, you'll recognize that this was an upperclassmen you see around the library all the time. Nerds can be pranksters too...?)",
       "choices": [
-        { "label": "Go to the ground floor shelves", "next": ["ground", "ground", "ground2", "ground2", "ground3", "ground3", "ground4", "ground5", "ground6", "ground7"] },
-        { "label": "Head straight to the upper floors", "next": ["upper", "upper", "upper2", "upper2", "upper3", "upper4", "upper5", "upper6"] },
-        { "label": "Go to the backrooms", "next": ["backrooms", "backrooms", "backrooms", "backrooms2", "backrooms2", "backrooms3", "backrooms4", "backrooms5"] }
+        { "label": "Go to the ground floor shelves", "next": ["ground", "ground2", "ground3", "ground4", "ground5", "ground6", "ground7"] },
+        { "label": "Head straight to the upper floors", "next": ["upper", "upper2", "upper3", "upper4", "upper5", "upper6"] },
+        { "label": "Go to the backrooms", "next": ["backrooms", "backrooms2", "backrooms3", "backrooms4", "backrooms5"] }
       ]
     },
     "halls4": {
       "text": "You notice something tucked beneath one of the study desks. Upon closer inspection, you find... `{{d6}}` candies! Someone must have stashed them here for later... but they're yours now...",
       "choices": [
-        { "label": "Go to the ground floor shelves", "next": ["ground", "ground", "ground2", "ground2", "ground3", "ground3", "ground4", "ground5", "ground6", "ground7"] },
-        { "label": "Head straight to the upper floors", "next": ["upper", "upper", "upper2", "upper2", "upper3", "upper4", "upper5", "upper6"] },
-        { "label": "Go to the backrooms", "next": ["backrooms", "backrooms", "backrooms", "backrooms2", "backrooms2", "backrooms3", "backrooms4", "backrooms5"] }
+        { "label": "Go to the ground floor shelves", "next": ["ground", "ground2", "ground3", "ground4", "ground5", "ground6", "ground7"] },
+        { "label": "Head straight to the upper floors", "next": ["upper", "upper2", "upper3", "upper4", "upper5", "upper6"] },
+        { "label": "Go to the backrooms", "next": ["backrooms", "backrooms2", "backrooms3", "backrooms4", "backrooms5"] }
       ]
     },
     "halls5": {
@@ -54,49 +54,49 @@
     "ground": {
       "text": "You find yourself looking at the *History of Eirenhel* section. A lot of the books here are notacibly thick, likely holding several interpretations of Eirenhel's founding, the Capital and it's history, etc. Boring....",
       "choices": [
-        { "label": "Explore the reading halls", "next": ["halls", "halls", "halls2", "halls2", "halls3", "halls4", "halls5"] },
-        { "label": "Head straight to the upper floors", "next": ["upper", "upper", "upper2", "upper2", "upper3", "upper4", "upper5", "upper6"] },
-        { "label": "Go to the backrooms", "next": ["backrooms", "backrooms", "backrooms", "backrooms2", "backrooms2", "backrooms3", "backrooms4", "backrooms5"] }
+        { "label": "Explore the reading halls", "next": ["halls", "halls2", "halls3", "halls4", "halls5"] },
+        { "label": "Head straight to the upper floors", "next": ["upper", "upper2", "upper3", "upper4", "upper5", "upper6"] },
+        { "label": "Go to the backrooms", "next": ["backrooms", "backrooms2", "backrooms3", "backrooms4", "backrooms5"] }
       ]
     },
     "ground2": {
       "text": "Here you are, between the shelves. You stand still, hold your breath, and wait for something (or something) to call your name.\n\n...\n\n...\n\nNothing happens.",
       "choices": [
-        { "label": "Explore the reading halls", "next": ["halls", "halls", "halls2", "halls2", "halls3", "halls4", "halls5"] },
-        { "label": "Head straight to the upper floors", "next": ["upper", "upper", "upper2", "upper2", "upper3", "upper4", "upper5", "upper6"] },
-        { "label": "Go to the backrooms", "next": ["backrooms", "backrooms", "backrooms", "backrooms2", "backrooms2", "backrooms3", "backrooms4", "backrooms5"] }
+        { "label": "Explore the reading halls", "next": ["halls", "halls2", "halls3", "halls4", "halls5"] },
+        { "label": "Head straight to the upper floors", "next": ["upper", "upper2", "upper3", "upper4", "upper5", "upper6"] },
+        { "label": "Go to the backrooms", "next": ["backrooms", "backrooms2", "backrooms3", "backrooms4", "backrooms5"] }
       ]
     },
     "ground3": {
       "text": "You check one of the book return carts, expecting nothing more than a pile of books. \n\nAnd there is a pile of book! As a bonus, you also find `{{d6}}` candies in the cart.",
       "choices": [
-        { "label": "Explore the reading halls", "next": ["halls", "halls", "halls2", "halls2", "halls3", "halls4", "halls5"] },
-        { "label": "Head straight to the upper floors", "next": ["upper", "upper", "upper2", "upper2", "upper3", "upper4", "upper5", "upper6"] },
-        { "label": "Go to the backrooms", "next": ["backrooms", "backrooms", "backrooms", "backrooms2", "backrooms2", "backrooms3", "backrooms4", "backrooms5"] }
+        { "label": "Explore the reading halls", "next": ["halls", "halls2", "halls3", "halls4", "halls5"] },
+        { "label": "Head straight to the upper floors", "next": ["upper", "upper2", "upper3", "upper4", "upper5", "upper6"] },
+        { "label": "Go to the backrooms", "next": ["backrooms", "backrooms2", "backrooms3", "backrooms4", "backrooms5"] }
       ]
     },
     "ground4": {
       "text": "You pull out a book, opening it you find pages upon pages of\n\ng̵̡̰͇̪̝͍̼̾̔̂͂̄͊͝į̵̢̨̩͉̤͔̪͇̜̰̥̹̑͌͘͝͠b̵̡̛̠͈̩̤̟̜̟̬̄̎͂́̽̐̍͘͘͝b̶̫̟̭̽̎͊̍͗͜ë̸͖̹̺̩̣̖̞́́̈́̂̽͑̾̄͗̓͜͝͝r̷̹̘̹͎̫̮̹͖̣̬͍̜̙̝̝̔̏į̵͍͓͉͕̖̺̠̫̖͛̋̂̿͂̋̿̀́͒̽̎̚͘͝s̷̯̱̰̺̻̜̩͇̯̄͜ḩ̴͑̋̈̉̍̎͆̒̈́͂̋͆̂̔̕.\n\nThe pages bleed ink, it seeps into your hand.",
       "choices": [
-        { "label": "Explore the reading halls", "next": ["halls", "halls", "halls2", "halls2", "halls3", "halls4", "halls5"] },
-        { "label": "Head straight to the upper floors", "next": ["upper", "upper", "upper2", "upper2", "upper3", "upper4", "upper5", "upper6"] },
-        { "label": "Go to the backrooms", "next": ["backrooms", "backrooms", "backrooms", "backrooms2", "backrooms2", "backrooms3", "backrooms4", "backrooms5"] }
+        { "label": "Explore the reading halls", "next": ["halls", "halls2", "halls3", "halls4", "halls5"] },
+        { "label": "Head straight to the upper floors", "next": ["upper", "upper2", "upper3", "upper4", "upper5", "upper6"] },
+        { "label": "Go to the backrooms", "next": ["backrooms", "backrooms2", "backrooms3", "backrooms4", "backrooms5"] }
       ]
     },
     "ground5": {
       "text": "Here you are, between the shelves. Nothing happens, nothing exciting. You pull out a book, when you hear something - it's voice so faint that you can't tell if it was real or not-\n\nYou hear something unfamiliar calling your name...something unnatural. It's gone before you know it.",
       "choices": [
-        { "label": "Explore the reading halls", "next": ["halls", "halls", "halls2", "halls2", "halls3", "halls4", "halls5"] },
-        { "label": "Head straight to the upper floors", "next": ["upper", "upper", "upper2", "upper2", "upper3", "upper4", "upper5", "upper6"] },
-        { "label": "Go to the backrooms", "next": ["backrooms", "backrooms", "backrooms", "backrooms2", "backrooms2", "backrooms3", "backrooms4", "backrooms5"] }
+        { "label": "Explore the reading halls", "next": ["halls", "halls2", "halls3", "halls4", "halls5"] },
+        { "label": "Head straight to the upper floors", "next": ["upper", "upper2", "upper3", "upper4", "upper5", "upper6"] },
+        { "label": "Go to the backrooms", "next": ["backrooms", "backrooms2", "backrooms3", "backrooms4", "backrooms5"] }
       ]
     },
     "ground6": {
       "text": "Your eyes skim over titles related to the Kingdom's woodlands... and almost strangely enough, you spot small pieces of tree bark wedged between two books.",
       "choices": [
-        { "label": "Explore the reading halls", "next": ["halls", "halls", "halls2", "halls2", "halls3", "halls4", "halls5"] },
-        { "label": "Head straight to the upper floors", "next": ["upper", "upper", "upper2", "upper2", "upper3", "upper4", "upper5", "upper6"] },
-        { "label": "Go to the backrooms", "next": ["backrooms", "backrooms", "backrooms", "backrooms2", "backrooms2", "backrooms3", "backrooms4", "backrooms5"] }
+        { "label": "Explore the reading halls", "next": ["halls", "halls2", "halls3", "halls4", "halls5"] },
+        { "label": "Head straight to the upper floors", "next": ["upper", "upper2", "upper3", "upper4", "upper5", "upper6"] },
+        { "label": "Go to the backrooms", "next": ["backrooms", "backrooms2", "backrooms3", "backrooms4", "backrooms5"] }
       ]
     },
     "ground7": {
@@ -134,33 +134,33 @@
     "backrooms": {
       "text": "A small maze of staff only rooms, including bookbinding and repair rooms, storage areas... anything where the library's books are sorted and maintained, whether through mundane or magic means.",
       "choices": [
-        { "label": "Explore the reading halls", "next": ["halls", "halls", "halls2", "halls2", "halls3", "halls4", "halls5"] },
-        { "label": "Go to the ground floor shelves", "next": ["ground", "ground", "ground2", "ground2", "ground3", "ground3", "ground4", "ground5", "ground6", "ground7"] },
-        { "label": "Head straight to the upper floors", "next": ["upper", "upper", "upper2", "upper2", "upper3", "upper4", "upper5", "upper6"] }
+        { "label": "Explore the reading halls", "next": ["halls", "halls2", "halls3", "halls4", "halls5"] },
+        { "label": "Go to the ground floor shelves", "next": ["ground", "ground2", "ground3", "ground4", "ground5", "ground6", "ground7"] },
+        { "label": "Head straight to the upper floors", "next": ["upper", "upper2", "upper3", "upper4", "upper5", "upper6"] }
       ]
     },
     "backrooms2": {
       "text": "*Scritch scratch.*\n\nA quill scratches away on its own in the far corner of the book repair room. Letter after letter appears on the page, writing what seems to be... a curse?\n\n...Not quite. \n\nA closer look reveals that the quill is enchanted to move on its own. The 'curse' is nothing more than meaningless scratches... seems like someone else got here before you.",
       "choices": [
-        { "label": "Explore the reading halls", "next": ["halls", "halls", "halls2", "halls2", "halls3", "halls4", "halls5"] },
-        { "label": "Go to the ground floor shelves", "next": ["ground", "ground", "ground2", "ground2", "ground3", "ground3", "ground4", "ground5", "ground6", "ground7"] },
-        { "label": "Head straight to the upper floors", "next": ["upper", "upper", "upper2", "upper2", "upper3", "upper4", "upper5", "upper6"] }
+        { "label": "Explore the reading halls", "next": ["halls", "halls2", "halls3", "halls4", "halls5"] },
+        { "label": "Go to the ground floor shelves", "next": ["ground", "ground2", "ground3", "ground4", "ground5", "ground6", "ground7"] },
+        { "label": "Head straight to the upper floors", "next": ["upper", "upper2", "upper3", "upper4", "upper5", "upper6"] }
       ]
     },
     "backrooms3": {
       "text": "You find yourself in an empty place with yellow walls and a yellow floor. There are no bookshelves. No doors. No windows. \n\nYou blink --\n\nAnd around you, is the library's cataloguing room. It leaves you wondering if you imagined the whole thing, but you swear it was real.",
       "choices": [
-        { "label": "Explore the reading halls", "next": ["halls", "halls", "halls2", "halls2", "halls3", "halls4", "halls5"] },
-        { "label": "Go to the ground floor shelves", "next": ["ground", "ground", "ground2", "ground2", "ground3", "ground3", "ground4", "ground5", "ground6", "ground7"] },
-        { "label": "Head straight to the upper floors", "next": ["upper", "upper", "upper2", "upper2", "upper3", "upper4", "upper5", "upper6"] }
+        { "label": "Explore the reading halls", "next": ["halls", "halls2", "halls3", "halls4", "halls5"] },
+        { "label": "Go to the ground floor shelves", "next": ["ground", "ground2", "ground3", "ground4", "ground5", "ground6", "ground7"] },
+        { "label": "Head straight to the upper floors", "next": ["upper", "upper2", "upper3", "upper4", "upper5", "upper6"] }
       ]
     },
     "backrooms4": {
       "text": "You make your way through the backrooms, and you smell it -- the faint scent of pine.\n\nYou notice smudges of mud on the wall and floor, too. \n\n...*strange*. This far inside the library, where could it possibly come from?",
       "choices": [
-        { "label": "Explore the reading halls", "next": ["halls", "halls", "halls2", "halls2", "halls3", "halls4", "halls5"] },
-        { "label": "Go to the ground floor shelves", "next": ["ground", "ground", "ground2", "ground2", "ground3", "ground3", "ground4", "ground5", "ground6", "ground7"] },
-        { "label": "Head straight to the upper floors", "next": ["upper", "upper", "upper2", "upper2", "upper3", "upper4", "upper5", "upper6"] }
+        { "label": "Explore the reading halls", "next": ["halls", "halls2", "halls3", "halls4", "halls5"] },
+        { "label": "Go to the ground floor shelves", "next": ["ground", "ground2", "ground3", "ground4", "ground5", "ground6", "ground7"] },
+        { "label": "Head straight to the upper floors", "next": ["upper", "upper2", "upper3", "upper4", "upper5", "upper6"] }
       ]
     },
     "backrooms5": {
