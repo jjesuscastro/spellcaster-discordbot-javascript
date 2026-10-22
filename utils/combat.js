@@ -140,8 +140,8 @@ function renderStats(actor) {
             { name: ' ', value: `RES   \` ${modifierLines[7]} \``          || '—', inline: true },
             { name: ' ', value: `ESN   \` ${modifierLines[3]} \``          || '—', inline: true },
             { name: ' ', value: `ARC   \` ${modifierLines[1]} \``          || '—', inline: true },
-            { name: '✦ STATS ✦',    value: ` `    || '—', inline: false },
             { name: ' ',    value: ` `    || '—', inline: false },
+            { name: '✦ STATS ✦',    value: ` `    || '—', inline: false },
             { name: ' ', value: `INT   \` ${getModifier(actor, STAT_MODIFIERS["int"])} \``          || '—', inline: true },
             { name: ' ', value: `CHA   \` ${getModifier(actor, STAT_MODIFIERS["cha"])} \``          || '—', inline: true },
             { name: ' ', value: `WIS   \` ${getModifier(actor, STAT_MODIFIERS["wis"])} \``          || '—', inline: true },
@@ -167,7 +167,7 @@ async function executeSimple(interaction, commandName) {
         const title = STAT_MODIFIERS[commandName];
         const total = die + modifier;
         const embed = new EmbedBuilder()
-                .setTitle(`✧ ${title} CHECK`)
+                .setTitle(`✧ ROLL CHECK`)
                 .setColor(0xB7B75F)
                 .setDescription(`> 🎲 ${die} + ${modifier} **${title}** ➜ \` ${total} \`\n\n⮞ ${actor.character_name} rolls **${total} ${title} points**.`);
         return reply(interaction, embed);
@@ -240,7 +240,7 @@ async function executeSimple(interaction, commandName) {
         const modifier = getModifier(actor, key);
         const total = die + modifier;
         let taken = damage;
-        if (target.character_name === actor.character_name)
+        if (commandName === 'block' && target.character_name === actor.character_name)
             var action = `blocks`;
         else var action = `blocks for **${targetName}**`;
         var mod = "res";
