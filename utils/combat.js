@@ -201,13 +201,21 @@ async function executeSimple(interaction, commandName) {
         const modifier = getModifier(actor, key);
         const total = die + modifier;
         let taken = damage;
-        let resultText = 'The hit lands.';
+        var action = "blocks";
+        var mod = "res";
+        let resultText = `❌ **BLOCK FAILED**\n⮞ ${actor.character_name} receives **${taken} damage**.`;
         if (commandName === 'dodge') {
-            if (total >= ac) { taken = 0; resultText = 'You dodge completely.'; }
-            else if (ac - total <= 3) { taken = Math.ceil(damage / 2); resultText = 'You narrowly miss the dodge and take half damage.'; }
+            action = "dodges";
+            mod = "fin";
+            if (total >= ac) { 
+                taken = 0; 
+                resultText = `✅ **FULL DODGE**\n⮞ ${actor.character_name} receives **no damage**.`; }
+            else if (ac - total <= 3) { 
+                taken = Math.ceil(damage / 2); 
+                resultText = `✅ **PARTIAL DODGE**\n⮞ ${actor.character_name} receives **${taken} damage**.`; }
         } else if (total > ac) {
             taken = Math.ceil(damage / 2);
-            resultText = 'You block and take half damage.';
+            resultText = `✅ **PARTIAL BLOCK**\n⮞ ${actor.character_name} receives **${taken} damage**.`;
         }
         const hp = await withTransaction(async client => {
             await requireAction(client, actor);
@@ -217,6 +225,12 @@ async function executeSimple(interaction, commandName) {
             await markAction(client, actor);
             return changeResource(client, actor.character_id, 'hp', -(taken - absorbed), 'max_hp');
         });
+        const embed = new EmbedBuilder()
+                .setTitle(commandName === 'dodge' ? `✧ DODGE` : `✧ BLOCK`)
+                .setColor(0xB7B75F)
+                .setDescription(`⚔️ **Clementine August ${action}!**\n\n> 🎲 ${die} + ${modifier} **${mod}** ➜ \` ${total} \`\n> Enemy Roll ➜ \` ${ac} \`\n\n${resultText}`);
+        return reply(interaction, embed);
+        
         return reply(interaction, `**${actor.character_name}** ${resultText}\n${describeRoll(die, modifier, total)} vs AC ${ac}. HP: **${hp.value}/${hp.maximum}**.`);
     }
 
@@ -459,8 +473,8 @@ const commands = {
     dex: makeCommand('dex', 'Roll a DEX check.'),
     hp: makeCommand('hp', 'Display your HP and MP.'),
     takedmg: makeCommand('takedmg', 'Apply damage to your character.', [requiredNumber('damage', 'Damage to take.')]),
-    dodge: makeCommand('dodge', 'Try to dodge incoming damage.', [requiredNumber('damage', 'Incoming damage.'), requiredNumber('ac', 'Enemy attack total or AC to beat.')]),
-    block: makeCommand('block', 'Block incoming damage.', [requiredNumber('damage', 'Incoming damage.'), requiredNumber('ac', 'Enemy AC.')]),
+    dodge: makeCommand('dodge', 'Try to dodge incoming damage.', [requiredNumber('damage', 'Incoming damage.'), requiredNumber('atk', 'Enemy attack roll')]),
+    block: makeCommand('block', 'Block incoming damage.', [requiredNumber('damage', 'Incoming damage.'), requiredNumber('atk', 'Enemy attack roll')]),
     attack: makeCommand('attack', 'Attack an enemy.', [requiredNumber('ac', 'Enemy AC.')]),
     heal: makeCommand('heal', 'Heal yourself or another character.', [requiredTarget]),
     newturn: makeCommand('newturn', 'Begin your next combat turn.'),
