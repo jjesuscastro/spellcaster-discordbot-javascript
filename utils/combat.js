@@ -239,10 +239,16 @@ async function executeSimple(interaction, commandName) {
                 resultText = `✅ **PARTIAL DODGE!**\n⮞ ${actor.character_name} receives **${taken} damage**.`; }
         } else if (total >= ac) {
             taken = Math.ceil(damage / 4);
-            resultText = `✅ **FULL BLOCK!**\n⮞ ${actor.character_name} receives **${taken} damage**.\n⮞ ${target.character_name} receives **no damage**.`;
+            if (target.character_name === actor.character_name)
+                resultText = `✅ **FULL BLOCK!**\n⮞ ${actor.character_name} receives **${taken} damage**.`;
+            else
+                resultText = `✅ **FULL BLOCK!**\n⮞ ${actor.character_name} receives **${taken} damage**.\n⮞ ${target.character_name} receives **no damage**.`;
         } else if (ac - total <= 3){
             taken = Math.ceil(damage / 2);
-            resultText = `✅ **PARTIAL BLOCK!**\n⮞ ${actor.character_name} receives **${taken} damage**.\n⮞ ${target.character_name} receives **${taken} damage**.`;
+            if (target.character_name === actor.character_name)
+                resultText = `✅ **PARTIAL BLOCK!**\n⮞ ${actor.character_name} receives **${taken} damage**.`;
+            else
+                resultText = `✅ **PARTIAL BLOCK!**\n⮞ ${actor.character_name} receives **${taken} damage**.\n⮞ ${target.character_name} receives **${taken} damage**.`;
         } else{
             resultText = `❌ **BLOCK FAILED...**\n⮞ ${target.character_name} receives **${taken} damage**.`;
         }
@@ -344,7 +350,7 @@ async function executeSimple(interaction, commandName) {
         const embed = new EmbedBuilder()
                 .setTitle(`✧ RESET`)
                 .setColor(0xB7B75F)
-                .setDescription(`⚔️ **${actor.character_name}** stats have all been reset.`);
+                .setDescription(`🔄 **${actor.character_name}** stats have all been reset.`);
         return reply(interaction, embed);
         //return reply(interaction, `**${actor.character_name}** HP and MP restored; shield, cooldowns, active effects, and temporary skill modifier cleared.`);
     }
