@@ -229,7 +229,20 @@ async function executeSimple(interaction, commandName) {
         const crit = total >= 20;
         const damage = hit ? (crit ? actor.attack_crit : actor.attack_base) : 0;
         await withTransaction(async client => { await requireAction(client, actor); await markAction(client, actor); });
-        return reply(interaction, `**${actor.character_name} attacks**\n${describeRoll(die, modifier, total)} vs AC ${ac}: ${hit ? `${crit ? 'Critical hit!' : 'Hit!'} **${damage} damage**.` : 'Miss.'}`);
+        var result;
+        if(hit)
+            if (crit)
+                result = `✅ **CRITICAL HIT!** You deal **${damage} damage**.`
+            else
+                result = `✅ **HIT!** You deal **${damage} damage**.`
+        else
+            result = `❌ **MISS...**`
+        const embed = new EmbedBuilder()
+                .setTitle(`✧ ATTACK`)
+                .setColor(0xB7B75F)
+                .setDescription(`⚔️ **Clementine August attacks!**\n\n> 🎲 ${die} + ${modifier} **mgt** ➜ \` ${total} \`\n> Enemy AC ➜ \` ${ac} \`\n\n${result}`);
+            return reply(interaction, embed);
+        //return reply(interaction, `**${actor.character_name} attacks**\n${describeRoll(die, modifier, total)} vs AC ${ac}: ${hit ? `${crit ? 'Critical hit!' : 'Hit!'} **${damage} damage**.` : 'Miss.'}`);
     }
 
     if (commandName === 'heal') {
