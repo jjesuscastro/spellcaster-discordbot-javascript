@@ -109,13 +109,13 @@ function describeRoll(die, modifier, total) {
 
 function renderStats(actor) {
     const stats = actor.stats || {};
-    const statLines = Object.entries(stats).map(([key, value]) => {
-        if (value && typeof value === 'object' && !Array.isArray(value)) {
-            const contents = Object.entries(value).map(([stat, amount]) => `**${stat.toUpperCase()}** ${amount}`).join(' · ');
-            return `**${key.toUpperCase()}:** ${contents}`;
-        }
-        return `**${key.toUpperCase()}** ${value}`;
-    });
+    // const statLines = Object.entries(stats).map(([key, value]) => {
+    //     if (value && typeof value === 'object' && !Array.isArray(value)) {
+    //         const contents = Object.entries(value).map(([stat, amount]) => `**${stat.toUpperCase()}** ${amount}`).join(' · ');
+    //         return `**${key.toUpperCase()}:** ${contents}`;
+    //     }
+    //     return `**${key.toUpperCase()}** ${value}`;
+    // });
     //const modifierLines = Object.entries(actor.modifiers || {}).map(([key, value]) => `**${key.toUpperCase()} mod** ${value}`);
     const modifierLines = Object.entries(actor.modifiers).flat();
     const lines = [
@@ -134,8 +134,19 @@ function renderStats(actor) {
             { name: '🪄 **MP**', value: `\`\`\`${actor.mp}/${actor.max_mp}\`\`\``   || '—', inline: true },
             { name: '🛡️ **AC**', value: `\`\`\`${actor.armor_class}\`\`\``          || '—', inline: true },
             { name: '✦ SPELL POINTS ✦',    value: ` `    || '—', inline: false },
-            { name: ' ', value: `MAG   \` ${modifierLines[7]} \``          || '—', inline: true },
-            
+            { name: ' ', value: `MAG   \` ${modifierLines[11]} \``          || '—', inline: true },
+            { name: ' ', value: `MGT   \` ${modifierLines[9]} \``          || '—', inline: true },
+            { name: ' ', value: `FIN   \` ${modifierLines[5]} \``          || '—', inline: true },
+            { name: ' ', value: `RES   \` ${modifierLines[7]} \``          || '—', inline: true },
+            { name: ' ', value: `ESN   \` ${modifierLines[3]} \``          || '—', inline: true },
+            { name: ' ', value: `ARC   \` ${modifierLines[1]} \``          || '—', inline: true },
+            { name: '✦ STATS ✦',    value: ` `    || '—', inline: false },
+            { name: ' ', value: `INT   \` ${getModifier(actor, STAT_MODIFIERS["INT"])} \``          || '—', inline: true },
+            { name: ' ', value: `CHA   \` ${getModifier(actor, STAT_MODIFIERS["CHA"])} \``          || '—', inline: true },
+            { name: ' ', value: `WIS   \` ${getModifier(actor, STAT_MODIFIERS["WIS"])} \``          || '—', inline: true },
+            { name: ' ', value: `WIL   \` ${getModifier(actor, STAT_MODIFIERS["WIL"])} \``          || '—', inline: true },
+            { name: ' ', value: `STR   \` ${getModifier(actor, STAT_MODIFIERS["STR"])} \``          || '—', inline: true },
+            { name: ' ', value: `DEX   \` ${getModifier(actor, STAT_MODIFIERS["DEX"])} \``          || '—', inline: true },
         );
     return embed;
     //return `**${actor.character_name}**\n${lines.join('\n')}`;
