@@ -246,14 +246,14 @@ async function executeSimple(interaction, commandName) {
         } else{
             resultText = `❌ **BLOCK FAILED...**\n⮞ ${target.character_name} receives **${taken} damage**.`;
         }
-        const hp = await withTransaction(async client => {
-            await requireAction(client, actor);
-            const shield = await client.query('SELECT shield FROM spellcaster_combat_characters WHERE character_id = $1', [actor.character_id]);
-            const absorbed = Math.min(shield.rows[0].shield, taken);
-            if (absorbed) await client.query('UPDATE spellcaster_combat_characters SET shield = shield - $2 WHERE character_id = $1', [actor.character_id, absorbed]);
-            await markAction(client, actor);
-            return changeResource(client, actor.character_id, 'hp', -(taken - absorbed), 'max_hp');
-        });
+        // const hp = await withTransaction(async client => {
+        //     await requireAction(client, actor);
+        //     const shield = await client.query('SELECT shield FROM spellcaster_combat_characters WHERE character_id = $1', [actor.character_id]);
+        //     const absorbed = Math.min(shield.rows[0].shield, taken);
+        //     if (absorbed) await client.query('UPDATE spellcaster_combat_characters SET shield = shield - $2 WHERE character_id = $1', [actor.character_id, absorbed]);
+        //     await markAction(client, actor);
+        //     return changeResource(client, actor.character_id, 'hp', -(taken - absorbed), 'max_hp');
+        // });
         const embed = new EmbedBuilder()
                 .setTitle(commandName === 'dodge' ? `✧ DODGE` : `✧ BLOCK`)
                 .setColor(0xB7B75F)
@@ -261,7 +261,7 @@ async function executeSimple(interaction, commandName) {
                 .setFooter({text:`Manually take damage using /takedmg!`});
         return reply(interaction, embed);
         
-        return reply(interaction, `**${actor.character_name}** ${resultText}\n${describeRoll(die, modifier, total)} vs AC ${ac}. HP: **${hp.value}/${hp.maximum}**.`);
+        //return reply(interaction, `**${actor.character_name}** ${resultText}\n${describeRoll(die, modifier, total)} vs AC ${ac}. HP: **${hp.value}/${hp.maximum}**.`);
     }
 
     if (commandName === 'attack') {
@@ -529,7 +529,7 @@ const commands = {
     hp: makeCommand('hp', 'Display your HP and MP.'),
     takedmg: makeCommand('takedmg', 'Apply damage to your character.', [requiredNumber('damage', 'Damage to take.')]),
     dodge: makeCommand('dodge', 'Try to dodge incoming damage.', [requiredNumber('damage', 'Incoming damage.'), requiredNumber('atk', 'Enemy attack roll')]),
-    block: makeCommand('block', 'Block incoming damage.', [requiredNumber('damage', 'Incoming damage.'), requiredNumber('atk', 'Enemy attack roll')], [requiredTarget]),
+    block: makeCommand('block', 'Block incoming damage.', [requiredNumber('damage', 'Incoming damage.'), requiredNumber('atk', 'Enemy attack roll'), requiredTarget]),
     attack: makeCommand('attack', 'Attack an enemy.', [requiredNumber('ac', 'Enemy AC.')]),
     heal: makeCommand('heal', 'Heal yourself or another character.', [requiredTarget]),
     newturn: makeCommand('newturn', 'Begin your next combat turn.'),
