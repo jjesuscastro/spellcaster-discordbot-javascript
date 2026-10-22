@@ -141,6 +141,7 @@ function renderStats(actor) {
             { name: ' ', value: `ESN   \` ${modifierLines[3]} \``          || '—', inline: true },
             { name: ' ', value: `ARC   \` ${modifierLines[1]} \``          || '—', inline: true },
             { name: '✦ STATS ✦',    value: ` `    || '—', inline: false },
+            { name: ' ',    value: ` `    || '—', inline: false },
             { name: ' ', value: `INT   \` ${getModifier(actor, STAT_MODIFIERS["int"])} \``          || '—', inline: true },
             { name: ' ', value: `CHA   \` ${getModifier(actor, STAT_MODIFIERS["cha"])} \``          || '—', inline: true },
             { name: ' ', value: `WIS   \` ${getModifier(actor, STAT_MODIFIERS["wis"])} \``          || '—', inline: true },
@@ -179,7 +180,9 @@ async function executeSimple(interaction, commandName) {
             const targets = await getOwnedCharacters(selectedUser.id);
             if (!targets.length) throw new Error('That user has no combat character configured.');
             //return reply(interaction, targets.map(renderStats).join('\n\n'));
-            return reply(interaction, renderStats);
+            const targetName = targets[0].character_name;
+            const target = targetName ? await getCharacterByName(targetName);
+            return reply(interaction, renderStats(target));
         }
     }
 
