@@ -226,6 +226,7 @@ async function executeSimple(interaction, commandName) {
     }
 
     if (commandName === 'dodge' || commandName === 'block') {
+        await requireAction(client, actor);
         let targetName;
         let target;
         if(commandName === 'block'){
