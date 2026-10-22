@@ -153,9 +153,9 @@ async function executeSimple(interaction, commandName) {
         const title = STAT_MODIFIERS[commandName];
         const total = die + modifier;
         const embed = new EmbedBuilder()
-                .setTitle(`✧ {title} CHECK`)
+                .setTitle(`✧ ${title} CHECK`)
                 .setColor(0xB7B75F)
-                .setDescription(`🛡️ **${actor.character_name} ${action}!**\n\n> 🎲 ${die} + ${modifier} **${title}** ➜ \` ${total} \`\n\n⮞ ${actor.character_name} rolls **${total} ${title} points**.`);
+                .setDescription(`> 🎲 ${die} + ${modifier} **${title}** ➜ \` ${total} \`\n\n⮞ ${actor.character_name} rolls **${total} ${title} points**.`);
         return reply(interaction, embed);
         return reply(interaction, `**${actor.character_name} — ${STAT_MODIFIERS[commandName]} check**\n${describeRoll(die, modifier, die + modifier)}`);
     }
@@ -197,7 +197,15 @@ async function executeSimple(interaction, commandName) {
             const hp = await changeResource(client, actor.character_id, 'hp', -(damage - absorbed), 'max_hp');
             return { absorbed, hp };
         });
-        return reply(interaction, `**${actor.character_name}** took ${damage} damage${result.absorbed ? ` (${result.absorbed} absorbed by shield)` : ''}. HP: **${result.hp.value}/${result.hp.maximum}**.`);
+        var resultText = `⮞ ${result.hp.value}/${result.hp.maximum} HP remaining.`;
+        if(result.hp.value = 0)
+            resultText = `☠️ **KNOCKED OUT** \n⮞ ${result.hp.value}/${result.hp.maximum} HP`;
+        const embed = new EmbedBuilder()
+                .setTitle(`✧ TAKE DAMAGE`)
+                .setColor(0xB7B75F)
+                .setDescription(`💥 **${actor.character_name}** receives **${damage} damage!**\n\n${resultText}`);
+        return reply(interaction, embed);
+        //return reply(interaction, `**${actor.character_name}** took ${damage} damage${result.absorbed ? ` (${result.absorbed} absorbed by shield)` : ''}. HP: **${result.hp.value}/${result.hp.maximum}**.`);
     }
 
     if (commandName === 'dodge' || commandName === 'block') {
@@ -288,12 +296,12 @@ async function executeSimple(interaction, commandName) {
         if (target.character_name === actor.character_name)
             texttarget = `themsevles`;
         var result = `⮞ ${target.character_name} is healed for **${amount} HP**.\n✨ ${healed.value}/${healed.maximum} ✨`;
-        if (healed.value = healed.maximum)
-            var result = `⮞ ${target.character_name} is healed for **${amount} HP**.\n✨ FULL HP RESTORED! ✨`;
+        //if (healed.value = healed.maximum)
+        //    var result = `⮞ ${target.character_name} is healed for **${amount} HP**.\n✨ FULL HP RESTORED! ✨`;
         const embed = new EmbedBuilder()
                 .setTitle(`✧ HEAL`)
                 .setColor(0xB7B75F)
-                .setDescription(`⚔️ **${actor.character_name} heals ${texttarget}!**\n\n> 🎲 ${die} + ${modifier} **esn** ➜ \` ${total} \`\n\n${result}`);
+                .setDescription(`⚔️ **${actor.character_name}** heals **${texttarget}!**\n\n> 🎲 ${die} + ${modifier} **esn** ➜ \` ${total} \`\n\n${result}`);
         return reply(interaction, embed);
         
         return reply(interaction, `**${actor.character_name}** ${crit ? 'critically ' : ''}heals **${target.character_name}** for ${amount} HP. (${healed.value}/${healed.maximum})`);
