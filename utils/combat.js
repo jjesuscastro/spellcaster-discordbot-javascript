@@ -241,7 +241,7 @@ async function executeSimple(interaction, commandName) {
                 .setTitle(`✧ ATTACK`)
                 .setColor(0xB7B75F)
                 .setDescription(`⚔️ **Clementine August attacks!**\n\n> 🎲 ${die} + ${modifier} **mgt** ➜ \` ${total} \`\n> Enemy AC ➜ \` ${ac} \`\n\n${result}`);
-            return reply(interaction, embed);
+        return reply(interaction, embed);
         //return reply(interaction, `**${actor.character_name} attacks**\n${describeRoll(die, modifier, total)} vs AC ${ac}: ${hit ? `${crit ? 'Critical hit!' : 'Hit!'} **${damage} damage**.` : 'Miss.'}`);
     }
 
@@ -323,7 +323,12 @@ async function executeSimple(interaction, commandName) {
             );
             return updated.rows[0].turn_number;
         });
-        return reply(interaction, `**${actor.character_name}** begins turn ${result}.${tickMessages.length ? `\n${tickMessages.join('\n')}` : ''}`);
+        const embed = new EmbedBuilder()
+                .setTitle(`Round ${result}.${tickMessages.length ? `\n${tickMessages.join('\n')}` : ''}`)
+                .setColor(0xB7B75F);
+        return reply(interaction, embed);
+
+        //return reply(interaction, `**${actor.character_name}** begins turn ${result}.${tickMessages.length ? `\n${tickMessages.join('\n')}` : ''}`);
     }
 
     if (commandName === 'skill') {
