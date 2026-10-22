@@ -141,12 +141,12 @@ function renderStats(actor) {
             { name: ' ', value: `ESN   \` ${modifierLines[3]} \``          || '—', inline: true },
             { name: ' ', value: `ARC   \` ${modifierLines[1]} \``          || '—', inline: true },
             { name: '✦ STATS ✦',    value: ` `    || '—', inline: false },
-            { name: ' ', value: `INT   \` ${getModifier(actor, STAT_MODIFIERS["INT"])} \``          || '—', inline: true },
-            { name: ' ', value: `CHA   \` ${getModifier(actor, STAT_MODIFIERS["CHA"])} \``          || '—', inline: true },
-            { name: ' ', value: `WIS   \` ${getModifier(actor, STAT_MODIFIERS["WIS"])} \``          || '—', inline: true },
-            { name: ' ', value: `WIL   \` ${getModifier(actor, STAT_MODIFIERS["WIL"])} \``          || '—', inline: true },
-            { name: ' ', value: `STR   \` ${getModifier(actor, STAT_MODIFIERS["STR"])} \``          || '—', inline: true },
-            { name: ' ', value: `DEX   \` ${getModifier(actor, STAT_MODIFIERS["DEX"])} \``          || '—', inline: true },
+            { name: ' ', value: `INT   \` ${getModifier(actor, STAT_MODIFIERS["int"])} \``          || '—', inline: true },
+            { name: ' ', value: `CHA   \` ${getModifier(actor, STAT_MODIFIERS["cha"])} \``          || '—', inline: true },
+            { name: ' ', value: `WIS   \` ${getModifier(actor, STAT_MODIFIERS["wis"])} \``          || '—', inline: true },
+            { name: ' ', value: `WIL   \` ${getModifier(actor, STAT_MODIFIERS["wil"])} \``          || '—', inline: true },
+            { name: ' ', value: `STR   \` ${getModifier(actor, STAT_MODIFIERS["str"])} \``          || '—', inline: true },
+            { name: ' ', value: `DEX   \` ${getModifier(actor, STAT_MODIFIERS["dex"])} \``          || '—', inline: true },
         );
     return embed;
     //return `**${actor.character_name}**\n${lines.join('\n')}`;
