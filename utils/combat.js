@@ -134,7 +134,7 @@ function renderStats(actor) {
 }
 
 async function reply(interaction, content) {
-    const payload = { content, allowedMentions: { parse: [] } };
+    const payload = { embeds: [content], allowedMentions: { parse: [] } };
     if (interaction.deferred || interaction.replied) return interaction.editReply(payload);
     return interaction.reply(payload);
 }
