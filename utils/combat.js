@@ -165,7 +165,20 @@ async function executeSimple(interaction, commandName) {
 
     const actor = await getActor(interaction);
     if (commandName === 'stats' || commandName === 'hp') {
-        return reply(interaction, commandName === 'stats' ? renderStats(actor) : `**${actor.character_name}** — HP ${actor.hp}/${actor.max_hp} · MP ${actor.mp}/${actor.max_mp}`);
+        if(commandName === 'stats')
+            return reply(interaction, renderStats(actor));
+        else{
+            const embed = new EmbedBuilder()
+                .setTitle(`✧ ${actor.character_name}`)
+                .setColor(0xB7B75F)
+                .addFields(
+                    { name: '💊 **HP**', value: `\`\`\`${actor.hp}/${actor.max_hp}\`\`\``   || '—', inline: true },
+                    { name: '🪄 **MP**', value: `\`\`\`${actor.mp}/${actor.max_mp}\`\`\``   || '—', inline: true },
+                    
+                );
+            return reply(interaction, embed);
+        }
+        //return reply(interaction, commandName === 'stats' ? renderStats(actor) : `**${actor.character_name}** — HP ${actor.hp}/${actor.max_hp} · MP ${actor.mp}/${actor.max_mp}`);
     }
 
     if (commandName === 'takedmg') {
