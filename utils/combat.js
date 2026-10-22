@@ -195,7 +195,7 @@ async function executeSimple(interaction, commandName) {
 
     if (commandName === 'dodge' || commandName === 'block') {
         const damage = interaction.options.getInteger('damage');
-        const ac = interaction.options.getInteger('ac');
+        const ac = interaction.options.getInteger('atk');
         const key = commandName === 'dodge' ? 'FIN' : 'RES';
         const die = roll20();
         const modifier = getModifier(actor, key);
@@ -203,19 +203,22 @@ async function executeSimple(interaction, commandName) {
         let taken = damage;
         var action = "blocks";
         var mod = "res";
-        let resultText = `❌ **BLOCK FAILED**\n⮞ ${actor.character_name} receives **${taken} damage**.`;
+        let resultText = `❌ **BLOCK FAILED...**\n⮞ ${actor.character_name} receives **${taken} damage**.`;
         if (commandName === 'dodge') {
             action = "dodges";
             mod = "fin";
             if (total >= ac) { 
                 taken = 0; 
-                resultText = `✅ **FULL DODGE**\n⮞ ${actor.character_name} receives **no damage**.`; }
+                resultText = `✅ **FULL DODGE!**\n⮞ ${actor.character_name} receives **no damage**.`; }
             else if (ac - total <= 3) { 
                 taken = Math.ceil(damage / 2); 
-                resultText = `✅ **PARTIAL DODGE**\n⮞ ${actor.character_name} receives **${taken} damage**.`; }
-        } else if (total > ac) {
+                resultText = `✅ **PARTIAL DODGE!**\n⮞ ${actor.character_name} receives **${taken} damage**.`; }
+        } else if (total >= ac) {
+            taken = Math.ceil(damage / 4);
+            resultText = `✅ **FULL BLOCK!**\n⮞ ${actor.character_name} receives **${taken} damage**.\n⮞ Target receives **no damage**.`;
+        } else if (ac - total <= 3){
             taken = Math.ceil(damage / 2);
-            resultText = `✅ **PARTIAL BLOCK**\n⮞ ${actor.character_name} receives **${taken} damage**.`;
+            resultText = `✅ **PARTIAL BLOCK!**\n⮞ ${actor.character_name} receives **${taken} damage**.\n⮞ Target receives **${taken} damage**.`;
         }
         const hp = await withTransaction(async client => {
             await requireAction(client, actor);
@@ -228,7 +231,8 @@ async function executeSimple(interaction, commandName) {
         const embed = new EmbedBuilder()
                 .setTitle(commandName === 'dodge' ? `✧ DODGE` : `✧ BLOCK`)
                 .setColor(0xB7B75F)
-                .setDescription(`⚔️ **Clementine August ${action}!**\n\n> 🎲 ${die} + ${modifier} **${mod}** ➜ \` ${total} \`\n> Enemy Roll ➜ \` ${ac} \`\n\n${resultText}`);
+                .setDescription(`🛡️ **${actor.character_name} ${action}!**\n\n> 🎲 ${die} + ${modifier} **${mod}** ➜ \` ${total} \`\n> Enemy Roll ➜ \` ${ac} \`\n\n${resultText}`)
+                .setFooter({text:`Manually take damage using /takedmg!`});
         return reply(interaction, embed);
         
         return reply(interaction, `**${actor.character_name}** ${resultText}\n${describeRoll(die, modifier, total)} vs AC ${ac}. HP: **${hp.value}/${hp.maximum}**.`);
@@ -254,7 +258,7 @@ async function executeSimple(interaction, commandName) {
         const embed = new EmbedBuilder()
                 .setTitle(`✧ ATTACK`)
                 .setColor(0xB7B75F)
-                .setDescription(`⚔️ **Clementine August attacks!**\n\n> 🎲 ${die} + ${modifier} **mgt** ➜ \` ${total} \`\n> Enemy AC ➜ \` ${ac} \`\n\n${result}`);
+                .setDescription(`⚔️ **${actor.character_name} attacks!**\n\n> 🎲 ${die} + ${modifier} **mgt** ➜ \` ${total} \`\n> Enemy AC ➜ \` ${ac} \`\n\n${result}`);
         return reply(interaction, embed);
         //return reply(interaction, `**${actor.character_name} attacks**\n${describeRoll(die, modifier, total)} vs AC ${ac}: ${hit ? `${crit ? 'Critical hit!' : 'Hit!'} **${damage} damage**.` : 'Miss.'}`);
     }
@@ -272,6 +276,18 @@ async function executeSimple(interaction, commandName) {
             await markAction(client, actor);
             return changeResource(client, target.character_id, 'hp', amount, 'max_hp');
         });
+        var texttarget = target.character_name;
+        if (target.character_name === actor.character_name)
+            texttarget = `themsevles`;
+        var result = `⮞ ${target.character_name} is healed for **${amount} HP**.\n✨ ${healed.value}/${healed.maximum} ✨`;
+        if (healed.value = healed.maximum)
+            var result = `⮞ ${target.character_name} is healed for **${amount} HP**.\n✨ FULL HP RESTOREDD ✨`;
+        const embed = new EmbedBuilder()
+                .setTitle(`✧ HEAL`)
+                .setColor(0xB7B75F)
+                .setDescription(`⚔️ **${actor.character_name} heals ${texttarget}!**\n\n> 🎲 ${die} + ${modifier} **esn** ➜ \` ${total} \`\n> Enemy AC ➜ \` ${ac} \`\n\n${result}`);
+        return reply(interaction, embed);
+        
         return reply(interaction, `**${actor.character_name}** ${crit ? 'critically ' : ''}heals **${target.character_name}** for ${amount} HP. (${healed.value}/${healed.maximum})`);
     }
 
