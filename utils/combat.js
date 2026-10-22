@@ -129,9 +129,9 @@ function renderStats(actor) {
         .setTitle(`✧ ${actor.character_name}`)
         .setColor(0xB7B75F)
         .addFields(
-            { name: '💊 **HP**', value: `${actor.hp}/${actor.max_hp}`   || '—', inline: true },
-            { name: '🪄 **MP**', value: `${actor.mp}/${actor.max_mp}` || '—', inline: true },
-            { name: '🛡️ **AC**', value: `${actor.armor_class}` || '—', inline: true },
+            { name: '💊 **HP**', value: `\`\`\`${actor.hp}/${actor.max_hp}\`\`\``   || '—', inline: true },
+            { name: '🪄 **MP**', value: `\`\`\`${actor.mp}/${actor.max_mp}\`\`\``   || '—', inline: true },
+            { name: '🛡️ **AC**', value: `\`\`\`${actor.armor_class}\`\`\``          || '—', inline: true },
             { name: '✦ SPELL POINTS ✦',    value: ` `    || '—', inline: false },
             
         );
