@@ -209,9 +209,11 @@ async function executeSimple(interaction, commandName) {
     }
 
     if (commandName === 'dodge' || commandName === 'block') {
+        let targetName;
+        let target;
         if(commandName === 'block'){
-            const targetName = interaction.options.getString('target');
-            const target = targetName ? await getCharacterByName(targetName) : actor;
+            targetName = interaction.options.getString('target');
+            target = targetName ? await getCharacterByName(targetName) : actor;
             if (!target) throw new Error('That character is not in the combat database.');    
         }
         const damage = interaction.options.getInteger('damage');
@@ -223,7 +225,7 @@ async function executeSimple(interaction, commandName) {
         let taken = damage;
         var action = "blocks";
         var mod = "res";
-        let resultText = `❌ **BLOCK FAILED...**\n⮞ ${actor.character_name} receives **${taken} damage**.`;
+        let resultText = `❌ **DODGE FAILED...**\n⮞ ${actor.character_name} receives **${taken} damage**.`;
         if (commandName === 'dodge') {
             action = "dodges";
             mod = "fin";
@@ -235,10 +237,12 @@ async function executeSimple(interaction, commandName) {
                 resultText = `✅ **PARTIAL DODGE!**\n⮞ ${actor.character_name} receives **${taken} damage**.`; }
         } else if (total >= ac) {
             taken = Math.ceil(damage / 4);
-            resultText = `✅ **FULL BLOCK!**\n⮞ ${actor.character_name} receives **${taken} damage**.\n⮞ Target receives **no damage**.`;
+            resultText = `✅ **FULL BLOCK!**\n⮞ ${actor.character_name} receives **${taken} damage**.\n⮞ ${target.character_name} receives **no damage**.`;
         } else if (ac - total <= 3){
             taken = Math.ceil(damage / 2);
-            resultText = `✅ **PARTIAL BLOCK!**\n⮞ ${actor.character_name} receives **${taken} damage**.\n⮞ Target receives **${taken} damage**.`;
+            resultText = `✅ **PARTIAL BLOCK!**\n⮞ ${actor.character_name} receives **${taken} damage**.\n⮞ ${target.character_name} receives **${taken} damage**.`;
+        } else{
+            resultText = `❌ **BLOCK FAILED...**\n⮞ ${target.character_name} receives **${taken} damage**.`;
         }
         const hp = await withTransaction(async client => {
             await requireAction(client, actor);
