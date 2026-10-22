@@ -73,7 +73,7 @@ async function requireAction(client, actor) {
         [actor.character_id],
     );
     if (!result.rows[0]) throw new Error('Character not found.');
-    if (result.rows[0].action_used) throw new Error('You have already used your action this turn. Use /newturn to begin your next turn.');
+    if (result.rows[0].action_used) throw new Error('You have already used your action this turn. Wait for /newturn to begin your next turn.');
 }
 
 async function markAction(client, actor) {
