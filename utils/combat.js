@@ -279,10 +279,11 @@ async function executeSimple(interaction, commandName) {
             }
             const updated = await client.query(
                 `UPDATE spellcaster_combat_characters SET turn_number = turn_number + 1,
-                 action_used = FALSE, cooldowns = $2, active_effects = $3
+                 cooldowns = $2, active_effects = $3
                  WHERE character_id = $1 RETURNING turn_number`,
                 [actor.character_id, JSON.stringify(cooldowns), JSON.stringify(remaining)],
             );
+            await client.query('UPDATE spellcaster_combat_characters SET action_used = FALSE');
             return updated.rows[0].turn_number;
         });
         return reply(interaction, `**${actor.character_name}** begins turn ${result}.${tickMessages.length ? `\n${tickMessages.join('\n')}` : ''}`);
