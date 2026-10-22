@@ -117,7 +117,7 @@ function renderStats(actor) {
         return `**${key.toUpperCase()}** ${value}`;
     });
     //const modifierLines = Object.entries(actor.modifiers || {}).map(([key, value]) => `**${key.toUpperCase()} mod** ${value}`);
-    const modifierLines = JSON.parse(actor.modifiers);
+    const modifierLines = Object.entries(actor.modifiers).flat();
     const lines = [
         `**HP:** ${actor.hp}/${actor.max_hp}`,
         `**MP:** ${actor.mp}/${actor.max_mp}`,
@@ -134,7 +134,7 @@ function renderStats(actor) {
             { name: '🪄 **MP**', value: `\`\`\`${actor.mp}/${actor.max_mp}\`\`\``   || '—', inline: true },
             { name: '🛡️ **AC**', value: `\`\`\`${actor.armor_class}\`\`\``          || '—', inline: true },
             { name: '✦ SPELL POINTS ✦',    value: ` `    || '—', inline: false },
-            { name: ' ', value: `MAG   \` ${modifierLines["MAG"]} \``          || '—', inline: true },
+            { name: ' ', value: `MAG   \` ${modifierLines[7]} \``          || '—', inline: true },
             
         );
     return embed;
