@@ -223,7 +223,9 @@ async function executeSimple(interaction, commandName) {
         const modifier = getModifier(actor, key);
         const total = die + modifier;
         let taken = damage;
-        var action = "blocks";
+        if (target.character_name === actor.character_name)
+            var action = `blocks`;
+        else var action = `blocks for **${targetName}**`;
         var mod = "res";
         let resultText = `❌ **DODGE FAILED...**\n⮞ ${actor.character_name} receives **${taken} damage**.`;
         if (commandName === 'dodge') {
