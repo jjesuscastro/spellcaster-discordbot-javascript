@@ -150,6 +150,13 @@ async function executeSimple(interaction, commandName) {
         const actor = await getActor(interaction);
         const die = roll20();
         const modifier = getModifier(actor, STAT_MODIFIERS[commandName]);
+        const title = STAT_MODIFIERS[commandName];
+        const total = die + modifier;
+        const embed = new EmbedBuilder()
+                .setTitle(`✧ {title} CHECK`)
+                .setColor(0xB7B75F)
+                .setDescription(`🛡️ **${actor.character_name} ${action}!**\n\n> 🎲 ${die} + ${modifier} **${title}** ➜ \` ${total} \`\n\n⮞ ${actor.character_name} rolls **${total} ${title} points**.`);
+        return reply(interaction, embed);
         return reply(interaction, `**${actor.character_name} — ${STAT_MODIFIERS[commandName]} check**\n${describeRoll(die, modifier, die + modifier)}`);
     }
 
@@ -286,7 +293,7 @@ async function executeSimple(interaction, commandName) {
         const embed = new EmbedBuilder()
                 .setTitle(`✧ HEAL`)
                 .setColor(0xB7B75F)
-                .setDescription(`⚔️ **${actor.character_name} heals ${texttarget}!**\n\n> 🎲 ${die} + ${modifier} **esn** ➜ \` ${total} \`\n> Enemy AC ➜ \` ${ac} \`\n\n${result}`);
+                .setDescription(`⚔️ **${actor.character_name} heals ${texttarget}!**\n\n> 🎲 ${die} + ${modifier} **esn** ➜ \` ${total} \`\n\n${result}`);
         return reply(interaction, embed);
         
         return reply(interaction, `**${actor.character_name}** ${crit ? 'critically ' : ''}heals **${target.character_name}** for ${amount} HP. (${healed.value}/${healed.maximum})`);
@@ -355,7 +362,7 @@ async function executeSimple(interaction, commandName) {
             return updated.rows[0].turn_number;
         });
         const embed = new EmbedBuilder()
-                .setTitle(`Round ${result}.${tickMessages.length ? `\n${tickMessages.join('\n')}` : ''}`)
+                .setTitle(`Round ${result}${tickMessages.length ? `\n${tickMessages.join('\n')}` : ''}`)
                 .setColor(0xB7B75F);
         return reply(interaction, embed);
 
