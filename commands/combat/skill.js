@@ -1,1 +1,1 @@
-module.exports = require('../../utils/combat').commands.skill;
+//module.exports = require('../../utils/combat').commands.skill;

@@ -209,6 +209,11 @@ async function executeSimple(interaction, commandName) {
     }
 
     if (commandName === 'dodge' || commandName === 'block') {
+        if(commandName === 'block'){
+            const targetName = interaction.options.getString('target');
+            const target = targetName ? await getCharacterByName(targetName) : actor;
+            if (!target) throw new Error('That character is not in the combat database.');    
+        }
         const damage = interaction.options.getInteger('damage');
         const ac = interaction.options.getInteger('atk');
         const key = commandName === 'dodge' ? 'FIN' : 'RES';
@@ -504,7 +509,7 @@ function makeCommand(name, description, optionConfigs = []) {
 
 const optionalNumber = (name, description) => data => data.addIntegerOption(option => option.setName(name).setDescription(description).setMinValue(0).setRequired(false));
 const requiredNumber = (name, description) => data => data.addIntegerOption(option => option.setName(name).setDescription(description).setMinValue(0).setRequired(true));
-const requiredTarget = data => data.addStringOption(option => option.setName('target').setDescription('Character to target; omit where self-targeting is allowed.').setAutocomplete(true).setRequired(false));
+const requiredTarget = data => data.addStringOption(option => option.setName('target').setDescription('Character to target; If none: self').setAutocomplete(true).setRequired(false));
 const userOption = data => data.addUserOption(option => option.setName('user').setDescription('Whose character to view.').setRequired(false));
 
 const commands = {
@@ -518,7 +523,7 @@ const commands = {
     hp: makeCommand('hp', 'Display your HP and MP.'),
     takedmg: makeCommand('takedmg', 'Apply damage to your character.', [requiredNumber('damage', 'Damage to take.')]),
     dodge: makeCommand('dodge', 'Try to dodge incoming damage.', [requiredNumber('damage', 'Incoming damage.'), requiredNumber('atk', 'Enemy attack roll')]),
-    block: makeCommand('block', 'Block incoming damage.', [requiredNumber('damage', 'Incoming damage.'), requiredNumber('atk', 'Enemy attack roll')]),
+    block: makeCommand('block', 'Block incoming damage.', [requiredNumber('damage', 'Incoming damage.'), requiredNumber('atk', 'Enemy attack roll')], [requiredTarget]),
     attack: makeCommand('attack', 'Attack an enemy.', [requiredNumber('ac', 'Enemy AC.')]),
     heal: makeCommand('heal', 'Heal yourself or another character.', [requiredTarget]),
     newturn: makeCommand('newturn', 'Begin your next combat turn.'),
