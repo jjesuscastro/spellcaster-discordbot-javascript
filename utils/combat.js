@@ -1,4 +1,4 @@
-const { SlashCommandBuilder } = require('discord.js');
+const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
 const { pool, withTransaction } = require('./db');
 
 const STAT_MODIFIERS = {
