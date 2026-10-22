@@ -124,8 +124,8 @@ function renderStats(actor) {
         `**AC:** ${actor.armor_class}`,
         `**Shield:** ${actor.shield}`,
     ];
-    if (statLines.length) lines.push(`**Stats:** ${statLines.join(' · ')}`);
-    if (modifierLines.length) lines.push(`**Modifiers:** ${modifierLines.join(' · ')}`);
+    //if (statLines.length) lines.push(`**Stats:** ${statLines.join(' · ')}`);
+    //if (modifierLines.length) lines.push(`**Modifiers:** ${modifierLines.join(' · ')}`);
     const embed = new EmbedBuilder()
         .setTitle(`✧ ${actor.character_name}`)
         .setColor(0xB7B75F)
