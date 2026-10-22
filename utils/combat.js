@@ -296,8 +296,8 @@ async function executeSimple(interaction, commandName) {
         if (target.character_name === actor.character_name)
             texttarget = `themsevles`;
         var result = `⮞ ${target.character_name} is healed for **${amount} HP**.\n✨ ${healed.value}/${healed.maximum} ✨`;
-        //if (healed.value = healed.maximum)
-        //    var result = `⮞ ${target.character_name} is healed for **${amount} HP**.\n✨ FULL HP RESTORED! ✨`;
+        if (healed.value == healed.maximum)
+            var result = `⮞ ${target.character_name} is healed for **${amount} HP**.\n✨ FULL HP RESTORED! ✨`;
         const embed = new EmbedBuilder()
                 .setTitle(`✧ HEAL`)
                 .setColor(0xB7B75F)
@@ -314,7 +314,12 @@ async function executeSimple(interaction, commandName) {
             'UPDATE spellcaster_combat_characters SET skill_modifier = skill_modifier + $2 WHERE character_id = $1 RETURNING skill_modifier',
             [actor.character_id, amount * direction],
         );
-        return reply(interaction, `**${actor.character_name}** skill modifier is now ${result.rows[0].skill_modifier >= 0 ? '+' : ''}${result.rows[0].skill_modifier}.`);
+        const embed = new EmbedBuilder()
+                .setTitle(`✧ MAGIC BUFFED!`)
+                .setColor(0xB7B75F)
+                .setDescription(`⚔️ **${actor.character_name}** stats have all been reset.`);
+        return reply(interaction, embed);
+        //return reply(interaction, `**${actor.character_name}** skill modifier is now ${result.rows[0].skill_modifier >= 0 ? '+' : ''}${result.rows[0].skill_modifier}.`);
     }
 
     if (commandName === 'resetstats') {
@@ -324,7 +329,13 @@ async function executeSimple(interaction, commandName) {
              action_used = FALSE WHERE character_id = $1`,
             [actor.character_id],
         );
-        return reply(interaction, `**${actor.character_name}** HP and MP restored; shield, cooldowns, active effects, and temporary skill modifier cleared.`);
+        
+        const embed = new EmbedBuilder()
+                .setTitle(`✧ RESET`)
+                .setColor(0xB7B75F)
+                .setDescription(`⚔️ **${actor.character_name}** stats have all been reset.`);
+        return reply(interaction, embed);
+        //return reply(interaction, `**${actor.character_name}** HP and MP restored; shield, cooldowns, active effects, and temporary skill modifier cleared.`);
     }
 
     if (commandName === 'statuseffects') {
@@ -512,14 +523,14 @@ const commands = {
     heal: makeCommand('heal', 'Heal yourself or another character.', [requiredTarget]),
     newturn: makeCommand('newturn', 'Begin your next combat turn.'),
     resetstats: makeCommand('resetstats', 'Restore HP and MP and clear combat effects.'),
-    modbuff: makeCommand('modbuff', 'Increase your skill modifier.', [requiredNumber('amount', 'Amount to add.')]),
-    moddebuff: makeCommand('moddebuff', 'Decrease your skill modifier.', [requiredNumber('amount', 'Amount to subtract.')]),
-    statuseffects: makeCommand('statuseffects', 'Display skill cooldowns and active effects.'),
-    skill: makeCommand('skill', 'Use one of your character skills.', [
-        data => data.addIntegerOption(option => option.setName('skill').setDescription('Choose a skill slot.').setAutocomplete(true).setRequired(true)),
-        optionalNumber('ac', 'Enemy AC for DPS or DOT skills.'),
-        requiredTarget,
-    ]),
+    //modbuff: makeCommand('modbuff', 'Increase your skill modifier.', [requiredNumber('amount', 'Amount to add.')]),
+    //moddebuff: makeCommand('moddebuff', 'Decrease your skill modifier.', [requiredNumber('amount', 'Amount to subtract.')]),
+    //statuseffects: makeCommand('statuseffects', 'Display skill cooldowns and active effects.'),
+    //skill: makeCommand('skill', 'Use one of your character skills.', [
+    //    data => data.addIntegerOption(option => option.setName('skill').setDescription('Choose a skill slot.').setAutocomplete(true).setRequired(true)),
+    //    optionalNumber('ac', 'Enemy AC for DPS or DOT skills.'),
+    //    requiredTarget,
+    //]),
 };
 
 module.exports = { commands, makeCommand, getActor, getOwnedCharacters, getCharacterByName, renderStats };
