@@ -145,7 +145,7 @@ function renderStats(actor) {
             { name: ' ', value: `INT   \` ${getModifier(actor, STAT_MODIFIERS["int"])} \``          || '—', inline: true },
             { name: ' ', value: `CHA   \` ${getModifier(actor, STAT_MODIFIERS["cha"])} \``          || '—', inline: true },
             { name: ' ', value: `WIS   \` ${getModifier(actor, STAT_MODIFIERS["wis"])} \``          || '—', inline: true },
-            { name: ' ', value: `WIL   \` ${getModifier(actor, STAT_MODIFIERS["wil"])} \``          || '—', inline: true },
+            { name: ' ', value: `WIL   \` ${getModifier(actor, STAT_MODIFIERS["will"])} \``          || '—', inline: true },
             { name: ' ', value: `STR   \` ${getModifier(actor, STAT_MODIFIERS["str"])} \``          || '—', inline: true },
             { name: ' ', value: `DEX   \` ${getModifier(actor, STAT_MODIFIERS["dex"])} \``          || '—', inline: true },
         );
@@ -234,7 +234,7 @@ async function executeSimple(interaction, commandName) {
             if (!target) throw new Error('That character is not in the combat database.');    
         }
         const damage = interaction.options.getInteger('damage');
-        const ac = interaction.options.getInteger('atk');
+        const ac = interaction.options.getInteger('enemyroll');
         const key = commandName === 'dodge' ? 'FIN' : 'RES';
         const die = roll20();
         const modifier = getModifier(actor, key);
@@ -551,7 +551,7 @@ const commands = {
     dex: makeCommand('dex', 'Roll a DEX check.'),
     hp: makeCommand('hp', 'Display your HP and MP.'),
     takedmg: makeCommand('takedmg', 'Apply damage to your character.', [requiredNumber('damage', 'Damage to take.')]),
-    dodge: makeCommand('dodge', 'Try to dodge incoming damage.', [requiredNumber('damage', 'Incoming damage.'), requiredNumber('atk', 'Enemy attack roll')]),
+    dodge: makeCommand('dodge', 'Try to dodge incoming damage.', [requiredNumber('enemyroll', 'Enemy attack roll'), requiredNumber('damage', 'Incoming damage.')]),
     block: makeCommand('block', 'Block incoming damage.', [requiredNumber('enemyroll', 'Enemy attack roll'), requiredNumber('damage', 'Incoming damage.'), requiredTarget]),
     attack: makeCommand('attack', 'Attack an enemy.', [requiredNumber('ac', 'Enemy AC.')]),
     heal: makeCommand('heal', 'Heal yourself or another character.', [requiredTarget]),
