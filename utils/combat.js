@@ -134,10 +134,10 @@ function renderStats(actor) {
             { name: '🪄 **MP**', value: `\`\`\`${actor.mp}/${actor.max_mp}\`\`\``   || '—', inline: true },
             { name: '🛡️ **AC**', value: `\`\`\`${actor.armor_class}\`\`\``          || '—', inline: true },
             { name: '✦ SPELL POINTS ✦',    value: ` `    || '—', inline: false },
-            { name: ' ', value: `MAG   \` ${modifierLines[11]} \``          || '—', inline: true },
+            { name: ' ', value: `MAG   \` ${modifierLines[7]} \``          || '—', inline: true },
             { name: ' ', value: `MGT   \` ${modifierLines[9]} \``          || '—', inline: true },
             { name: ' ', value: `FIN   \` ${modifierLines[5]} \``          || '—', inline: true },
-            { name: ' ', value: `RES   \` ${modifierLines[7]} \``          || '—', inline: true },
+            { name: ' ', value: `RES   \` ${modifierLines[11]} \``          || '—', inline: true },
             { name: ' ', value: `ESN   \` ${modifierLines[3]} \``          || '—', inline: true },
             { name: ' ', value: `ARC   \` ${modifierLines[1]} \``          || '—', inline: true },
             { name: ' ',    value: ` `    || '—', inline: false },
@@ -169,7 +169,7 @@ async function executeSimple(interaction, commandName) {
         const embed = new EmbedBuilder()
                 .setTitle(`✧ ROLL CHECK`)
                 .setColor(0xB7B75F)
-                .setDescription(`> 🎲 ${die} + ${modifier} **${title}** ➜ \` ${total} \`\n\n⮞ ${actor.character_name} rolls **${total} ${title} points**.`);
+                .setDescription(`> 🎲 ${die} + ${modifier} **${title}** ➜ \` ${total} \`\n\n➤ ${actor.character_name} rolls **${total} ${title}**.`);
         return reply(interaction, embed);
         return reply(interaction, `**${actor.character_name} — ${STAT_MODIFIERS[commandName]} check**\n${describeRoll(die, modifier, die + modifier)}`);
     }
@@ -214,9 +214,9 @@ async function executeSimple(interaction, commandName) {
             const hp = await changeResource(client, actor.character_id, 'hp', -(damage - absorbed), 'max_hp');
             return { absorbed, hp };
         });
-        var resultText = `⮞ ${result.hp.value}/${result.hp.maximum} HP remaining.`;
-        if(result.hp.value = 0)
-            resultText = `☠️ **KNOCKED OUT** \n⮞ ${result.hp.value}/${result.hp.maximum} HP`;
+        var resultText = `➤ ${result.hp.value}/${result.hp.maximum} HP remaining.`;
+        if(result.hp.value == 0)
+            resultText = `☠️ **KNOCKED OUT** \n➤ ${result.hp.value}/${result.hp.maximum} HP`;
         const embed = new EmbedBuilder()
                 .setTitle(`✧ TAKE DAMAGE`)
                 .setColor(0xB7B75F)
@@ -226,7 +226,6 @@ async function executeSimple(interaction, commandName) {
     }
 
     if (commandName === 'dodge' || commandName === 'block') {
-        await requireAction(client, actor);
         let targetName;
         let target;
         if(commandName === 'block'){
@@ -245,39 +244,39 @@ async function executeSimple(interaction, commandName) {
             var action = `blocks`;
         else var action = `blocks for **${targetName}**`;
         var mod = "res";
-        let resultText = `❌ **DODGE FAILED...**\n⮞ ${actor.character_name} receives **${taken} damage**.`;
+        let resultText = `❌ **DODGE FAILED...**\n➤ ${actor.character_name} receives **${taken} damage**.`;
         if (commandName === 'dodge') {
             action = "dodges";
             mod = "fin";
             if (total >= ac) { 
                 taken = 0; 
-                resultText = `✅ **FULL DODGE!**\n⮞ ${actor.character_name} receives **no damage**.`; }
+                resultText = `✅ **FULL DODGE!**\n➤ ${actor.character_name} receives **no damage**.`; }
             else if (ac - total <= 3) { 
                 taken = Math.ceil(damage / 2); 
-                resultText = `✅ **PARTIAL DODGE!**\n⮞ ${actor.character_name} receives **${taken} damage**.`; }
+                resultText = `✅ **PARTIAL DODGE!**\n➤ ${actor.character_name} receives **${taken} damage**.`; }
         } else if (total >= ac) {
             taken = Math.ceil(damage / 4);
             if (target.character_name === actor.character_name)
-                resultText = `✅ **FULL BLOCK!**\n⮞ ${actor.character_name} receives **${taken} damage**.`;
+                resultText = `✅ **FULL BLOCK!**\n➤ ${actor.character_name} receives **${taken} damage**.`;
             else
-                resultText = `✅ **FULL BLOCK!**\n⮞ ${actor.character_name} receives **${taken} damage**.\n⮞ ${target.character_name} receives **no damage**.`;
+                resultText = `✅ **FULL BLOCK!**\n➤ ${actor.character_name} receives **${taken} damage**.\n➤ ${target.character_name} receives **no damage**.`;
         } else if (ac - total <= 3){
             taken = Math.ceil(damage / 2);
             if (target.character_name === actor.character_name)
-                resultText = `✅ **PARTIAL BLOCK!**\n⮞ ${actor.character_name} receives **${taken} damage**.`;
+                resultText = `✅ **PARTIAL BLOCK!**\n➤ ${actor.character_name} receives **${taken} damage**.`;
             else
-                resultText = `✅ **PARTIAL BLOCK!**\n⮞ ${actor.character_name} receives **${taken} damage**.\n⮞ ${target.character_name} receives **${taken} damage**.`;
+                resultText = `✅ **PARTIAL BLOCK!**\n➤ ${actor.character_name} receives **${taken} damage**.\n➤ ${target.character_name} receives **${taken} damage**.`;
         } else{
-            resultText = `❌ **BLOCK FAILED...**\n⮞ ${target.character_name} receives **${taken} damage**.`;
+            resultText = `❌ **BLOCK FAILED...**\n➤ ${target.character_name} receives **${taken} damage**.`;
         }
-        // const hp = await withTransaction(async client => {
-        //     await requireAction(client, actor);
-        //     const shield = await client.query('SELECT shield FROM spellcaster_combat_characters WHERE character_id = $1', [actor.character_id]);
-        //     const absorbed = Math.min(shield.rows[0].shield, taken);
-        //     if (absorbed) await client.query('UPDATE spellcaster_combat_characters SET shield = shield - $2 WHERE character_id = $1', [actor.character_id, absorbed]);
-        //     await markAction(client, actor);
-        //     return changeResource(client, actor.character_id, 'hp', -(taken - absorbed), 'max_hp');
-        // });
+        const hp = await withTransaction(async client => {
+            await requireAction(client, actor);
+        //    const shield = await client.query('SELECT shield FROM spellcaster_combat_characters WHERE character_id = $1', [actor.character_id]);
+        //    const absorbed = Math.min(shield.rows[0].shield, taken);
+        //    if (absorbed) await client.query('UPDATE spellcaster_combat_characters SET shield = shield - $2 WHERE character_id = $1', [actor.character_id, absorbed]);
+            await markAction(client, actor);
+        //    return changeResource(client, actor.character_id, 'hp', -(taken - absorbed), 'max_hp');
+        });
         const embed = new EmbedBuilder()
                 .setTitle(commandName === 'dodge' ? `✧ DODGE` : `✧ BLOCK`)
                 .setColor(0xB7B75F)
@@ -330,13 +329,13 @@ async function executeSimple(interaction, commandName) {
         var texttarget = target.character_name;
         if (target.character_name === actor.character_name)
             texttarget = `themsevles`;
-        var result = `⮞ ${target.character_name} is healed for **${amount} HP**.\n✨ ${healed.value}/${healed.maximum} ✨`;
+        var result = `➤ ${target.character_name} is healed for **${amount} HP**.\n✨ ${healed.value}/${healed.maximum} ✨`;
         if (healed.value == healed.maximum)
-            var result = `⮞ ${target.character_name} is healed for **${amount} HP**.\n✨ FULL HP RESTORED! ✨`;
+            var result = `➤ ${target.character_name} is healed for **${amount} HP**.\n✨ FULL HP RESTORED! ✨`;
         const embed = new EmbedBuilder()
                 .setTitle(`✧ HEAL`)
                 .setColor(0xB7B75F)
-                .setDescription(`⚔️ **${actor.character_name}** heals **${texttarget}!**\n\n> 🎲 ${die} + ${modifier} **esn** ➜ \` ${total} \`\n\n${result}`);
+                .setDescription(`💊 **${actor.character_name}** heals **${texttarget}!**\n\n> 🎲 ${die} + ${modifier} **esn** ➜ \` ${total} \`\n\n${result}`);
         return reply(interaction, embed);
         
         return reply(interaction, `**${actor.character_name}** ${crit ? 'critically ' : ''}heals **${target.character_name}** for ${amount} HP. (${healed.value}/${healed.maximum})`);
@@ -357,7 +356,7 @@ async function executeSimple(interaction, commandName) {
         //return reply(interaction, `**${actor.character_name}** skill modifier is now ${result.rows[0].skill_modifier >= 0 ? '+' : ''}${result.rows[0].skill_modifier}.`);
     }
 
-    if (commandName === 'resetstats') {
+    if (commandName === 'resetcombat') {
         await pool.query(
             `UPDATE spellcaster_combat_characters SET hp = max_hp, mp = max_mp, shield = 0,
              skill_modifier = base_skill_modifier, cooldowns = '{}'::jsonb, active_effects = '[]'::jsonb,
@@ -553,11 +552,11 @@ const commands = {
     hp: makeCommand('hp', 'Display your HP and MP.'),
     takedmg: makeCommand('takedmg', 'Apply damage to your character.', [requiredNumber('damage', 'Damage to take.')]),
     dodge: makeCommand('dodge', 'Try to dodge incoming damage.', [requiredNumber('damage', 'Incoming damage.'), requiredNumber('atk', 'Enemy attack roll')]),
-    block: makeCommand('block', 'Block incoming damage.', [requiredNumber('damage', 'Incoming damage.'), requiredNumber('atk', 'Enemy attack roll'), requiredTarget]),
+    block: makeCommand('block', 'Block incoming damage.', [requiredNumber('enemy roll', 'Enemy attack roll'), requiredNumber('damage', 'Incoming damage.'), requiredTarget]),
     attack: makeCommand('attack', 'Attack an enemy.', [requiredNumber('ac', 'Enemy AC.')]),
     heal: makeCommand('heal', 'Heal yourself or another character.', [requiredTarget]),
     newturn: makeCommand('newturn', 'Begin your next combat turn.'),
-    resetstats: makeCommand('resetstats', 'Restore HP and MP and clear combat effects.'),
+    resetcombat: makeCommand('resetcombat', 'Restore HP and MP and clear combat effects.'),
     //modbuff: makeCommand('modbuff', 'Increase your skill modifier.', [requiredNumber('amount', 'Amount to add.')]),
     //moddebuff: makeCommand('moddebuff', 'Decrease your skill modifier.', [requiredNumber('amount', 'Amount to subtract.')]),
     //statuseffects: makeCommand('statuseffects', 'Display skill cooldowns and active effects.'),
