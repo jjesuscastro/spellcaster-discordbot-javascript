@@ -552,7 +552,7 @@ const commands = {
     hp: makeCommand('hp', 'Display your HP and MP.'),
     takedmg: makeCommand('takedmg', 'Apply damage to your character.', [requiredNumber('damage', 'Damage to take.')]),
     dodge: makeCommand('dodge', 'Try to dodge incoming damage.', [requiredNumber('damage', 'Incoming damage.'), requiredNumber('atk', 'Enemy attack roll')]),
-    block: makeCommand('block', 'Block incoming damage.', [requiredNumber('enemy roll', 'Enemy attack roll'), requiredNumber('damage', 'Incoming damage.'), requiredTarget]),
+    block: makeCommand('block', 'Block incoming damage.', [requiredNumber('enemyroll', 'Enemy attack roll'), requiredNumber('damage', 'Incoming damage.'), requiredTarget]),
     attack: makeCommand('attack', 'Attack an enemy.', [requiredNumber('ac', 'Enemy AC.')]),
     heal: makeCommand('heal', 'Heal yourself or another character.', [requiredTarget]),
     newturn: makeCommand('newturn', 'Begin your next combat turn.'),
