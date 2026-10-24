@@ -359,7 +359,7 @@ async function executeSimple(interaction, commandName) {
     if (commandName === 'resetcombat') {
         await pool.query(
             `UPDATE spellcaster_combat_characters SET hp = max_hp, mp = max_mp, shield = 0,
-             skill_modifier = base_skill_modifier, cooldowns = '{}'::jsonb, active_effects = '[]'::jsonb,
+             skill_modifier = base_skill_modifier, cooldowns = '{}'::jsonb, active_effects = '[]'::jsonb, turn_number = 1,
              action_used = FALSE WHERE character_id = $1`,
             [actor.character_id],
         );
