@@ -424,10 +424,49 @@ async function executeSimple(interaction, commandName) {
                     .setFooter({text:`Don't forget to /use the item in BOOKKEEPER!`});
             return reply(interaction, embed);
         }
-        
-        
-        
-        return reply(interaction, `**${actor.character_name}** ${crit ? 'critically ' : ''}heals **${target.character_name}** for ${amount} HP. (${healed.value}/${healed.maximum})`);
+        if(item === "Warding Potion"){
+            const healed = await withTransaction(async client => {
+                await requireAction(client, actor);
+                await markAction(client, actor);
+                //return changeResource(client, target.character_id, 'hp', 10, 'max_hp');
+            });
+            var texttarget = target.character_name;
+            if (target.character_name === actor.character_name)
+                texttarget = `themsevles`;
+            const rounds = Math.floor(Math.random() * 2) + 1;
+            var result = `➤ ${target.character_name} is immune to damage for ${rounds} rounds.`;
+            const embed = new EmbedBuilder()
+                    .setTitle(`✧ Item Used!`)
+                    .setColor(0xB7B75F)
+                    .setDescription(`💊 **${actor.character_name}** uses a **${item}** on **${texttarget}!**!\n\n${result}`)
+                    .setFooter({text:`Don't forget to /use the item in BOOKKEEPER!`});
+            return reply(interaction, embed);
+        }
+        if(item === "Revival Tonic"){
+            const healed = await withTransaction(async client => {
+                await requireAction(client, actor);
+                await markAction(client, actor);
+                return changeResource(client, target.character_id, 'hp', 10, 'max_hp');
+            });
+            var texttarget = target.character_name;
+            if (target.character_name === actor.character_name)
+                texttarget = `themsevles`;
+            var result = `✨ ${healed.value}/${healed.maximum} ✨`;
+            if (healed.value == healed.maximum)
+                var result = `✨ FULL HP RESTORED! ✨`;
+            const embed = new EmbedBuilder()
+                    .setTitle(`✧ Item Used!`)
+                    .setColor(0xB7B75F)
+                    .setDescription(`💊 **${actor.character_name}** uses a **${item}** on **${texttarget}!**!\n\n${result}`)
+                    .setFooter({text:`Don't forget to /use the item in BOOKKEEPER!`});
+            return reply(interaction, embed);
+        }
+        const embed = new EmbedBuilder()
+                    .setTitle(`✧ Item Used!`)
+                    .setColor(0xB7B75F)
+                    .setDescription(`unnndderrr construcccuttutionnn`)
+                    .setFooter({text:`Don't forget to /use the item in BOOKKEEPER!`});
+        return reply(interaction, embed);
     }
 
     if (commandName === 'modbuff' || commandName === 'moddebuff') {
@@ -711,7 +750,7 @@ const commands = {
     addhp: makeCommand('addhp', '(for OOC use) Add HP to a character.', [requiredNumber('hp', 'HP to add.')], [requiredTarget]),
     mag: makeCommand('mag', 'Roll a MAG check.'),
     skipturn: makeCommand('skipturn', 'Skip your action for one turn.'),
-    applyitem: makeCommand('applyitem', 'Use an item in combat.', [requiredTarget], [requiredItem]),
+    applyitem: makeCommand('applyitem', 'Use an item in combat.', [requiredItem], [requiredTarget]),
     //modbuff: makeCommand('modbuff', 'Increase your skill modifier.', [requiredNumber('amount', 'Amount to add.')]),
     //moddebuff: makeCommand('moddebuff', 'Decrease your skill modifier.', [requiredNumber('amount', 'Amount to subtract.')]),
     //statuseffects: makeCommand('statuseffects', 'Display skill cooldowns and active effects.'),
