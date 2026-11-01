@@ -388,8 +388,6 @@ async function executeSimple(interaction, commandName) {
         const target = targetName ? await getCharacterByName(targetName) : actor;
         if (!target) throw new Error('That character is not in the combat database.');
         const healed = await withTransaction(async client => {
-            await requireAction(client, actor);
-            await markAction(client, actor);
             return changeResource(client, target.character_id, 'hp', amount, 'max_hp');
         });
         var texttarget = target.character_name;
