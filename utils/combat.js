@@ -443,17 +443,25 @@ async function executeSimple(interaction, commandName) {
             return reply(interaction, embed);
         }
         if(item === "Revival Tonic"){
+            if(target.hp > 0){
+                const embed = new EmbedBuilder()
+                    .setColor(0xB7B75F)
+                    .setDescription(`❌ You cannot use the Revival Tonic on someone who isn't K.O.ed`)
+                return reply(interaction, embed);
+            }
+            if (target.character_name === actor.character_name){
+                const embed = new EmbedBuilder()
+                    .setColor(0xB7B75F)
+                    .setDescription(`❌ You cannot use the Revival Tonic on yourself. Choose a target.`)
+                return reply(interaction, embed);
+            }
             const healed = await withTransaction(async client => {
                 await requireAction(client, actor);
                 await markAction(client, actor);
-                return changeResource(client, target.character_id, 'hp', 10, 'max_hp');
+                return changeResource(client, target.character_id, 'hp', 1, 'max_hp');
             });
             var texttarget = target.character_name;
-            if (target.character_name === actor.character_name)
-                texttarget = `themsevles`;
-            var result = `✨ ${healed.value}/${healed.maximum} ✨`;
-            if (healed.value == healed.maximum)
-                var result = `✨ FULL HP RESTORED! ✨`;
+            var result = `➤ ${target.character_name} is now revived.\n✨ ${healed.value}/${healed.maximum} ✨`;
             const embed = new EmbedBuilder()
                     .setTitle(`✧ Item Used!`)
                     .setColor(0xB7B75F)
@@ -462,10 +470,8 @@ async function executeSimple(interaction, commandName) {
             return reply(interaction, embed);
         }
         const embed = new EmbedBuilder()
-                    .setTitle(`✧ Item Used!`)
-                    .setColor(0xB7B75F)
-                    .setDescription(`unnndderrr construcccuttutionnn`)
-                    .setFooter({text:`Don't forget to /use the item in BOOKKEEPER!`});
+            .setColor(0xB7B75F)
+            .setDescription(`❌ Item not detected.`)
         return reply(interaction, embed);
     }
 
