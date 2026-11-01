@@ -142,12 +142,12 @@ function renderStats(actor) {
             { name: ' ', value: `ARC   \` ${modifierLines[1]} \``          || '—', inline: true },
             { name: ' ',    value: ` `    || '—', inline: false },
             { name: '✦ STATS ✦',    value: ` `    || '—', inline: false },
-            { name: ' ', value: `INT   \` ${getModifier(actor, STAT_MODIFIERS["int"])} \``          || '—', inline: true },
-            { name: ' ', value: `CHA   \` ${getModifier(actor, STAT_MODIFIERS["cha"])} \``          || '—', inline: true },
-            { name: ' ', value: `WIS   \` ${getModifier(actor, STAT_MODIFIERS["wis"])} \``          || '—', inline: true },
-            { name: ' ', value: `WIL   \` ${getModifier(actor, STAT_MODIFIERS["will"])} \``          || '—', inline: true },
-            { name: ' ', value: `STR   \` ${getModifier(actor, STAT_MODIFIERS["str"])} \``          || '—', inline: true },
-            { name: ' ', value: `DEX   \` ${getModifier(actor, STAT_MODIFIERS["dex"])} \``          || '—', inline: true },
+            { name: ' ', value: `INT   \` ${getModifier(actor, STAT_MODIFIERS["int"])+5} \``          || '—', inline: true },
+            { name: ' ', value: `CHA   \` ${getModifier(actor, STAT_MODIFIERS["cha"])+5} \``          || '—', inline: true },
+            { name: ' ', value: `WIS   \` ${getModifier(actor, STAT_MODIFIERS["wis"])+5} \``          || '—', inline: true },
+            { name: ' ', value: `WIL   \` ${getModifier(actor, STAT_MODIFIERS["will"])+5} \``          || '—', inline: true },
+            { name: ' ', value: `STR   \` ${getModifier(actor, STAT_MODIFIERS["str"])+5} \``          || '—', inline: true },
+            { name: ' ', value: `DEX   \` ${getModifier(actor, STAT_MODIFIERS["dex"])+5} \``          || '—', inline: true },
         );
     return embed;
     //return `**${actor.character_name}**\n${lines.join('\n')}`;
@@ -341,6 +341,31 @@ async function executeSimple(interaction, commandName) {
         return reply(interaction, `**${actor.character_name}** ${crit ? 'critically ' : ''}heals **${target.character_name}** for ${amount} HP. (${healed.value}/${healed.maximum})`);
     }
 
+    if (commandName === 'addhp') {
+        const amount = interaction.options.getInteger('hp');
+        const targetName = interaction.options.getString('target');
+        const target = targetName ? await getCharacterByName(targetName) : actor;
+        if (!target) throw new Error('That character is not in the combat database.');
+        const healed = await withTransaction(async client => {
+            await requireAction(client, actor);
+            await markAction(client, actor);
+            return changeResource(client, target.character_id, 'hp', amount, 'max_hp');
+        });
+        var texttarget = target.character_name;
+        if (target.character_name === actor.character_name)
+            texttarget = actor.character_name;
+        var result = `✨ ${healed.value}/${healed.maximum} ✨`;
+        if (healed.value == healed.maximum)
+            var result = `✨ FULL HP RESTORED! ✨`;
+        const embed = new EmbedBuilder()
+                .setTitle(`✧ HP Regained.`)
+                .setColor(0xB7B75F)
+                .setDescription(`💊 **${texttarget} gains **${amount} HP**!**\n\n${result}`);
+        return reply(interaction, embed);
+        
+        return reply(interaction, `**${actor.character_name}** ${crit ? 'critically ' : ''}heals **${target.character_name}** for ${amount} HP. (${healed.value}/${healed.maximum})`);
+    }
+
     if (commandName === 'modbuff' || commandName === 'moddebuff') {
         const amount = interaction.options.getInteger('amount');
         const direction = commandName === 'modbuff' ? 1 : -1;
@@ -356,10 +381,10 @@ async function executeSimple(interaction, commandName) {
         //return reply(interaction, `**${actor.character_name}** skill modifier is now ${result.rows[0].skill_modifier >= 0 ? '+' : ''}${result.rows[0].skill_modifier}.`);
     }
 
-    if (commandName === 'resetcombat') {
+    if (commandName === 'resetstats') {
         await pool.query(
             `UPDATE spellcaster_combat_characters SET hp = max_hp, mp = max_mp, shield = 0,
-             skill_modifier = base_skill_modifier, cooldowns = '{}'::jsonb, active_effects = '[]'::jsonb, turn_number = 1,
+             skill_modifier = base_skill_modifier, cooldowns = '{}'::jsonb, active_effects = '[]'::jsonb, 
              action_used = FALSE WHERE character_id = $1`,
             [actor.character_id],
         );
@@ -370,6 +395,64 @@ async function executeSimple(interaction, commandName) {
                 .setDescription(`🔄 **${actor.character_name}** stats have all been reset.`);
         return reply(interaction, embed);
         //return reply(interaction, `**${actor.character_name}** HP and MP restored; shield, cooldowns, active effects, and temporary skill modifier cleared.`);
+    }
+
+    if (commandName === 'resetcombat') {
+        await pool.query(
+            `UPDATE spellcaster_combat_characters SET hp = max_hp, mp = max_mp, shield = 0,
+             skill_modifier = base_skill_modifier, cooldowns = '{}'::jsonb, active_effects = '[]'::jsonb, turn_number = 1,
+             action_used = FALSE`
+        );
+        //await client.query('UPDATE spellcaster_combat_characters SET action_used = FALSE');
+        const embed = new EmbedBuilder()
+                .setTitle(`✧ RESET`)
+                .setColor(0xB7B75F)
+                .setDescription(`🔄 **All character stats and turn rounds have all been reset.`);
+        return reply(interaction, embed);
+        //return reply(interaction, `**${actor.character_name}** HP and MP restored; shield, cooldowns, active effects, and temporary skill modifier cleared.`);
+    }
+
+    if (commandName === 'skipturn') {
+        const tickMessages = [];
+        const result = await withTransaction(async client => {
+
+            await requireAction(client, actor);
+            
+            const fresh = await client.query('SELECT cooldowns, active_effects FROM spellcaster_combat_characters WHERE character_id = $1 FOR UPDATE', [actor.character_id]);
+            const cooldowns = fresh.rows[0].cooldowns || {};
+            for (const key of Object.keys(cooldowns)) cooldowns[key] = Math.max(0, int(cooldowns[key]) - 1);
+            const remaining = [];
+            for (const effect of (fresh.rows[0].active_effects || [])) {
+                const amount = int(effect.amount);
+                if (effect.resource === 'hp' || effect.resource === 'mp') {
+                    const resourceResult = await changeResource(client, actor.character_id, effect.resource, amount, effect.resource === 'hp' ? 'max_hp' : 'max_mp');
+                    tickMessages.push(`${effect.label || effect.type}: ${amount >= 0 ? '+' : ''}${amount} ${effect.resource.toUpperCase()} (${resourceResult.value}/${resourceResult.maximum})`);
+                } else if (effect.resource === 'damage') {
+                    const hp = await changeResource(client, actor.character_id, 'hp', -Math.abs(amount), 'max_hp');
+                    tickMessages.push(`${effect.label || 'Damage over time'}: ${Math.abs(amount)} damage (${hp.value}/${hp.maximum} HP)`);
+                } else if (effect.resource === 'enemy_damage') {
+                    tickMessages.push(`${effect.label || 'Damage over time'}: ${Math.abs(amount)} damage to the enemy`);
+                }
+                const turns = int(effect.remaining) - 1;
+                if (turns > 0) remaining.push({ ...effect, remaining: turns });
+            }
+            await markAction(client, actor);
+
+            const updated = await client.query(
+                `UPDATE spellcaster_combat_characters SET turn_number = turn_number + 1,
+                 cooldowns = $2, active_effects = $3
+                 WHERE character_id = $1 RETURNING turn_number`,
+                [actor.character_id, JSON.stringify(cooldowns), JSON.stringify(remaining)],
+            );
+            
+            return updated.rows[0].turn_number;
+        });
+        const embed = new EmbedBuilder()
+                .setTitle(`Skipped!`)
+                .setColor(0xB7B75F)
+                .setDescription(`🔄 **${actor.character_name}** skipped their action.`);;
+        return reply(interaction, embed);
+
     }
 
     if (commandName === 'statuseffects') {
@@ -556,7 +639,9 @@ const commands = {
     attack: makeCommand('attack', 'Attack an enemy.', [requiredNumber('ac', 'Enemy AC.')]),
     heal: makeCommand('heal', 'Heal yourself or another character.', [requiredTarget]),
     newturn: makeCommand('newturn', 'Begin your next combat turn.'),
-    resetcombat: makeCommand('resetcombat', 'Restore HP and MP and clear combat effects.'),
+    resetstats: makeCommand('resetstats', 'Restore HP and MP and clear combat effects.'),
+    resetcombat: makeCommand('resetcombat', '(mod only) Reset all HPs, MPs, and round counts.'),
+    addhp: makeCoammand('addhp', '(for OOC use) Add HP to a character.', [requiredNumber('hp', 'HP to add.')], [requiredTarget]),
     //modbuff: makeCommand('modbuff', 'Increase your skill modifier.', [requiredNumber('amount', 'Amount to add.')]),
     //moddebuff: makeCommand('moddebuff', 'Decrease your skill modifier.', [requiredNumber('amount', 'Amount to subtract.')]),
     //statuseffects: makeCommand('statuseffects', 'Display skill cooldowns and active effects.'),
