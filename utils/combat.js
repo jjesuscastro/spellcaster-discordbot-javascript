@@ -292,7 +292,7 @@ async function executeSimple(interaction, commandName) {
         const die = roll20();
         const modifier = getModifier(actor, 'MGT');
         const total = die + modifier;
-        const hit = total > ac;
+        const hit = total >= ac;
         const crit = total >= 20;
         const damage = hit ? (crit ? actor.attack_crit : actor.attack_base) : 0;
         await withTransaction(async client => { await requireAction(client, actor); await markAction(client, actor); });
