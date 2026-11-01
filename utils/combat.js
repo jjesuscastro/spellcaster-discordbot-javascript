@@ -135,7 +135,7 @@ function renderStats(actor) {
     const stat = `\`INT   \` **${getModifier(actor, STAT_MODIFIERS["int"])+5}** (${getModifier(actor, STAT_MODIFIERS["int"])})
     \`CHA   \` **${getModifier(actor, STAT_MODIFIERS["cha"])+5}** (${getModifier(actor, STAT_MODIFIERS["cha"])})
     \`WIS   \` **${getModifier(actor, STAT_MODIFIERS["wis"])+5}** (${getModifier(actor, STAT_MODIFIERS["wis"])})
-    \`WIL   \` **${getModifier(actor, STAT_MODIFIERS["wil"])+5}** (${getModifier(actor, STAT_MODIFIERS["wil"])})
+    \`WIL   \` **${getModifier(actor, STAT_MODIFIERS["will"])+5}** (${getModifier(actor, STAT_MODIFIERS["will"])})
     \`STR   \` **${getModifier(actor, STAT_MODIFIERS["str"])+5}** (${getModifier(actor, STAT_MODIFIERS["str"])})
     \`DEX   \` **${getModifier(actor, STAT_MODIFIERS["dex"])+5}** (${getModifier(actor, STAT_MODIFIERS["dex"])})`;
     const embed = new EmbedBuilder()
