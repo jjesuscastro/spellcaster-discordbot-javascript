@@ -126,13 +126,15 @@ function renderStats(actor) {
     ];
     //if (statLines.length) lines.push(`**Stats:** ${statLines.join(' · ')}`);
     //if (modifierLines.length) lines.push(`**Modifiers:** ${modifierLines.join(' · ')}`);
-    const SP = `\`MAG   \` ${modifierLines[7]}
+    const SP = 
+    `\`MAG   \` ${modifierLines[7]}
     \`MGT   \` ${modifierLines[9]}
     \`FIN   \` ${modifierLines[5]}
     \`RES   \` ${modifierLines[11]}
     \`ESN   \` ${modifierLines[3]}
     \`ARC   \` ${modifierLines[1]}`;
-    const stat = `\`INT   \` **${getModifier(actor, STAT_MODIFIERS["int"])+5}** (${getModifier(actor, STAT_MODIFIERS["int"])})
+    const stat = 
+    `\`INT   \` **${getModifier(actor, STAT_MODIFIERS["int"])+5}** (${getModifier(actor, STAT_MODIFIERS["int"])})
     \`CHA   \` **${getModifier(actor, STAT_MODIFIERS["cha"])+5}** (${getModifier(actor, STAT_MODIFIERS["cha"])})
     \`WIS   \` **${getModifier(actor, STAT_MODIFIERS["wis"])+5}** (${getModifier(actor, STAT_MODIFIERS["wis"])})
     \`WIL   \` **${getModifier(actor, STAT_MODIFIERS["will"])+5}** (${getModifier(actor, STAT_MODIFIERS["will"])})
