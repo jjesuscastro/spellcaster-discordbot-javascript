@@ -142,12 +142,12 @@ function renderStats(actor) {
             { name: ' ', value: `ARC   \` ${modifierLines[1]} \``          || '—', inline: true },
             { name: ' ',    value: ` `    || '—', inline: false },
             { name: '✦ STATS ✦',    value: ` `    || '—', inline: false },
-            { name: ' ', value: `INT   \` ${getModifier(actor, STAT_MODIFIERS["int"])+5} \``          || '—', inline: true },
-            { name: ' ', value: `CHA   \` ${getModifier(actor, STAT_MODIFIERS["cha"])+5} \``          || '—', inline: true },
-            { name: ' ', value: `WIS   \` ${getModifier(actor, STAT_MODIFIERS["wis"])+5} \``          || '—', inline: true },
-            { name: ' ', value: `WIL   \` ${getModifier(actor, STAT_MODIFIERS["will"])+5} \``          || '—', inline: true },
-            { name: ' ', value: `STR   \` ${getModifier(actor, STAT_MODIFIERS["str"])+5} \``          || '—', inline: true },
-            { name: ' ', value: `DEX   \` ${getModifier(actor, STAT_MODIFIERS["dex"])+5} \``          || '—', inline: true },
+            { name: ' ', value: `INT   \` ${getModifier(actor, STAT_MODIFIERS["int"])} (${getModifier(actor, STAT_MODIFIERS["int"])+5}) \``          || '—', inline: true },
+            { name: ' ', value: `CHA   \` ${getModifier(actor, STAT_MODIFIERS["cha"])} (${getModifier(actor, STAT_MODIFIERS["cha"])+5}) \``          || '—', inline: true },
+            { name: ' ', value: `WIS   \` ${getModifier(actor, STAT_MODIFIERS["wis"])} (${getModifier(actor, STAT_MODIFIERS["wis"])+5}) \``          || '—', inline: true },
+            { name: ' ', value: `WIL   \` ${getModifier(actor, STAT_MODIFIERS["will"])} (${getModifier(actor, STAT_MODIFIERS["will"])+5}) \``          || '—', inline: true },
+            { name: ' ', value: `STR   \` ${getModifier(actor, STAT_MODIFIERS["str"])} (${getModifier(actor, STAT_MODIFIERS["str"])+5}) \``          || '—', inline: true },
+            { name: ' ', value: `DEX   \` ${getModifier(actor, STAT_MODIFIERS["dex"])} (${getModifier(actor, STAT_MODIFIERS["dex"])+5}) \``          || '—', inline: true },
         );
     return embed;
     //return `**${actor.character_name}**\n${lines.join('\n')}`;
@@ -172,6 +172,19 @@ async function executeSimple(interaction, commandName) {
                 .setDescription(`> 🎲 ${die} + ${modifier} **${title}** ➜ \` ${total} \`\n\n➤ ${actor.character_name} rolls **${total} ${title}**.`);
         return reply(interaction, embed);
         return reply(interaction, `**${actor.character_name} — ${STAT_MODIFIERS[commandName]} check**\n${describeRoll(die, modifier, die + modifier)}`);
+    }
+
+    if (commandName === 'mag') {
+        const actor = await getActor(interaction);
+        const die = roll20();
+        const modifierLines = Object.entries(actor.modifiers).flat();
+        const modifier = modifierLines[9];
+        const total = die + modifier;
+        const embed = new EmbedBuilder()
+                .setTitle(`✧ ROLL CHECK`)
+                .setColor(0xB7B75F)
+                .setDescription(`> 🎲 ${die} + ${modifier} **MAG** ➜ \` ${total} \`\n\n➤ ${actor.character_name} rolls **${total} MAG**.`);
+        return reply(interaction, embed);
     }
 
     if (commandName === 'stats') {
@@ -642,6 +655,7 @@ const commands = {
     resetstats: makeCommand('resetstats', 'Restore HP and MP and clear combat effects.'),
     resetcombat: makeCommand('resetcombat', '(mod only) Reset all HPs, MPs, and round counts.'),
     addhp: makeCommand('addhp', '(for OOC use) Add HP to a character.', [requiredNumber('hp', 'HP to add.')], [requiredTarget]),
+    mag: makeCommand('mag', 'Roll a MAG check.'),
     //modbuff: makeCommand('modbuff', 'Increase your skill modifier.', [requiredNumber('amount', 'Amount to add.')]),
     //moddebuff: makeCommand('moddebuff', 'Decrease your skill modifier.', [requiredNumber('amount', 'Amount to subtract.')]),
     //statuseffects: makeCommand('statuseffects', 'Display skill cooldowns and active effects.'),
