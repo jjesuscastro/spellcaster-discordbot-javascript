@@ -443,18 +443,19 @@ async function executeSimple(interaction, commandName) {
             return reply(interaction, embed);
         }
         if(item === "Revival Tonic"){
-            if(target.hp > 0){
-                const embed = new EmbedBuilder()
-                    .setColor(0xB7B75F)
-                    .setDescription(`❌ You cannot use the Revival Tonic on someone who isn't K.O.ed`)
-                return reply(interaction, embed);
-            }
             if (target.character_name === actor.character_name){
                 const embed = new EmbedBuilder()
                     .setColor(0xB7B75F)
                     .setDescription(`❌ You cannot use the Revival Tonic on yourself. Choose a target.`)
                 return reply(interaction, embed);
             }
+            if(target.hp > 0){
+                const embed = new EmbedBuilder()
+                    .setColor(0xB7B75F)
+                    .setDescription(`❌ You cannot use the Revival Tonic on someone who isn't K.O.ed`)
+                return reply(interaction, embed);
+            }
+            
             const healed = await withTransaction(async client => {
                 await requireAction(client, actor);
                 await markAction(client, actor);
