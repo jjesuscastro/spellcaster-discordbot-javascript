@@ -517,7 +517,7 @@ async function executeSimple(interaction, commandName) {
         const embed = new EmbedBuilder()
                 .setTitle(`✧ RESET`)
                 .setColor(0xB7B75F)
-                .setDescription(`🔄 **All character stats and turn rounds have all been reset.`);
+                .setDescription(`🔄 All character stats and turn rounds have all been reset.`);
         return reply(interaction, embed);
         //return reply(interaction, `**${actor.character_name}** HP and MP restored; shield, cooldowns, active effects, and temporary skill modifier cleared.`);
     }
