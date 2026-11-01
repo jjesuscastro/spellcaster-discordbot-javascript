@@ -399,6 +399,37 @@ async function executeSimple(interaction, commandName) {
         return reply(interaction, `**${actor.character_name}** ${crit ? 'critically ' : ''}heals **${target.character_name}** for ${amount} HP. (${healed.value}/${healed.maximum})`);
     }
 
+    if (commandName === 'applyitem') {
+        const item = interaction.options.getString('item');
+        const targetName = interaction.options.getString('target');
+        const target = targetName ? await getCharacterByName(targetName) : actor;
+        if (!target) throw new Error('That character is not in the combat database.');
+        
+        if(item === "Vitality Potion"){
+            const healed = await withTransaction(async client => {
+                await requireAction(client, actor);
+                await markAction(client, actor);
+                return changeResource(client, target.character_id, 'hp', 10, 'max_hp');
+            });
+            var texttarget = target.character_name;
+            if (target.character_name === actor.character_name)
+                texttarget = `themsevles`;
+            var result = `✨ ${healed.value}/${healed.maximum} ✨`;
+            if (healed.value == healed.maximum)
+                var result = `✨ FULL HP RESTORED! ✨`;
+            const embed = new EmbedBuilder()
+                    .setTitle(`✧ Item Used!`)
+                    .setColor(0xB7B75F)
+                    .setDescription(`💊 **${actor.character_name}** uses a **${item}** on **${texttarget}!**!\n\n${result}`)
+                    .setFooter({text:`Don't forget to /use the item in BOOKKEEPER!`});
+            return reply(interaction, embed);
+        }
+        
+        
+        
+        return reply(interaction, `**${actor.character_name}** ${crit ? 'critically ' : ''}heals **${target.character_name}** for ${amount} HP. (${healed.value}/${healed.maximum})`);
+    }
+
     if (commandName === 'modbuff' || commandName === 'moddebuff') {
         const amount = interaction.options.getInteger('amount');
         const direction = commandName === 'modbuff' ? 1 : -1;
@@ -636,6 +667,8 @@ function makeCommand(name, description, optionConfigs = []) {
                 const actor = await getActor(interaction);
                 choices = (actor.skills || []).map((skill, index) => ({ name: skill.name || `Skill ${index + 1}`, value: int(skill.slot, index + 1) }));
                 return interaction.respond(choices.filter(choice => choice.name.toLowerCase().includes(focused.value.toLowerCase())).slice(0, 25));
+            } else if (focused.name === 'item') {
+                choices = ["Warding Potion", "Vitality Potion", "Revival Tonic"];
             }
             const filtered = choices.filter(value => value.toLowerCase().includes(focused.value.toLowerCase())).slice(0, 25);
             return interaction.respond(filtered.map(value => ({ name: value, value })));
@@ -655,6 +688,7 @@ function makeCommand(name, description, optionConfigs = []) {
 const optionalNumber = (name, description) => data => data.addIntegerOption(option => option.setName(name).setDescription(description).setMinValue(0).setRequired(false));
 const requiredNumber = (name, description) => data => data.addIntegerOption(option => option.setName(name).setDescription(description).setMinValue(0).setRequired(true));
 const requiredTarget = data => data.addStringOption(option => option.setName('target').setDescription('Character to target; If none: self').setAutocomplete(true).setRequired(false));
+const requiredItem = data => data.addStringOption(option => option.setName('item').setDescription('Item to use').setAutocomplete(true).setRequired(true));
 const userOption = data => data.addUserOption(option => option.setName('user').setDescription('Whose character to view.').setRequired(false));
 
 const commands = {
@@ -677,6 +711,7 @@ const commands = {
     addhp: makeCommand('addhp', '(for OOC use) Add HP to a character.', [requiredNumber('hp', 'HP to add.')], [requiredTarget]),
     mag: makeCommand('mag', 'Roll a MAG check.'),
     skipturn: makeCommand('skipturn', 'Skip your action for one turn.'),
+    applyitem: makeCommand('applyitem', 'Use an item in combat.', [requiredTarget], [requiredItem]),
     //modbuff: makeCommand('modbuff', 'Increase your skill modifier.', [requiredNumber('amount', 'Amount to add.')]),
     //moddebuff: makeCommand('moddebuff', 'Decrease your skill modifier.', [requiredNumber('amount', 'Amount to subtract.')]),
     //statuseffects: makeCommand('statuseffects', 'Display skill cooldowns and active effects.'),
