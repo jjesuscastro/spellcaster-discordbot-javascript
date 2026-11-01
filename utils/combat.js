@@ -371,7 +371,7 @@ async function executeSimple(interaction, commandName) {
         if (healed.value == healed.maximum)
             var result = `✨ FULL HP RESTORED! ✨`;
         const embed = new EmbedBuilder()
-                .setTitle(`✧ HP Regained.`)
+                .setTitle(`✧ HP Regained`)
                 .setColor(0xB7B75F)
                 .setDescription(`💊 **${texttarget} gains **${amount} HP**!**\n\n${result}`);
         return reply(interaction, embed);
@@ -656,6 +656,7 @@ const commands = {
     resetcombat: makeCommand('resetcombat', '(mod only) Reset all HPs, MPs, and round counts.'),
     addhp: makeCommand('addhp', '(for OOC use) Add HP to a character.', [requiredNumber('hp', 'HP to add.')], [requiredTarget]),
     mag: makeCommand('mag', 'Roll a MAG check.'),
+    skipturn: makeCommand('skipturn', 'Skip your action for one turn.'),
     //modbuff: makeCommand('modbuff', 'Increase your skill modifier.', [requiredNumber('amount', 'Amount to add.')]),
     //moddebuff: makeCommand('moddebuff', 'Decrease your skill modifier.', [requiredNumber('amount', 'Amount to subtract.')]),
     //statuseffects: makeCommand('statuseffects', 'Display skill cooldowns and active effects.'),
