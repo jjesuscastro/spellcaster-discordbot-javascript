@@ -476,7 +476,7 @@ async function executeSimple(interaction, commandName) {
                 return changeResource(client, target.character_id, 'hp', 1, 'max_hp');
             });
             var texttarget = target.character_name;
-            var result = `➤ ${target.character_name} is now revived.\n✨ ${healed.value}/${healed.maximum} ✨`;
+            var result = `➤ ${target.character_name} is now revived. Back to fighting!\n✨ ${healed.value}/${healed.maximum} ✨`;
             const embed = new EmbedBuilder()
                     .setTitle(`✧ Item Used!`)
                     .setColor(0xB7B75F)
