@@ -356,6 +356,12 @@ async function executeSimple(interaction, commandName) {
         const total = die + modifier;
         const crit = die + modifier >= 20;
         const amount = crit ? actor.heal_crit : actor.heal_base;
+        if(target.hp == 0){
+            const embed = new EmbedBuilder()
+                .setColor(0xB7B75F)
+                .setDescription(`❌ You cannot heal someone who is K.O.ed`)
+            return reply(interaction, embed);
+        }
         const healed = await withTransaction(async client => {
             await requireAction(client, actor);
             await markAction(client, actor);
@@ -408,6 +414,12 @@ async function executeSimple(interaction, commandName) {
         if (!target) throw new Error('That character is not in the combat database.');
         
         if(item === "Vitality Potion"){
+            if(target.hp == 0){
+                const embed = new EmbedBuilder()
+                    .setColor(0xB7B75F)
+                    .setDescription(`❌ You cannot heal someone who is K.O.ed`)
+                return reply(interaction, embed);
+            }
             const healed = await withTransaction(async client => {
                 await requireAction(client, actor);
                 await markAction(client, actor);
