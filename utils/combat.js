@@ -147,7 +147,7 @@ function renderStats(actor) {
             { name: '🛡️ **AC**', value: `\`\`\`${actor.armor_class}\`\`\``          || '—', inline: true },
             { name: '✦ SP',    value: `${SP}`    || '—', inline: true },
             { name: ' ',    value: ` `    || '—', inline: true },
-            { name: '✦ STATS ✦',    value: `${stat}`    || '—', inline: false },
+            { name: '✦ STATS ✦',    value: `${stat}`    || '—', inline: true },
         );
         // .addFields(
         //     { name: '💊 **HP**', value: `\`\`\`${actor.hp}/${actor.max_hp}\`\`\``   || '—', inline: true },
