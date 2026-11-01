@@ -641,7 +641,7 @@ const commands = {
     newturn: makeCommand('newturn', 'Begin your next combat turn.'),
     resetstats: makeCommand('resetstats', 'Restore HP and MP and clear combat effects.'),
     resetcombat: makeCommand('resetcombat', '(mod only) Reset all HPs, MPs, and round counts.'),
-    addhp: makeCoammand('addhp', '(for OOC use) Add HP to a character.', [requiredNumber('hp', 'HP to add.')], [requiredTarget]),
+    addhp: makeCommand('addhp', '(for OOC use) Add HP to a character.', [requiredNumber('hp', 'HP to add.')], [requiredTarget]),
     //modbuff: makeCommand('modbuff', 'Increase your skill modifier.', [requiredNumber('amount', 'Amount to add.')]),
     //moddebuff: makeCommand('moddebuff', 'Decrease your skill modifier.', [requiredNumber('amount', 'Amount to subtract.')]),
     //statuseffects: makeCommand('statuseffects', 'Display skill cooldowns and active effects.'),
