@@ -417,7 +417,7 @@ async function executeSimple(interaction, commandName) {
             if(target.hp == 0){
                 const embed = new EmbedBuilder()
                     .setColor(0xB7B75F)
-                    .setDescription(`❌ You cannot heal someone who is K.O.ed`)
+                    .setDescription(`❌ You cannot use this item on someone who is K.O.ed`)
                 return reply(interaction, embed);
             }
             const healed = await withTransaction(async client => {
@@ -456,17 +456,17 @@ async function executeSimple(interaction, commandName) {
                     .setFooter({text:`Don't forget to /use the item in BOOKKEEPER!`});
             return reply(interaction, embed);
         }
-        if(item === "Revival Tonic"){
+        if(item === "Revival Potion"){
             if (target.character_name === actor.character_name){
                 const embed = new EmbedBuilder()
                     .setColor(0xB7B75F)
-                    .setDescription(`❌ You cannot use the Revival Tonic on yourself. Choose a target.`)
+                    .setDescription(`❌ You cannot use the Revival Potion on yourself. Choose a target.`)
                 return reply(interaction, embed);
             }
             if(target.hp > 0){
                 const embed = new EmbedBuilder()
                     .setColor(0xB7B75F)
-                    .setDescription(`❌ You cannot use the Revival Tonic on someone who isn't K.O.ed`)
+                    .setDescription(`❌ You cannot use the Revival Potion on someone who isn't K.O.ed`)
                 return reply(interaction, embed);
             }
             
@@ -728,7 +728,7 @@ function makeCommand(name, description, optionConfigs = []) {
                 choices = (actor.skills || []).map((skill, index) => ({ name: skill.name || `Skill ${index + 1}`, value: int(skill.slot, index + 1) }));
                 return interaction.respond(choices.filter(choice => choice.name.toLowerCase().includes(focused.value.toLowerCase())).slice(0, 25));
             } else if (focused.name === 'item') {
-                choices = ["Warding Potion", "Vitality Potion", "Revival Tonic"];
+                choices = ["Warding Potion", "Vitality Potion", "Revival Potion"];
             }
             const filtered = choices.filter(value => value.toLowerCase().includes(focused.value.toLowerCase())).slice(0, 25);
             return interaction.respond(filtered.map(value => ({ name: value, value })));
