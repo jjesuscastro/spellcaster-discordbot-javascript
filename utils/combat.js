@@ -126,6 +126,18 @@ function renderStats(actor) {
     ];
     //if (statLines.length) lines.push(`**Stats:** ${statLines.join(' · ')}`);
     //if (modifierLines.length) lines.push(`**Modifiers:** ${modifierLines.join(' · ')}`);
+    const SP = `\`MAG   \` ${modifierLines[7]}
+    \`MGT   \` ${modifierLines[9]}
+    \`FIN   \` ${modifierLines[5]}
+    \`RES   \` ${modifierLines[11]}
+    \`ESN   \` ${modifierLines[3]}
+    \`ARC   \` ${modifierLines[1]}`;
+    const stat = `\`INT   \` **${getModifier(actor, STAT_MODIFIERS["int"])+5}** (${getModifier(actor, STAT_MODIFIERS["int"])})
+    \`CHA   \` **${getModifier(actor, STAT_MODIFIERS["cha"])+5}** (${getModifier(actor, STAT_MODIFIERS["cha"])})
+    \`WIS   \` **${getModifier(actor, STAT_MODIFIERS["wis"])+5}** (${getModifier(actor, STAT_MODIFIERS["wis"])})
+    \`WIL   \` **${getModifier(actor, STAT_MODIFIERS["wil"])+5}** (${getModifier(actor, STAT_MODIFIERS["wil"])})
+    \`STR   \` **${getModifier(actor, STAT_MODIFIERS["str"])+5}** (${getModifier(actor, STAT_MODIFIERS["str"])})
+    \`DEX   \` **${getModifier(actor, STAT_MODIFIERS["dex"])+5}** (${getModifier(actor, STAT_MODIFIERS["dex"])})`;
     const embed = new EmbedBuilder()
         .setTitle(`✧ ${actor.character_name}`)
         .setColor(0xB7B75F)
@@ -133,22 +145,30 @@ function renderStats(actor) {
             { name: '💊 **HP**', value: `\`\`\`${actor.hp}/${actor.max_hp}\`\`\``   || '—', inline: true },
             { name: '🪄 **MP**', value: `\`\`\`${actor.mp}/${actor.max_mp}\`\`\``   || '—', inline: true },
             { name: '🛡️ **AC**', value: `\`\`\`${actor.armor_class}\`\`\``          || '—', inline: true },
-            { name: '✦ SPELL POINTS ✦',    value: ` `    || '—', inline: false },
-            { name: ' ', value: `MAG   \` ${modifierLines[7]} \``          || '—', inline: true },
-            { name: ' ', value: `MGT   \` ${modifierLines[9]} \``          || '—', inline: true },
-            { name: ' ', value: `FIN   \` ${modifierLines[5]} \``          || '—', inline: true },
-            { name: ' ', value: `RES   \` ${modifierLines[11]} \``          || '—', inline: true },
-            { name: ' ', value: `ESN   \` ${modifierLines[3]} \``          || '—', inline: true },
-            { name: ' ', value: `ARC   \` ${modifierLines[1]} \``          || '—', inline: true },
-            { name: ' ',    value: ` `    || '—', inline: false },
-            { name: '✦ STATS ✦',    value: ` `    || '—', inline: false },
-            { name: ' ', value: `INT   \` ${getModifier(actor, STAT_MODIFIERS["int"])} (${getModifier(actor, STAT_MODIFIERS["int"])+5}) \``          || '—', inline: true },
-            { name: ' ', value: `CHA   \` ${getModifier(actor, STAT_MODIFIERS["cha"])} (${getModifier(actor, STAT_MODIFIERS["cha"])+5}) \``          || '—', inline: true },
-            { name: ' ', value: `WIS   \` ${getModifier(actor, STAT_MODIFIERS["wis"])} (${getModifier(actor, STAT_MODIFIERS["wis"])+5}) \``          || '—', inline: true },
-            { name: ' ', value: `WIL   \` ${getModifier(actor, STAT_MODIFIERS["will"])} (${getModifier(actor, STAT_MODIFIERS["will"])+5}) \``          || '—', inline: true },
-            { name: ' ', value: `STR   \` ${getModifier(actor, STAT_MODIFIERS["str"])} (${getModifier(actor, STAT_MODIFIERS["str"])+5}) \``          || '—', inline: true },
-            { name: ' ', value: `DEX   \` ${getModifier(actor, STAT_MODIFIERS["dex"])} (${getModifier(actor, STAT_MODIFIERS["dex"])+5}) \``          || '—', inline: true },
+            { name: '✦ SP',    value: `${SP}`    || '—', inline: true },
+            { name: ' ',    value: ` `    || '—', inline: true },
+            { name: '✦ STATS ✦',    value: `${stat}`    || '—', inline: false },
         );
+        // .addFields(
+        //     { name: '💊 **HP**', value: `\`\`\`${actor.hp}/${actor.max_hp}\`\`\``   || '—', inline: true },
+        //     { name: '🪄 **MP**', value: `\`\`\`${actor.mp}/${actor.max_mp}\`\`\``   || '—', inline: true },
+        //     { name: '🛡️ **AC**', value: `\`\`\`${actor.armor_class}\`\`\``          || '—', inline: true },
+        //     { name: '✦ SPELL POINTS ✦',    value: ` `    || '—', inline: false },
+        //     { name: ' ', value: `MAG   \` ${modifierLines[7]} \``          || '—', inline: true },
+        //     { name: ' ', value: `MGT   \` ${modifierLines[9]} \``          || '—', inline: true },
+        //     { name: ' ', value: `FIN   \` ${modifierLines[5]} \``          || '—', inline: true },
+        //     { name: ' ', value: `RES   \` ${modifierLines[11]} \``          || '—', inline: true },
+        //     { name: ' ', value: `ESN   \` ${modifierLines[3]} \``          || '—', inline: true },
+        //     { name: ' ', value: `ARC   \` ${modifierLines[1]} \``          || '—', inline: true },
+        //     { name: ' ',    value: ` `    || '—', inline: false },
+        //     { name: '✦ STATS ✦',    value: ` `    || '—', inline: false },
+        //     { name: ' ', value: `INT   \` ${getModifier(actor, STAT_MODIFIERS["int"])} (${getModifier(actor, STAT_MODIFIERS["int"])+5}) \``          || '—', inline: true },
+        //     { name: ' ', value: `CHA   \` ${getModifier(actor, STAT_MODIFIERS["cha"])} (${getModifier(actor, STAT_MODIFIERS["cha"])+5}) \``          || '—', inline: true },
+        //     { name: ' ', value: `WIS   \` ${getModifier(actor, STAT_MODIFIERS["wis"])} (${getModifier(actor, STAT_MODIFIERS["wis"])+5}) \``          || '—', inline: true },
+        //     { name: ' ', value: `WIL   \` ${getModifier(actor, STAT_MODIFIERS["will"])} (${getModifier(actor, STAT_MODIFIERS["will"])+5}) \``          || '—', inline: true },
+        //     { name: ' ', value: `STR   \` ${getModifier(actor, STAT_MODIFIERS["str"])} (${getModifier(actor, STAT_MODIFIERS["str"])+5}) \``          || '—', inline: true },
+        //     { name: ' ', value: `DEX   \` ${getModifier(actor, STAT_MODIFIERS["dex"])} (${getModifier(actor, STAT_MODIFIERS["dex"])+5}) \``          || '—', inline: true },
+        // );
     return embed;
     //return `**${actor.character_name}**\n${lines.join('\n')}`;
 }
@@ -463,7 +483,7 @@ async function executeSimple(interaction, commandName) {
         const embed = new EmbedBuilder()
                 .setTitle(`Skipped!`)
                 .setColor(0xB7B75F)
-                .setDescription(`🔄 **${actor.character_name}** skipped their action.`);;
+                .setDescription(`⏩ **${actor.character_name}** skipped their action.`);;
         return reply(interaction, embed);
 
     }
