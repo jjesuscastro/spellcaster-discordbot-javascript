@@ -716,7 +716,7 @@ async function executeSimple(interaction, commandName) {
         const embed = new EmbedBuilder()
                 .setTitle(`✧ test`)
                 .setColor(0xB7B75F)
-                .setDescription(`sheet name **${characterName}**`);
+                .setDescription(`oc name **${characterName}**`);
         return reply(interaction, embed);
         //return reply(interaction, `**${actor.character_name}** took ${damage} damage${result.absorbed ? ` (${result.absorbed} absorbed by shield)` : ''}. HP: **${result.hp.value}/${result.hp.maximum}**.`);
     }
