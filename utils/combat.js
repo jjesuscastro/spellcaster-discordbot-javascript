@@ -23,11 +23,11 @@ function roll20() {
 function buildCommand(name, description, options = []) {
     const data = new SlashCommandBuilder().setName(name).setDescription(description);
     for (const configure of options) configure(data);
-    data.addStringOption(option => option
-        .setName('character')
-        .setDescription('Choose one of your characters if you have more than one.')
-        .setAutocomplete(true)
-        .setRequired(false));
+    // data.addStringOption(option => option
+    //     .setName('character')
+    //     .setDescription('Choose one of your characters if you have more than one.')
+    //     .setAutocomplete(true)
+    //     .setRequired(false));
     return data;
 }
 
