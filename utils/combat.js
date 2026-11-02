@@ -734,9 +734,9 @@ async function executeSimple(interaction, commandName) {
             await client.query(
                 `
                 INSERT INTO spellcaster_combat_characters (discord_id, character_name, max_hp, hp, max_mp, mp, armor_class, shield, base_skill_modifier, skill_modifier, stats, modifiers, attack_base, attack_crit, heal_base, heal_crit) 
-                VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17)
+                VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16)
                 `,
-                [userID, characterName, hp, hp, mp, mp, ac, 0,  0, 0, stats, spellpoints, baseatk, critatk, baseheal, critheal ],
+                [userID, characterName, hp, hp, mp, mp, ac, 0, 0, 0, stats, spellpoints, baseatk, critatk, baseheal, critheal ],
                 );
         });
          
