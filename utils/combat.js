@@ -1,5 +1,6 @@
-const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
+const { SlashCommandBuilder, EmbedBuilder, PermissionFlagsBits } = require('discord.js');
 const { pool, withTransaction } = require('./db');
+const { getCombat } = require('../../utils/sheets');
 
 const STAT_MODIFIERS = {
     int: 'INT',
@@ -706,6 +707,20 @@ async function executeSimple(interaction, commandName) {
         return reply(interaction, `**${actor.character_name} uses ${skill.name || `Skill ${slot}`}**\n${describeRoll(die, modifier, total)}${crit ? ' (critical)' : ''}\n${resultText}`);
     }
 
+    if (commandName === 'sync') {
+
+        //const damage = interaction.options.getInteger('damage');
+        //const { characterName, age, pronouns, height, profile, balance, lastDaily, house, birthday, picture } = await getUser(userId);
+        const { characterName } = await getCombat("test");
+
+        const embed = new EmbedBuilder()
+                .setTitle(`✧ test`)
+                .setColor(0xB7B75F)
+                .setDescription(`sheet name **${characterName}**`);
+        return reply(interaction, embed);
+        //return reply(interaction, `**${actor.character_name}** took ${damage} damage${result.absorbed ? ` (${result.absorbed} absorbed by shield)` : ''}. HP: **${result.hp.value}/${result.hp.maximum}**.`);
+    }
+
     throw new Error(`Unknown combat command: ${commandName}.`);
 }
 
@@ -748,6 +763,7 @@ const requiredNumber = (name, description) => data => data.addIntegerOption(opti
 const requiredTarget = data => data.addStringOption(option => option.setName('target').setDescription('Character to target; If none: self').setAutocomplete(true).setRequired(false));
 const requiredItem = data => data.addStringOption(option => option.setName('item').setDescription('Item to use').setAutocomplete(true).setRequired(true));
 const userOption = data => data.addUserOption(option => option.setName('user').setDescription('Whose character to view.').setRequired(false));
+const modUse = data => data.setDefaultMemberPermissions(PermissionFlagsBits.Administrator);
 
 const commands = {
     stats: makeCommand('stats', 'Display a character\'s stats', [userOption]),
@@ -765,11 +781,12 @@ const commands = {
     heal: makeCommand('heal', 'Heal yourself or another character.', [requiredTarget]),
     newturn: makeCommand('newturn', 'Begin your next combat turn.'),
     resetstats: makeCommand('resetstats', 'Restore HP and MP and clear combat effects.'),
-    resetcombat: makeCommand('resetcombat', '(mod only) Reset all HPs, MPs, and round counts.'),
+    resetcombat: makeCommand('resetcombat', '(mod only) Reset all HPs, MPs, and round counts.', [modUse]),
     addhp: makeCommand('addhp', '(for OOC use) Add HP to a character.', [requiredNumber('hp', 'HP to add.'), requiredTarget]),
     mag: makeCommand('mag', 'Roll a MAG check.'),
     skipturn: makeCommand('skipturn', 'Skip your action for one turn.'),
     applyitem: makeCommand('applyitem', 'Use an item in combat.', [requiredItem, requiredTarget]),
+    sync: makeCommand('sync', '(mod only) Add a character to the combat database.', [modUse]),
     //modbuff: makeCommand('modbuff', 'Increase your skill modifier.', [requiredNumber('amount', 'Amount to add.')]),
     //moddebuff: makeCommand('moddebuff', 'Decrease your skill modifier.', [requiredNumber('amount', 'Amount to subtract.')]),
     //statuseffects: makeCommand('statuseffects', 'Display skill cooldowns and active effects.'),
