@@ -747,7 +747,7 @@ async function executeSimple(interaction, commandName) {
         const embed = new EmbedBuilder()
                 .setTitle(`✧ OC Synced`)
                 .setColor(0xB7B75F)
-                .setDescription(`**${characterName}** is now added to database. Check /stats to see combat profile!`);
+                .setDescription(`**${characterName}** is now added to database.\nCheck \`/stats\` to see combat profile!`);
         return reply(interaction, embed);
         //return reply(interaction, `**${actor.character_name}** took ${damage} damage${result.absorbed ? ` (${result.absorbed} absorbed by shield)` : ''}. HP: **${result.hp.value}/${result.hp.maximum}**.`);
     }
