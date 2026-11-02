@@ -731,7 +731,7 @@ async function executeSimple(interaction, commandName) {
             "WILL": wil
         };
 
-        characterName = characterName.toLowerCase().split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+        const characterNameNew = characterName.toLowerCase().split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
 
         const resultText = await withTransaction(async client => {
             await client.query(
@@ -739,7 +739,7 @@ async function executeSimple(interaction, commandName) {
                 INSERT INTO spellcaster_combat_characters (discord_id, character_name, sheet_tab_name, max_hp, hp, max_mp, mp, armor_class, shield, base_skill_modifier, skill_modifier, stats, modifiers, attack_base, attack_crit, heal_base, heal_crit) 
                 VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17)
                 `,
-                [user.id, characterName, sheet, hp, hp, mp, mp, ac, 0, 0, 0, stats, spellpoints, baseatk, critatk, baseheal, critheal ],
+                [user.id, characterNameNew, sheet, hp, hp, mp, mp, ac, 0, 0, 0, stats, spellpoints, baseatk, critatk, baseheal, critheal ],
                 );
         });
          
