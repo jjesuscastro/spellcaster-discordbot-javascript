@@ -709,10 +709,10 @@ async function executeSimple(interaction, commandName) {
 
     if (commandName === 'sync') {
 
-        const userID = 1;
-        //const damage = interaction.options.getInteger('damage');
+        const user = interaction.options.getUser('user');
+        const sheet = interaction.options.getString('sheetname');
         //const { characterName, age, pronouns, height, profile, balance, lastDaily, house, birthday, picture } = await getUser(userId);
-        const { characterName, hp, mp, ac, baseatk, critatk, baseheal, critheal, int, cha, wis, wil, str, dex, mag, mgt, fin, res, esn, arc } = await getCombat("test");
+        const { characterName, hp, mp, ac, baseatk, critatk, baseheal, critheal, int, cha, wis, wil, str, dex, mag, mgt, fin, res, esn, arc } = await getCombat(sheet);
 
         const spellpoints = {
             "ARC": arc,
@@ -733,10 +733,10 @@ async function executeSimple(interaction, commandName) {
         const resultText = await withTransaction(async client => {
             await client.query(
                 `
-                INSERT INTO spellcaster_combat_characters (discord_id, character_name, max_hp, hp, max_mp, mp, armor_class, shield, base_skill_modifier, skill_modifier, stats, modifiers, attack_base, attack_crit, heal_base, heal_crit) 
-                VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16)
+                INSERT INTO spellcaster_combat_characters (discord_id, character_name, sheet_tab_name, max_hp, hp, max_mp, mp, armor_class, shield, base_skill_modifier, skill_modifier, stats, modifiers, attack_base, attack_crit, heal_base, heal_crit) 
+                VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17)
                 `,
-                [userID, characterName, hp, hp, mp, mp, ac, 0, 0, 0, stats, spellpoints, baseatk, critatk, baseheal, critheal ],
+                [user.id, characterName, sheet, hp, hp, mp, mp, ac, 0, 0, 0, stats, spellpoints, baseatk, critatk, baseheal, critheal ],
                 );
         });
          
@@ -797,6 +797,8 @@ const requiredTarget = data => data.addStringOption(option => option.setName('ta
 const requiredItem = data => data.addStringOption(option => option.setName('item').setDescription('Item to use').setAutocomplete(true).setRequired(true));
 const userOption = data => data.addUserOption(option => option.setName('user').setDescription('Whose character to view.').setRequired(false));
 const modUse = data => data.setDefaultMemberPermissions(PermissionFlagsBits.Administrator);
+const requiredSheet = data => data.addStringOption(option => option.setName('sheetname').setDescription('Sheet Tab Name').setAutocomplete(true).setRequired(true));
+const userSheet = data => data.addUserOption(option => option.setName('user').setDescription('Mun of OC').setRequired(true));
 
 const commands = {
     stats: makeCommand('stats', 'Display a character\'s stats', [userOption]),
@@ -819,7 +821,7 @@ const commands = {
     mag: makeCommand('mag', 'Roll a MAG check.'),
     skipturn: makeCommand('skipturn', 'Skip your action for one turn.'),
     applyitem: makeCommand('applyitem', 'Use an item in combat.', [requiredItem, requiredTarget]),
-    sync: makeCommand('sync', '(mod only) Add a character to the combat database.', [modUse]),
+    sync: makeCommand('sync', '(mod only) Add a character to the combat database.', [requiredSheet, userSheet, modUse]),
     //modbuff: makeCommand('modbuff', 'Increase your skill modifier.', [requiredNumber('amount', 'Amount to add.')]),
     //moddebuff: makeCommand('moddebuff', 'Decrease your skill modifier.', [requiredNumber('amount', 'Amount to subtract.')]),
     //statuseffects: makeCommand('statuseffects', 'Display skill cooldowns and active effects.'),

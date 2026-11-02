@@ -42,8 +42,8 @@ async function readRange(range) {
     return res.data.values || [];
 }
 
-async function getCombat(userId) {
-    const chara = `🧡 Clementine`;
+async function getCombat(chara) {
+    //const chara = `🧡 Clementine`;
     const rows = await readRange(`${chara}!A:AP`);
     
     return {
