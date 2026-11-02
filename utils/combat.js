@@ -730,6 +730,9 @@ async function executeSimple(interaction, commandName) {
             "WIS": wis,
             "WILL": wil
         };
+
+        characterName = characterName.toLowerCase().split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+
         const resultText = await withTransaction(async client => {
             await client.query(
                 `
@@ -742,14 +745,9 @@ async function executeSimple(interaction, commandName) {
          
 
         const embed = new EmbedBuilder()
-                .setTitle(`✧ test`)
+                .setTitle(`✧ OC Synced`)
                 .setColor(0xB7B75F)
-                .setDescription(`oc name **${characterName}**
-                    hp ${hp}, mp ${mp}, ac ${ac}
-                    atk ${baseatk}, crit ${critatk}
-                    heal ${baseheal}, crit ${critheal}
-                    stats ${int} ${cha} ${wis} ${wil} ${str} ${dex}
-                    spell points ${mag} ${mgt} ${fin} ${res} ${esn} ${arc}`);
+                .setDescription(`**${characterName}** is now added to database. Check /stats to see combat profile!`);
         return reply(interaction, embed);
         //return reply(interaction, `**${actor.character_name}** took ${damage} damage${result.absorbed ? ` (${result.absorbed} absorbed by shield)` : ''}. HP: **${result.hp.value}/${result.hp.maximum}**.`);
     }
