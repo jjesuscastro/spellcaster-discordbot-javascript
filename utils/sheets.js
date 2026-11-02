@@ -47,7 +47,7 @@ async function getCombat(userId) {
     const rows = await readRange(`${chara}!A:AP`);
     
     return {
-        characterName: rows[4][combatinfo.name] || '',
+        characterName: rows[5][combatinfo.name] || '',
 //        balance:       parseInt(rows[i][COL.BALANCE] || '0', 10),
     };
 }
