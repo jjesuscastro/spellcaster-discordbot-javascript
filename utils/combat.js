@@ -709,9 +709,37 @@ async function executeSimple(interaction, commandName) {
 
     if (commandName === 'sync') {
 
+        const userID = 1;
         //const damage = interaction.options.getInteger('damage');
         //const { characterName, age, pronouns, height, profile, balance, lastDaily, house, birthday, picture } = await getUser(userId);
         const { characterName, hp, mp, ac, baseatk, critatk, baseheal, critheal, int, cha, wis, wil, str, dex, mag, mgt, fin, res, esn, arc } = await getCombat("test");
+
+        const spellpoints = {
+            "ARC": arc,
+            "ESN": esn,
+            "FIN": fin,
+            "MAG": mag,
+            "MGT": mgt,
+            "RES": res
+        };
+        const stats = {
+            "CHA": cha,
+            "DEX": dex,
+            "INT": int,
+            "STR": str,
+            "WIS": wis,
+            "WILL": wil
+        };
+        const resultText = await withTransaction(async client => {
+            await client.query(
+                `
+                INSERT INTO spellcaster_combat_characters (discord_id, character_name, max_hp, hp, max_mp, mp, armor_class, shield, base_skill_modifier, skill_modifier, stats, modifiers, attack_base, attack_crit, heal_base, heal_crit) 
+                VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17)
+                `,
+                [userID, characterName, hp, hp, mp, mp, ac, 0,  0, 0, stats, spellpoints, baseatk, critatk, baseheal, critheal ],
+                );
+        });
+         
 
         const embed = new EmbedBuilder()
                 .setTitle(`✧ test`)
