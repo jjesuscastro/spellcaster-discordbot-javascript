@@ -1,6 +1,6 @@
 const { SlashCommandBuilder, EmbedBuilder, PermissionFlagsBits } = require('discord.js');
 const { pool, withTransaction } = require('./db');
-const { getCombat } = require('../../utils/sheets');
+const { getCombat } = require('./sheets');
 
 const STAT_MODIFIERS = {
     int: 'INT',
