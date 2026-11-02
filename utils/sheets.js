@@ -48,6 +48,26 @@ async function getCombat(userId) {
     
     return {
         characterName: rows[3][combatinfo.name] || '',
+        hp:            parseInt(rows[9][combatinfo.hp] || '0', 10),
+        mp:            parseInt(rows[13][combatinfo.hp] || '0', 10),
+        ac:            parseInt(rows[17][combatinfo.hp] || '0', 10),
+        baseatk:       parseInt(rows[27][combatinfo.base] || '0', 10),
+        critatk:       parseInt(rows[27][combatinfo.crit] || '0', 10),
+        baseheal:      parseInt(rows[28][combatinfo.base] || '0', 10),
+        critheal:      parseInt(rows[28][combatinfo.crit] || '0', 10),
+        int:           parseInt(rows[21][combatinfo.mods] || '0', 10),
+        cha:           parseInt(rows[22][combatinfo.mods] || '0', 10),
+        wis:           parseInt(rows[23][combatinfo.mods] || '0', 10),
+        wil:           parseInt(rows[24][combatinfo.mods] || '0', 10),
+        str:           parseInt(rows[25][combatinfo.mods] || '0', 10),
+        dex:           parseInt(rows[26][combatinfo.mods] || '0', 10),
+        mag:           parseInt(rows[32][combatinfo.mods] || '0', 10),
+        mgt:           parseInt(rows[33][combatinfo.mods] || '0', 10),
+        fin:           parseInt(rows[34][combatinfo.mods] || '0', 10),
+        res:           parseInt(rows[35][combatinfo.mods] || '0', 10),
+        esn:           parseInt(rows[36][combatinfo.mods] || '0', 10),
+        arc:           parseInt(rows[37][combatinfo.mods] || '0', 10),
+        
 //        balance:       parseInt(rows[i][COL.BALANCE] || '0', 10),
     };
 }

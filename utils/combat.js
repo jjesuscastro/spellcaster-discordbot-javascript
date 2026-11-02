@@ -711,12 +711,17 @@ async function executeSimple(interaction, commandName) {
 
         //const damage = interaction.options.getInteger('damage');
         //const { characterName, age, pronouns, height, profile, balance, lastDaily, house, birthday, picture } = await getUser(userId);
-        const { characterName } = await getCombat("test");
+        const { characterName, hp, mp, ac, baseatk, critatk, baseheal, critheal, int, cha, wis, wil, str, dex, mag, mgt, fin, res, esn, arc } = await getCombat("test");
 
         const embed = new EmbedBuilder()
                 .setTitle(`✧ test`)
                 .setColor(0xB7B75F)
-                .setDescription(`oc name **${characterName}**`);
+                .setDescription(`oc name **${characterName}**
+                    hp ${hp}, mp ${mp}, ac ${ac}
+                    atk ${baseatk}, crit ${critatk}
+                    heal ${baseheal}, crit ${critheal}
+                    stats ${int} ${cha} ${wis} ${wil} ${str} ${dex}
+                    spell points ${mag} ${mgt} ${fin} ${res} ${esn} ${arc}`);
         return reply(interaction, embed);
         //return reply(interaction, `**${actor.character_name}** took ${damage} damage${result.absorbed ? ` (${result.absorbed} absorbed by shield)` : ''}. HP: **${result.hp.value}/${result.hp.maximum}**.`);
     }
