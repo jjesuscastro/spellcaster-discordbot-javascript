@@ -764,7 +764,7 @@ function makeCommand(name, description, optionConfigs = []) {
             if (focused.name === 'character') {
                 choices = (await getOwnedCharacters(interaction.user.id)).map(row => row.character_name);
             } else if (focused.name === 'target') {
-                const result = await pool.query('SELECT character_name FROM spellcaster_combat_characters ORDER BY character_name LIMIT 25');
+                const result = await pool.query('SELECT character_name FROM spellcaster_combat_characters ORDER BY character_name');
                 choices = result.rows.map(row => row.character_name);
                 if (['rally', 'weaken'].includes(name) || name === 'skill') choices.unshift('None');
             } else if (focused.name === 'skill') {
