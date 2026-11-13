@@ -1,4 +1,4 @@
-const { SlashCommandBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle, EmbedBuilder } = require('discord.js');
+/*const { SlashCommandBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle, EmbedBuilder } = require('discord.js');
 const { randomBytes } = require('crypto');
 const { getStories, getStoryByKey } = require('../../utils/investigationStories');
 
@@ -168,3 +168,4 @@ module.exports = {
         }
     },
 };
+*/
