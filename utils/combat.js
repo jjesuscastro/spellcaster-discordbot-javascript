@@ -201,7 +201,7 @@ async function executeSimple(interaction, commandName) {
         const actor = await getActor(interaction);
         const die = roll20();
         const modifierLines = Object.entries(actor.modifiers).flat();
-        const modifier = modifierLines[9];
+        const modifier = modifierLines[7];
         const total = die + modifier;
         const embed = new EmbedBuilder()
                 .setTitle(`✧ ROLL CHECK`)
