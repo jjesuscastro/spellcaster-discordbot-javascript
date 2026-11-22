@@ -149,7 +149,7 @@ function renderStats(actor) {
             { name: '💊 **HP**', value: `\`\`\`${actor.hp}/${actor.max_hp}\`\`\``   || '—', inline: true },
             { name: '🪄 **MP**', value: `\`\`\`${actor.mp}/${actor.max_mp}\`\`\``   || '—', inline: true },
             { name: '🛡️ **AC**', value: `\`\`\`${actor.armor_class}\`\`\``          || '—', inline: true },
-            { name: '✦ SP',    value: `${SP}`    || '—', inline: true },
+            { name: '✦ SP ✦',    value: `${SP}`    || '—', inline: true },
             { name: ' ',    value: ` `    || '—', inline: true },
             { name: '✦ STATS ✦',    value: `${stat}`    || '—', inline: true },
         );
