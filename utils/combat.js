@@ -119,6 +119,7 @@ function renderStats(actor) {
     // });
     //const modifierLines = Object.entries(actor.modifiers || {}).map(([key, value]) => `**${key.toUpperCase()} mod** ${value}`);
     const modifierLines = Object.entries(actor.modifiers).flat();
+    const basemodifierLines = Object.entries(actor.modifiers_base).flat();
     const lines = [
         `**HP:** ${actor.hp}/${actor.max_hp}`,
         `**MP:** ${actor.mp}/${actor.max_mp}`,
@@ -128,12 +129,12 @@ function renderStats(actor) {
     //if (statLines.length) lines.push(`**Stats:** ${statLines.join(' · ')}`);
     //if (modifierLines.length) lines.push(`**Modifiers:** ${modifierLines.join(' · ')}`);
     const SP = 
-    `\`MAG   \` ${modifierLines[7]}
-    \`MGT   \` ${modifierLines[9]}
-    \`FIN   \` ${modifierLines[5]}
-    \`RES   \` ${modifierLines[11]}
-    \`ESN   \` ${modifierLines[3]}
-    \`ARC   \` ${modifierLines[1]}`;
+    `\`MAG   \` **${basemodifierLines[7]}** (${modifierLines[7]})
+    \`MGT   \` **${basemodifierLines[9]}** (${modifierLines[9]})
+    \`FIN   \` **${basemodifierLines[5]}** (${modifierLines[5]})
+    \`RES   \` **${basemodifierLines[11]}** (${modifierLines[11]})
+    \`ESN   \` **${basemodifierLines[3]}** (${modifierLines[3]})
+    \`ARC   \` **${basemodifierLines[1]}** (${modifierLines[1]})`;
     const stat = 
     `\`INT   \` **${getModifier(actor, STAT_MODIFIERS["int"])+5}** (${getModifier(actor, STAT_MODIFIERS["int"])})
     \`CHA   \` **${getModifier(actor, STAT_MODIFIERS["cha"])+5}** (${getModifier(actor, STAT_MODIFIERS["cha"])})
@@ -712,7 +713,7 @@ async function executeSimple(interaction, commandName) {
         const user = interaction.options.getUser('user');
         const sheet = interaction.options.getString('sheetname');
         //const { characterName, age, pronouns, height, profile, balance, lastDaily, house, birthday, picture } = await getUser(userId);
-        const { characterName, hp, mp, ac, baseatk, critatk, baseheal, critheal, int, cha, wis, wil, str, dex, mag, mgt, fin, res, esn, arc } = await getCombat(sheet);
+        const { characterName, hp, mp, ac, baseatk, critatk, baseheal, critheal, int, cha, wis, wil, str, dex, mag, mgt, fin, res, esn, arc, magb, mgtb, finb, resb, esnb, arcb } = await getCombat(sheet);
 
         const spellpoints = {
             "ARC": arc,
@@ -721,6 +722,14 @@ async function executeSimple(interaction, commandName) {
             "MAG": mag,
             "MGT": mgt,
             "RES": res
+        };
+        const spbase = {
+            "ARC": arcb,
+            "ESN": esnb,
+            "FIN": finb,
+            "MAG": magb,
+            "MGT": mgtb,
+            "RES": resb
         };
         const stats = {
             "CHA": cha,
@@ -736,10 +745,10 @@ async function executeSimple(interaction, commandName) {
         const resultText = await withTransaction(async client => {
             await client.query(
                 `
-                INSERT INTO spellcaster_combat_characters (discord_id, character_name, sheet_tab_name, max_hp, hp, max_mp, mp, armor_class, shield, base_skill_modifier, skill_modifier, stats, modifiers, attack_base, attack_crit, heal_base, heal_crit) 
-                VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17)
+                INSERT INTO spellcaster_combat_characters (discord_id, character_name, sheet_tab_name, max_hp, hp, max_mp, mp, armor_class, shield, base_skill_modifier, skill_modifier, stats, modifiers, modifiers_base, attack_base, attack_crit, heal_base, heal_crit) 
+                VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18)
                 `,
-                [user.id, characterNameNew, sheet, hp, hp, mp, mp, ac, 0, 0, 0, stats, spellpoints, baseatk, critatk, baseheal, critheal ],
+                [user.id, characterNameNew, sheet, hp, hp, mp, mp, ac, 0, 0, 0, stats, spellpoints, spbase, baseatk, critatk, baseheal, critheal ],
                 );
         });
          

@@ -10,6 +10,7 @@ const combatinfo ={
     crit:   37, //al
     mods:   7,  //h
     name:   11, //l
+    spbase: 5,  //f
 };
 
 function requireEnv(name) {
@@ -67,6 +68,13 @@ async function getCombat(chara) {
         res:           parseInt(rows[35][combatinfo.mods] || '0', 10),
         esn:           parseInt(rows[36][combatinfo.mods] || '0', 10),
         arc:           parseInt(rows[37][combatinfo.mods] || '0', 10),
+
+        magb:           parseInt(rows[32][combatinfo.spbase] || '0', 10),
+        mgtb:           parseInt(rows[33][combatinfo.spbase] || '0', 10),
+        finb:           parseInt(rows[34][combatinfo.spbase] || '0', 10),
+        resb:           parseInt(rows[35][combatinfo.spbase] || '0', 10),
+        esnb:           parseInt(rows[36][combatinfo.spbase] || '0', 10),
+        arcb:           parseInt(rows[37][combatinfo.spbase] || '0', 10),
         
 //        balance:       parseInt(rows[i][COL.BALANCE] || '0', 10),
     };
